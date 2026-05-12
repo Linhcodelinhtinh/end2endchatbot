@@ -1,0 +1,7 @@
+numpy
+pypdf
+beautifulsoup4
+torch
+transformers
+sentence-transformers
+accelerate

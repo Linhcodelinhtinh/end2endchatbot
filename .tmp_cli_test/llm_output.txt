@@ -1,0 +1,1 @@
+name: Khoa Y Dược - Đại học Quốc gia Hà Nội universityCode: QHY acronym: VNU - SMP type: Công lập address: Nhà Y1, 144 Xuân Thủy, Cầu Giấy, TP.
