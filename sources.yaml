@@ -1,0 +1,121 @@
+version: 1
+project: vnu-uet-rag-kb
+
+crawl:
+  max_depth: 2
+  request_timeout_seconds: 20
+  max_pages_per_seed: 100
+  allowed_domains:
+    - vnu.edu.vn
+    - tuyensinh.vnu.edu.vn
+    - vi.wikipedia.org
+    - uet.vnu.edu.vn
+    - tuyensinh.uet.vnu.edu.vn
+    - ussh.vnu.edu.vn
+    - ulis.vnu.edu.vn
+    - hus.vnu.edu.vn
+    - tssdh.vnu.edu.vn
+    - is.vnu.edu.vn
+  blocked_path_keywords:
+    - /tag/
+    - /search
+    - /wp-json
+    - /feed
+    - /login
+    - /wp-admin
+    - ?replytocom=
+  user_agent: "Mozilla/5.0 (compatible; End2EndNLPBot/1.0; +https://vnu.edu.vn)"
+
+sources:
+  # ==========================================
+  # 1. GIỚI THIỆU CHUNG VÀ LỊCH SỬ VNU
+  # ==========================================
+  - id: vnu-main-history
+    category: history
+    priority: high
+    allow_subpages: true
+    seed_urls:
+      - "https://www.vnu.edu.vn/home/?C1613" # Tổng quan Giới thiệu VNU
+      - "https://www.vnu.edu.vn/home/?C1615" # Lịch sử phát triển qua các thời kỳ
+      - "https://www.vnu.edu.vn/home/?C1614" # Sứ mệnh - Tầm nhìn chiến lược
+      - "https://www.vnu.edu.vn/home/?C1617" # Cơ cấu tổ chức & Ban lãnh đạo
+
+  - id: vnu-wikipedia
+    category: history
+    priority: medium
+    allow_subpages: false # Khóa subpages để bot không cào tràn ra ngoài Wikipedia
+    seed_urls:
+      - "https://vi.wikipedia.org/wiki/%C4%90%E1%BA%A1i_h%E1%BB%8Dc_Qu%E1%BB%91c_gia_H%C3%A0_N%E1%BB%99i"
+
+  # ==========================================
+  # 2. THÔNG TIN TUYỂN SINH
+  # ==========================================
+  - id: vnu-admission-portal
+    category: admission
+    priority: high
+    allow_subpages: true
+    seed_urls:
+      - "https://tuyensinh.vnu.edu.vn/" # Cổng thông tin tuyển sinh chung ĐHQGHN
+      - "https://tuyensinh.vnu.edu.vn/index.php/vnu-admissions-portal"
+
+  - id: uet-admission
+    category: admission
+    priority: high
+    allow_subpages: true
+    seed_urls:
+      - "https://tuyensinh.uet.vnu.edu.vn/" # Chuyên trang tuyển sinh Đại học Công nghệ
+      - "https://uet.vnu.edu.vn/category/tuyen-sinh/" # Danh mục tin tức thông báo tuyển sinh UET
+
+  - id: ussh-admission
+    category: admission
+    priority: medium
+    allow_subpages: true
+    seed_urls:
+      - "https://ussh.vnu.edu.vn/vi/news/tuyen-sinh/" # Chuyên mục Tuyển sinh ĐH KHXH&NV
+
+  - id: ulis-admission
+    category: admission
+    priority: medium
+    allow_subpages: true
+    seed_urls:
+      - "https://ulis.vnu.edu.vn/tuyen-sinh/" # Cổng tuyển sinh Đại học Ngoại ngữ
+      - "https://ulis.vnu.edu.vn/tin-tuyen-sinh/"
+
+  - id: hus-admission
+    category: admission
+    priority: medium
+    allow_subpages: true
+    seed_urls:
+      - "https://hus.vnu.edu.vn/tuyen-sinh.html" # Cổng tuyển sinh Đại học Khoa học Tự nhiên
+
+  # ==========================================
+  # 3. QUY ĐỊNH HỌC THUẬT & ĐÀO TẠO TIẾN SĨ
+  # ==========================================
+  - id: vnu-academic-regulations
+    category: regulation
+    priority: high
+    allow_subpages: true
+    seed_urls:
+      - "https://vnu.edu.vn/home/?C2103" # Văn bản pháp quy và quy chế giáo dục của VNU
+      - "https://tssdh.vnu.edu.vn/" # Cổng thông tin tuyển sinh và quy chế Sau đại học VNU
+      - "https://uet.vnu.edu.vn/category/dao-tao/dai-hoc/" # Quy định và thông báo học vụ bậc Đại học tại UET
+
+  # ==========================================
+  # 4. CHƯƠNG TRÌNH HỌC THUẬT (GENERAL & INTERNATIONAL)
+  # ==========================================
+  - id: vnu-general-programs
+    category: program
+    priority: high
+    allow_subpages: true
+    seed_urls:
+      - "https://vnu.edu.vn/home/?C1645" # Danh mục các ngành đào tạo bậc Đại học
+      - "https://vnu.edu.vn/home/?C1646" # Danh mục ngành đào tạo bậc Thạc sĩ
+      - "https://vnu.edu.vn/home/?C1647" # Danh mục ngành đào tạo bậc Tiến sĩ
+
+  - id: vnu-international-programs
+    category: program
+    priority: high
+    allow_subpages: true
+    seed_urls:
+      - "https://www.is.vnu.edu.vn/" # Cổng thông tin Trường Quốc tế (VNU-IS) cho các chương trình liên kết
+      - "https://uet.vnu.edu.vn/chuong-trinh-dao-tao-chuan-quoc-te/" # Các chương trình đào tạo chuẩn quốc tế/tiếng Anh tại UET

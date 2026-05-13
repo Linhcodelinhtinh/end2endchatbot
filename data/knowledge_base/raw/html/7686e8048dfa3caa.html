@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	
+	 <!-- Bootstrap 3.3.6 -->
+	<!--<link rel="stylesheet" href="http://khcn.ulis.vnu.edu.vn/assets/resources/bootstrap/css/bootstrap.min.css">-->
+	  <!-- Font Awesome -->
+	<!--<script src="https://use.fontawesome.com/3482cc822a.js"></script>-->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+	
+	<!--
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+	-->
+	  <!-- Ionicons -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+	  <!-- Theme style -->
+	<link rel="stylesheet" href="http://khcn.ulis.vnu.edu.vn/assets/resources/dist/css/AdminLTE.min.css">
+	  <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
+			page. However, you can choose any other skin. Make sure you
+			apply the skin class to the body tag so the changes take effect.
+	  -->
+	<link rel="stylesheet" href="http://khcn.ulis.vnu.edu.vn/assets/resources/dist/css/skins/skin-blue.min.css">
+	<title>Đăng nhập</title>
+	<!-- jQuery 2.2.3 -->
+	<script src="http://khcn.ulis.vnu.edu.vn/assets/resources/plugins/jQuery/jquery-2.2.3.min.js"></script><script src="/assets/resources/jquery/external/jquery/jquery.js"></script>
+<script src="/assets/resources/jquery/jquery-ui.min.js"></script>
+<link type="text/css" rel="stylesheet" href="/assets/grocery_crud/themes/bootstrap/css/bootstrap/bootstrap.min.css" /><link type="text/css" rel="stylesheet" href="http://khcn.ulis.vnu.edu.vn/assets/resources/dothechuan/css/style.css" /><style>
+	body{
+		min-width: 0;
+	}
+	.colorgraph {
+	  height: 5px;
+	  border-top: 0;
+	  background: #c4e17f;
+	  border-radius: 5px;
+	  background-image: -webkit-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+	  background-image: -moz-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+	  background-image: -o-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+	  background-image: linear-gradient(to right, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+	}
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="row" style="margin-top:20px">
+    <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+		<form action="http://khcn.ulis.vnu.edu.vn/index.php/tcko_admin/login" autocomplete="off" role="form" method="post" accept-charset="utf-8">
+			<fieldset>
+				<div class="text-center"><img src="/assets/resources/dothechuan/images/ulis_logo.png" height="80" align="center"></div>
+				<h4 class="text-center"><strong style="color:#014782">HỆ THỐNG QUẢN LÝ KHOA HỌC CÔNG NGHỆ</strong></h4>
+				<hr class="colorgraph">
+				<div class="form-group">
+                    <input type="text" name="username" id="username" class="form-control input-lg" placeholder="Tên đăng nhập">
+				</div>
+				<div class="form-group">
+                    <input type="password" name="password" id="password" class="form-control input-lg" placeholder="Mật khẩu">
+				</div>
+				
+				<hr class="colorgraph">
+				<div class="row">
+					<div class="">
+						<input type="submit" class="btn btn-lg btn-success btn-block" value="Đăng nhập">
+					</div>
+					<!--
+					<div class="col-xs-6 col-sm-6 col-md-6">
+                        <input type="submit" class="btn btn-lg btn-success btn-block" value="Sign In">
+					</div>
+					<div class="col-xs-6 col-sm-6 col-md-6">
+						<a href="" class="btn btn-lg btn-primary btn-block">Register</a>
+					</div>
+					-->
+				</div>
+			</fieldset>
+
+			<div id="thongbao" class="">
+							</div>
+
+		</form>	</div>
+</div>
+<footer>
+	<div class="text-center" style="margin-top: 50px; font-weight: bold;">
+		<a href="/assets/uploads/files/template/guide.pdf" title="Hướng dẫn sử dụng"><i class="fa fa-question-circle"></i> <span>Hướng dẫn sử dụng</span></a>
+	</div>
+</footer>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+<!--
+</head>
+<body>
+
+<div class="container">
+	<div class="cl_banner">
+		<img src="/assets/resources/dothechuan/images/banner.jpg">
+	</div>
+	<div class="row">
+		<div class="col-md-8 hidden-sm hidden-xs">
+			<img src="/assets/resources/dothechuan/images/typing.png">
+		</div>
+		<div class="col-md-4 cl_login_with_bg">
+			
+			<div class="form-signin">
+				<form action="http://khcn.ulis.vnu.edu.vn/index.php/tcko_admin/login" autocomplete="off" method="post" accept-charset="utf-8">
+					<h2 class="form-signin-heading cl_header_login text-center">Đăng nhập</h2>
+					
+					<input type="text" name="username" value="" id="username" size="20" class="input-block-level form-control cl_login_submit " placeholder="Tên đăng nhập"  />
+					<input type="password" name="password" value="" id="password" size="20" class="input-block-level  form-control cl_login_submit" placeholder="Mật khẩu"  />
+					
+					<div id="thongbao" class="">
+											</div>
+					<div class="cl_login_submit text-center">
+						<input type="submit" name="submit" value="Đăng nhập" class="btn btn-large btn-danger"  />
+		
+					</div>
+					
+				</form>			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>
+-->

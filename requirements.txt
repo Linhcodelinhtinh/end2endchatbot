@@ -1,6 +1,8 @@
 numpy
 pypdf
 beautifulsoup4
+requests
+pyyaml
 torch
 transformers
 sentence-transformers

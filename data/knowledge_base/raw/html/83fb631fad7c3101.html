@@ -1,0 +1,393 @@
+<!-- saved from url=(0318)https://eoffice.vnu.edu.vn/_layouts/edplus/applicationpages/login/edlogin.aspx?ReturnUrl=%2f_layouts%2faccessdenied.aspx%3floginasanotheruser%3dtrue%26Source%3dhttps%253A%252F%252Feoffice%252Evnu%252Eedu%252Evn%252Fdefault%252Easpx&loginasanotheruser=true&Source=https%3A%2F%2Feoffice%2Evnu%2Eedu%2Evn%2Fdefault%2Easpx -->
+<script type="text/javascript" src="../mobile/lib/js/mobile.js"></script>
+<script type="text/javascript">
+  //Phat hien trinh duyet la mobile thi chuyen sang phien ban mobile
+  if (isMobile.any()) document.location.href = "../mobile/";
+</script>
+<html>
+
+<head>
+  <link type="text/css" rel="stylesheet" href="./edlogin_files/css.css" />
+  <META content='no-cache' http-equiv='Pragma'>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="SHORTCUT ICON" href="../extjs4/icons/ico.png" type="image/x-icon" />
+  <link rel="stylesheet" type="text/css" href="../fontawesome/css/font-awesome.min.css" />
+  <!-- <link rel="stylesheet" type="text/css" href="../libs/bootstrap/css/bootstrap.min.css?v=3.3.5" /> -->
+  <script type="text/javascript" src="../libs/jquery/js/jquery-1.10.2.js"></script>
+  <script type="text/javascript" src="../extjs4/md5.js"></script>
+  <title>VNU | Quản lý văn bản và điều hành tác nghiệp | SELAB NetOffice 8.15.6 </title>
+  <style type="text/css">
+    #Login {
+      width: 500px;
+      margin: auto;
+    }
+
+    #Form {
+      margin: 0 40px;
+    }
+
+    body,
+    form,
+    div {
+      font-family: tahoma;
+      font-size: 12px;
+    }
+
+    .cls-footer {
+      font-size: 11px;
+      font-style: italic;
+      color: #808080;
+    }
+
+    .lbl-remember {
+      display: inline-block;
+      margin-left: 20px;
+      vertical-align: middle;
+      font-size: 11px;
+      font-weight: normal;
+    }
+
+    #Remember {
+      margin: 0;
+      padding: 0;
+      position: absolute;
+    }
+
+    .notify {
+      font-size: 11px;
+      font-style: italic;
+      font-weight: normal;
+    }
+
+  </style>
+  <script type="text/javascript">
+    <!--
+    function inIframe() {
+      try {
+        return window.self !== window.top;
+      } catch (e) {
+        return true;
+      }
+    }
+
+    if (inIframe()) {
+      window.top.location = window.top.location;
+    }
+    //
+    -->
+  </script>
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="../libs/bootstrap/js/html5shiv.min.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+    <form method="post" action="login.php">
+
+
+    <input type="hidden" name="MachineID" id="MachineID" value="">
+    <input type="hidden" name="_token" value="22cd478fe3c69511183eec26508fea39">
+    
+    <script src="./edlogin_files/WebResource.axd" type="text/javascript"></script>
+
+
+    <script src="./edlogin_files/WebResource(1).axd" type="text/javascript"></script>
+
+    <div id="wrapper">
+      <center>
+        <div class="border">
+          <div class="imgleft">
+            <img src="./edlogin_files/edocman.jpg" id="imgBanner" style="width: 100%;" />
+          </div>
+          <div id="cntlogin">
+            <center>
+              <img src="./edlogin_files/Logo.png" id="imgLogo" class="logo" />
+            </center>
+
+<div id="thongtindangnhap">
+  <style>
+    .note-sso { font-size: 12px; color: #333; margin-top: 8px; font-style: italic; }
+    .link-office { color: blue; cursor: pointer; text-decoration: underline; }
+    .tab-content { display: none; margin-top: 10px; }
+    .tab-content.active { display: block; }
+
+    /* Bo góc cho nút */
+    input[type="button"],
+	input[type="submit"] {
+	  border-radius: 6px;       /* bo góc */
+	  padding: 10px 20px;       /* khoảng cách trong nút */
+	  font-size: 14px;
+	  cursor: pointer;
+	  width: auto;              /* dài vừa đủ chữ */
+	  min-width: 220px;         /* đảm bảo đủ rộng cho chữ dài */
+	  box-sizing: border-box;
+	  }
+  </style>
+
+  <center>
+    <!-- đổi text nút -->
+    <input type="button" onclick="loginVNU()" value="Đăng nhập với tài khoản VNU" class="bt1" />
+    <div class="note-sso">
+  Văn thư, quản trị hệ thống vui lòng đăng nhập 
+  <span class="link-office" id="showOffice">tại đây</span>
+</div>
+	<span hidden id="signInControl_FailureText_Fail" style="color: red" class="label label-danger notify ms-error">Sai tên đăng nhập hoặc mật khẩu!!!</span>
+    <span hidden id="signInControl_FailureText_Deny" style="color: red" class="label label-danger notify ms-error">Bạn chưa được cấp quyền đăng nhập hệ thống!!!</span>
+  </center>
+
+<!-- Popup -->
+<div id="popupForm" class="popup">
+  <div class="popup-content">
+    <span class="close" id="closePopup">&times;</span>
+    <h3>Đăng nhập bằng tài khoản Office</h3>
+    <input name="signInControl$UserName" type="text" placeholder="Tên tài khoản" />
+    <input name="signInControl$password" type="password" placeholder="Mật khẩu" />
+    <input type="submit" value="Đăng nhập" />
+  </div>
+</div>
+
+<style>
+  /* nền mờ */
+  .popup {
+    display: none; 
+    position: fixed; 
+    z-index: 999; 
+    left: 0; top: 0; 
+    width: 100%; height: 100%; 
+    background-color: rgba(0,0,0,0.5);
+  }
+  /* khung form */
+  .popup-content {
+    background: #fff;
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px;
+    box-shadow: 0 0 10px #333;
+    text-align: center;
+  }
+  .popup-content input {
+    width: 100%;
+    padding: 8px;
+    margin: 6px 0;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+  }
+  .popup-content input[type="submit"] {
+    background: #007f49;
+    color: #fff;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  .close {
+    float: right;
+    font-size: 20px;
+    cursor: pointer;
+  }
+</style>
+
+<script>
+  const popup = document.getElementById('popupForm');
+  const showBtn = document.getElementById('showOffice');
+  const closeBtn = document.getElementById('closePopup');
+
+  showBtn.onclick = () => popup.style.display = 'block';
+  closeBtn.onclick = () => popup.style.display = 'none';
+  window.onclick = (e) => { if (e.target === popup) popup.style.display = 'none'; }
+</script>
+</div>
+
+
+			
+          </div>
+          <div class="clear"></div>
+        </div>
+        <div id="extendOutsideInfoPortal">
+          <style>
+            div.main-title {
+              color: #b12a23;
+              text-align: left;
+              padding: 5px 0px 5px 0px;
+            }
+
+            div.main-title a {
+              color: #b12a23;
+              font-weight: none;
+              text-decoration: none;
+              font-family: Arial;
+              font-size: 14px;
+            }
+
+            .home-title-a {
+              text-decoration: none;
+              font-family: Arial;
+              font-size: 13px;
+              font-weight: bold;
+              color: #007f49;
+              min-height: 22px;
+              display: block;
+              vertical-align: middle;
+            }
+
+            .vnuhotnews {
+              width: 59%;
+              max-height: 250px;
+              overflow-x: auto;
+              text-align: left;
+              float: left;
+              padding: 2px 2px 3px 3px;
+              margin-top: 3px;
+              background: -webkit-gradient(linear, left top, right top, from(#ffffff), to(#e7e7e7));
+            }
+
+            .vnuHotNotice {
+              width: 39%;
+              max-height: 250px;
+              overflow-x: auto;
+              text-align: left;
+              float: right;
+              padding: 2px 2px 3px 3px;
+              margin-top: 3px;
+              background: -webkit-gradient(linear, left top, right top, from(#ffffff), to(#e7e7e7));
+            }
+
+            .vnuHotNotice ul {
+              list-style-type: disc;
+              list-style-position: inside;
+              color: #636363;
+            }
+
+            .vnuHotNotice a {
+              font-family: Arial, Helvetica, sans-serif;
+              font-size: 13px;
+              color: #636363;
+              text-decoration: none;
+              min-height: 22px;
+              vertical-align: middle;
+            }
+
+            .vnuHotNotice img {
+              margin-bottom: -4px;
+            }
+
+            .bulletlnk {
+              margin-bottom: 10px;
+            }
+
+            #vnuLoginInfoPortal {
+              display: table-cell;
+            }
+          </style>
+
+
+          <script src="./edlogin_files/jquery.min.js.download"></script>
+          <script type="text/javascript">
+            $(document).ready(function() {
+
+            });
+          </script>
+        </div>
+        <div id="thongtin">
+          <h1 id="lbCoryright">Tải hướng dẫn sử dụng phần mềm và DRIVE KÝ SỐ <a style="color:red;" href="https://drive.google.com/drive/folders/1ZDQZMhXlf9mkO9YfAfukgrwH2Lh5kJwc?usp=sharing" target="_blank">tại đây</a>
+            <p style="font-size: 14px; text-align:right; margin-top:-16px;">Truy cập E-office cũ để tra cứu <a style="color:red;" href="https://oldeoffice.vnu.edu.vn/" target="blank" style="align:right;">tại đây</a></p>
+          </h1>
+          <span id="txt_hiddenField"></span>
+        </div>
+        <br>
+      </center>
+    </div>
+
+
+  </form>
+</body>
+
+</html>
+
+<script type="text/javascript">
+  $(function() {
+    let loginStatus = 'nah'
+    if (loginStatus === 'failed') $("#signInControl_FailureText_Fail").show();
+    if (loginStatus === 'denied') $("#signInControl_FailureText_Deny").show();
+    if (loginStatus === 'permit') {
+      setTimeout(function() {
+        alert('Tài khoản của bạn chưa được khai báo trên hệ thống VNU-Office. Vui lòng liên hệ quản trị để được cấp tài khoản!!!');
+      }, 100)
+    }
+  });
+
+  function loginVNU() {
+    window.location = "sso"
+  }
+
+  function _rs() {
+    var margin = ($(document).height() - $("#Login").height()) / 2 - 25;
+    $("#Login").css('margin-top', margin + 'px');
+  }
+
+  $("#signInControl_UserName").focus();
+  _rs();
+
+  function login() {
+    /* for remember */
+    setCookie("puppy", $("#Remember").is(':checked'), 365);
+    if ($("#Remember").is(':checked')) {
+      setCookie("myuser", $("#signInControl_UserName").val(), 365);
+      setCookie("mypass", $("#signInControl_password").val(), 365);
+    }
+    /* do Submit */
+    $("#Form").submit()
+  }
+
+  $("#signInControl_UserName")
+    .off('keyup')
+    .on('keyup', function(e) {
+      var code = e.keyCode || e.which;
+      if (code == 13) {
+        $("#signInControl_password").focus();
+      }
+    });
+  $("#Password")
+    .off('keyup')
+    .on('keyup', function(e) {
+      var code = e.keyCode || e.which;
+      if (code == 13) {
+        login();
+      }
+    });
+
+  if (getCookie("puppy") == "true") {
+    $("#Remember").attr('checked', true);
+    $("#Username").val(getCookie("myuser"));
+    $("#Password").val(getCookie("mypass"));
+  } else {
+    $("#Username").val("");
+    $("#Password").val("");
+  }
+
+  /* check localStorage */
+  if (typeof(Storage) !== "undefined") {
+    if (localStorage.getItem('MachineID') == null) {
+      $("#MachineID").val("");
+    } else {
+      $("#MachineID").val(localStorage.getItem('MachineID'));
+    }
+  } else {
+    $("#MachineID").val("");
+  }
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SH3S8EMCS6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag('js', new Date());
+
+  gtag('config', 'G-SH3S8EMCS6');
+</script>

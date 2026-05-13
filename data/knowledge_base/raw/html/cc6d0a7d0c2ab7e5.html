@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Đăng k&#253; t&#224;i khoản th&#237; sinh</title>
+    <meta charset="UTF-8" />
+<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+<meta content="text/html;charset=utf-8" http-equiv="content-type">
+<meta content="Phần mềm quản lý tuyển sinh SĐH - Đại Học Quốc Gia Hà Nội" name="description">
+<meta content="dqhuy@vnu.edu.vn" name="author"/>
+<link href="/Content/bootstrap?v=uaJ3gzwU-Wl-5AhauKg37S-DrdaZG7piXHKCL_-UZP81" rel="stylesheet"/>
+<link href="/Content/jqueryui?v=" rel="stylesheet"/>
+<link href="/Content/light?v=JKZcHLFJD4mpblUxgF2O1b0aveuy9dpO00fXaUfm5Sg1" rel="stylesheet"/>
+<link href="/Content/theme?v=JqpvJ5JtXypAeGl5ArUYh67_XUb4saXt4z0TucNWN2U1" rel="stylesheet"/>
+<link href="/Content/select2?v=7djU749ePgaOBiVL5hnxKB5DPLSKSIOI4S4uwdD5ad81" rel="stylesheet"/>
+<link href="/Content/modal?v=MDGMhcvBBAZZR81L9UeVo60s-DqWhWI4ocIH0A8nNO41" rel="stylesheet"/>
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-56954909-3', 'auto');
+  ga('send', 'pageview');
+
+</script>
+    
+    <link href="https://code.jquery.com/ui/1.12.1/themes/ui-lightness/jquery-ui.css" rel="stylesheet" />
+
+
+</head>
+<body class="contrast-green not-login">
+    <header>
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class=" col-md-8 banner">
+                <a class="navbar-brand" href="/">
+                    <img class="logo" alt="VNU" src="/Images/logo.png" />
+                </a>
+                <h1 class="pull-left">
+                    Cổng thông tin tuyển sinh Sau đại học
+                    <br />
+                    Đại Học Quốc Gia Hà Nội
+                </h1>
+            </div>
+
+            <div class="col-md-4" style="margin-top:10px;float:right">
+                <style>
+    
+    #googlesearchform input[type="text"]
+    {
+        border:solid 1px #ccc;
+        
+        width:50%;
+    }
+    #googlesearchform input[type="submit"]
+    {
+
+    }
+</style>
+
+<div id="search">
+
+    <form id="googlesearchform" class="form-inline" action="http://www.google.com/cse" target="_blank">
+        <input type="hidden" name="cx" value="009854282222231429181:bkj47ouagws">
+        <input type="hidden" name="ie" value="UTF-8">
+        <div class="form-group col-md-12">
+            <input type="text" name="q" id="se" class="form-control" placeholder="Tìm kiếm thông tin">
+            <button class="btn btn-success"><i class="fa fa-search"></i> Tìm</button>
+            
+        </div>
+
+    </form>
+
+
+</div>
+
+            </div>
+        </div>
+    </nav>
+
+
+</header>
+    <div id="wrapper">
+        <div class="container">
+            <div class="row" id="content-wrapper">
+                <div class="col-xs-12">
+                    
+
+
+
+
+
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="page-header">
+            <h1 class="pull-left">
+                <i class="icon-plus-sign"></i>
+                <span>Đăng k&#253; t&#224;i khoản th&#237; sinh</span>
+            </h1>
+            <div class="pull-right">
+                <ul class="breadcrumb">
+                    <li>
+
+                    </li>
+                    <li>
+
+                        <span style="color:green;"><i> Ngày 13/05/2026</i></span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<form action="/ThiSinh" id="frmSave" method="post"><input name="__RequestVerificationToken" type="hidden" value="Pq2rtCDrtCy945mb3uxuzlvTpKrCa99MTpB1kVYeYCzLvIxTizKP4nKesCTrAaayFNTbOpqpPPwwEZksIB5IWvtnlPl6xtwQ4YZu_s0ymKQ1" />        <h3 class="text-center" style="margin:0;margin-bottom:3px;">Đăng ký dự thi: ĐỢT 1 NĂM 2026</h3>
+
+<style>
+    .wizard-outer {
+        margin-bottom: 5px;
+    }
+
+    ul.wizard {
+        width: 80%;
+        margin: 0 auto;
+    }
+
+        ul.wizard li {
+            float: left;
+            padding: 10px 20px;
+            background: #eee;
+            border: solid 1px #ddd;
+            list-style: none;
+            margin-left: 5px;
+            color: #999;
+        }
+
+            ul.wizard li.active {
+                background: #5cb85c;
+                color: #fff;
+            }
+
+    .rounded-number {
+        font-weight: bolder;
+        border: solid 1px;
+        border-radius: 15px;
+        padding: 5px 9px;
+    }
+</style>
+<div class="row wizard-outer">
+    <div class="col-md-12">
+        <ul class="wizard">
+            <li class="active" data-step="1"><span class="rounded-number">1</span> Đăng ký tài khoản</li>
+
+            <li class="none" data-step="2"><span class="rounded-number">2</span> Đăng ký dự tuyển</li>
+
+            <li class="none" data-step="3"><span class="rounded-number">3</span> Đã nộp lệ phí</li>
+
+            <li class="none" data-step="4"><span class="rounded-number">4</span> Hồ sơ đã được duyệt</li>
+        </ul>
+
+    </div>
+</div>
+
+            <div class="row">
+
+            </div>
+            <div class="row">
+                
+
+                <div class="col-md-10">
+                    <table style="padding-left:50px;">
+                        <tr>
+                            <td colspan="2" style="padding:10px 0px;"><strong> Thông tin cá nhân</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Họ và Tên </td>
+                            <td><input class="form-control" data-val="true" data-val-length="The field Họ tên must be a string with a maximum length of 50." data-val-length-max="50" data-val-required="Vui lòng nhập họ tên!" id="HoTen" name="HoTen" type="text" value="" /> </td>
+                            <td style="width:auto; padding-left:10px;"> (Chữ có dấu VD: Nguyễn Văn An) </td>
+                        </tr>
+                        <tr>
+                            <td>Ngày sinh </td>
+                            <td><input class="form-control" id="StrNgaySinh" name="StrNgaySinh" type="text" value="" /></td>
+                        </tr>
+                        <tr>
+                            <td>Nơi sinh </td>
+                            <td><select class="form-control" data-val="true" data-val-number="The field ID_NoiSinh must be a number." data-val-required="The ID_NoiSinh field is required." id="ID_NoiSinh" name="ID_NoiSinh" style="width:300px;"><option value="1">H&#224; Nội</option>
+<option value="2">H&#224; Giang</option>
+<option value="3">Cao Bằng</option>
+<option value="4">Bắc Kạn</option>
+<option value="5">Tuy&#234;n Quang</option>
+<option value="6">L&#224;o Cai</option>
+<option value="7">Điện Bi&#234;n</option>
+<option value="8">Lai Ch&#226;u</option>
+<option value="9">Sơn La</option>
+<option value="10">Y&#234;n B&#225;i</option>
+<option value="11">Ho&#224; B&#236;nh</option>
+<option value="12">Th&#225;i Nguy&#234;n</option>
+<option value="13">Lạng Sơn</option>
+<option value="14">Quảng Ninh</option>
+<option value="15">Bắc Giang</option>
+<option value="16">Ph&#250; Thọ</option>
+<option value="17">Vĩnh Ph&#250;c</option>
+<option value="18">Bắc Ninh</option>
+<option value="19">Hải Dương</option>
+<option value="20">Hải Ph&#242;ng</option>
+<option value="21">Hưng Y&#234;n</option>
+<option value="22">Th&#225;i B&#236;nh</option>
+<option value="23">H&#224; Nam</option>
+<option value="24">Nam Định</option>
+<option value="25">Ninh B&#236;nh</option>
+<option value="26">Thanh H&#243;a</option>
+<option value="27">Nghệ An</option>
+<option value="28">H&#224; Tĩnh</option>
+<option value="29">Quảng B&#236;nh</option>
+<option value="30">Quảng Trị</option>
+<option value="31">Thừa Thi&#234;n Huế</option>
+<option value="32">Đ&#224; Nẵng</option>
+<option value="33">Quảng Nam</option>
+<option value="34">Quảng Ng&#227;i</option>
+<option value="35">B&#236;nh Định</option>
+<option value="36">Ph&#250; Y&#234;n</option>
+<option value="37">Kh&#225;nh H&#242;a</option>
+<option value="38">Ninh Thuận</option>
+<option value="39">B&#236;nh Thuận</option>
+<option value="40">Kon Tum</option>
+<option value="41">Gia Lai</option>
+<option value="42">Đắk Lắk</option>
+<option value="43">Đắk N&#244;ng</option>
+<option value="44">L&#226;m Đồng</option>
+<option value="45">B&#236;nh Phước</option>
+<option value="46">T&#226;y Ninh</option>
+<option value="47">B&#236;nh Dương</option>
+<option value="48">Đồng Nai</option>
+<option value="49">B&#224; Rịa - Vũng T&#224;u</option>
+<option value="50">Hồ Ch&#237; Minh</option>
+<option value="51">Long An</option>
+<option value="52">Tiền Giang</option>
+<option value="53">Bến Tre</option>
+<option value="54">Tr&#224; Vinh</option>
+<option value="55">Vĩnh Long</option>
+<option value="56">Đồng Th&#225;p</option>
+<option value="57">An Giang</option>
+<option value="58">Ki&#234;n Giang</option>
+<option value="59">Cần Thơ</option>
+<option value="60">Hậu Giang</option>
+<option value="61">S&#243;c Trăng</option>
+<option value="62">Bạc Li&#234;u</option>
+<option value="63">C&#224; Mau</option>
+<option value="65">Kh&#225;c</option>
+</select> </td>
+                        </tr>
+                        <tr>
+                            <td>Giới tính </td>
+                            <td>
+                                <select class="form-control" data-val="true" data-val-number="The field GioiTinh must be a number." data-val-required="The GioiTinh field is required." id="GioiTinh" name="GioiTinh" style="width:300px;"><option selected="selected" value="0">Nữ</option>
+<option value="1">Nam</option>
+</select>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Email </td>
+                            <td><input class="form-control" data-val="true" data-val-length="The field Địa chỉ Email must be a string with a maximum length of 500." data-val-length-max="500" data-val-regex="Địa chỉ E-mail không hợp lệ!" data-val-regex-pattern="^([\w\!\#$\%\&amp;\&#39;*\+\-\/\=\?\^`{\|\}\~]+\.)*[\w\!\#$\%\&amp;\&#39;‌​*\+\-\/\=\?\^`{\|\}\~]+@((((([a-zA-Z0-9]{1}[a-zA-Z0-9\-]{0,62}[a-zA-Z0-9]{1})|[‌​a-zA-Z])\.)+[a-zA-Z]{2,6})|(\d{1,3}\.){3}\d{1,3}(\:\d{1,5})?)$" data-val-required="Vui lòng nhập email!" id="Email" name="Email" type="text" value="" /> </td>
+                            <td style="width:auto; padding-left:10px;"> (Cung cấp đầy đủ và chính xác để nhận thông tin từ Hội đồng tuyển sinh) </td>
+                            <span class="field-validation-valid text-danger" data-valmsg-for="Email" data-valmsg-replace="true"></span>
+                        </tr>
+                        <tr>
+                            <td>Số điện thoại</td>
+                            <td><input class="form-control" data-val="true" data-val-length="Số điện thoại phải ít hơn 20 ký tự!" data-val-length-max="20" data-val-regex="Số điện thoại phải là kiểu số!" data-val-regex-pattern="([0-9][0-9]*)" id="SoDienThoai" name="SoDienThoai" type="text" value="" /> </td>
+                            <td style="width:auto; padding-left:10px;"> (Cung cấp đầy đủ và chính xác để nhận thông tin từ Hội đồng tuyển sinh) </td>
+                            <span class="field-validation-valid text-danger" data-valmsg-for="SoDienThoai" data-valmsg-replace="true"></span>
+                        </tr>
+                        <tr>
+                            <td colspan="2" style="padding:10px 0px;"><strong> Tài khoản đăng nhập</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Số CMND/CCCD</td>
+                            <td><input class="form-control" data-val="true" data-val-length="Số CMND/Căn cước công dân phải đủ 9 ký tự hoặc 12 ký tự số!" data-val-length-max="12" data-val-regex="Số CMND/Căn cước công dân phải là kiểu số!" data-val-regex-pattern="([0-9][0-9]*)" data-val-required="Vui lòng nhập Số CMND/Căn cước công dân!" id="SoCMT" name="SoCMT" type="text" value="" /> </td>
+                            <td style="width:auto; padding-left:10px;"> (Tên đăng nhập của thí sinh) </td>
+                            <span class="field-validation-valid text-danger" data-valmsg-for="SoCMT" data-valmsg-replace="true"></span>
+                        </tr>
+
+
+                        <tr>
+                            <td>Tạo mật khẩu</td>
+                            <td><input class="form-control" data-val="true" data-val-length="Mật khẩu phải từ 6 ký tự trở lên!" data-val-length-max="100" data-val-length-min="6" data-val-required="Vui lòng nhập mật khẩu!" id="Password" name="Password" type="password" value="" /> </td>
+                            <td style="width:auto; padding-left:10px;"> (Mật khẩu bao gồm chữ và số, tối thiểu 6 ký tự)</td>
+                            <span class="field-validation-valid text-danger" data-valmsg-for="Password" data-valmsg-replace="true"></span>
+
+                        </tr>
+                        <tr>
+                            <td>Xác nhận lại mật khẩu</td>
+                            <td><input class="form-control" data-val="true" data-val-equalto="Mật khẩu và xác nhận mật khẩu không khớp nhau!" data-val-equalto-other="*.Password" data-val-length="Mật khẩu phải ít nhất 6 ký tự!" data-val-length-max="100" data-val-length-min="6" data-val-required="Vui lòng xác nhận lại mật khẩu!" id="ConfirmPassword" name="ConfirmPassword" type="password" value="" /> </td>
+                            <span class="field-validation-valid text-danger" data-valmsg-for="ConfirmPassword" data-valmsg-replace="true"></span>
+
+                        </tr>
+                        <tr>
+                            <td>Mã bảo vệ</td>
+                            <td id="recaptcha1">
+                                
+<script type="text/javascript">
+$(function () {$('#22edd432e69b4748a2ea3761c8360220').show();});
+function ______d485f43947454e44a2c029492f43beda________() { $('#22edd432e69b4748a2ea3761c8360220').hide(); $.post("/DefaultCaptcha/Refresh", { t: $('#CaptchaDeText').val() }, function(){$('#22edd432e69b4748a2ea3761c8360220').show();}); return false; }</script> 
+<br/>
+<img id="CaptchaImage" src="/DefaultCaptcha/Generate?t=eddc1e45de5145ee8e96038bab4bd9e1"/><input id="CaptchaDeText" name="CaptchaDeText" type="hidden" value="eddc1e45de5145ee8e96038bab4bd9e1" /> <br/><a href="#CaptchaImage" id="22edd432e69b4748a2ea3761c8360220" onclick="______d485f43947454e44a2c029492f43beda________()" style="display:none;">Refresh</a><br/>Input symbols<br/><input autocomplete="off" autocorrect="off" id="CaptchaInputText" name="CaptchaInputText" type="text" value="" /><br/>
+                            </td>
+                        </tr>
+
+                        
+                        
+                    </table>
+
+                    <hr />
+
+                    <a class="btn  btn-default" href="/" title="Quay lại trang chủ"><i class="icon-home"></i> Trang chủ</a>
+                        <button class="btn  btn-success" type="submit" title="Gửi bản đăng ký"><i class="icon-ok"></i> Đăng ký tài khoản</button>
+
+                </div>
+            </div>
+</form>
+
+
+
+                </div>
+            </div>
+            
+<footer id="footer">
+    <div class="footer-wrapper">
+        <div class="row">
+            <div class="col-md-3 text-left">
+                <span>Đang online: <span class="text-dark-orange" style="font-weight:bold">918</span> </span>
+            </div>
+            <div class="col-sm-5 text-center">
+                <span>&copy;</span>                    <span>2014-2026</span>
+                <a title="Trung tâm Ứng dụng Công nghệ thông tin - CAIT" target="_blank" href="http://duac.vnu.edu.vn/">Trung tâm Quản trị đại học số - DUAC</a> 
+                <br /> <span style="font-size:8pt">Update: 2018-04-09 09:30</span>
+            </div>
+            <div class="col-md-4 text-right">
+                <span class="text-dark-orange"><span ><a class="text-dark-orange" href="duac@vnu.edu.vn">Liên hệ trợ giúp</a> </span> </span>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+        </div>
+
+    </div>
+    <script src="/bundles/jquery?v=FVs3ACwOLIVInrAl5sdzR2jrCDmVOWFbZMY6g6Q0ulE1"></script>
+<script src="/bundles/migrate?v=j31sfFtBt-7fsm9fEco4tWwFrmMsyEocgMaQEok1n2k1"></script>
+<script src="/bundles/jqueryui?v=bhvX1yiTofcQBdIXnDHraE89_NDkhgrJYps9WkxByy81"></script>
+<script src="/bundles/bootstrap?v=snB5D4K7e-OI--Na7VKFmXc-3JBCTWiXuFvWHsZmu6I1"></script>
+<script src="/bundles/modernizr?v=wBEWDufH_8Md-Pbioxomt90vm6tJN2Pyy9u9zHtWsPo1"></script>
+<script src="/bundles/retina?v=g_g9zCv9mpTqYwiC_E88OE8xpMyPBjz9Ihxiw7mKIZQ1"></script>
+<script src="/bundles/theme?v=7d3_5ZNR32WnYkCYwz8TxxxCRGPbLWNd1lz0sTI4JVE1"></script>
+<script src="/bundles/modal?v=lRaJPmCfJuu1wtaEhK457YIF_tslZPj-dcuTmmh_boo1"></script>
+<script src="/bundles/select2?v=vyI9-fPhoSVoIGy5gBuhp1r1N0R8knuw9BnjIkNCkaQ1"></script>
+<script src="/bundles/noty?v=zd2RhuvS1eW7Q3ppqb6Dar5foqq4nvGsbTGnYDcy5wg1"></script>
+<script src="/bundles/dataTables?v=KkVY98-d4ApfP0DuINyJ4xFxI_faxShxmWEqqAL7Qkw1"></script>
+
+
+    
+    <script src="/bundles/jqueryval?v=CscDCYKiyigBhIQTJsxhIQqf-LoZUf7GH2o1SgDjN2I1"></script>
+
+    <script type="text/javascript">
+
+        var optionDatePicker = {
+            dayNamesMin: ["CN", "2", "T3", "T4", "T5", "T6", "T7"],
+            monthNames: ["Tháng 1", "Tháng 2", "Tháng 3", "Tháng 4", "Tháng 5",
+                "Tháng 6", "Tháng 7", "Tháng 8", "Tháng 9", "Tháng 10", "Tháng 11", "Tháng 12"],
+            dateFormat: "dd/mm/yy",
+            onSelect: function (selectedDate) {
+                //alert(selectedDate);
+
+            }
+        };
+
+        $(document).ready(function () {
+            $('#StrNgaySinh').datepicker(optionDatePicker);
+        });
+
+        $("#ID_NoiSinh").select2();
+        $("#StrNgaySinh").date;
+    </script>
+
+
+</body>
+</html>

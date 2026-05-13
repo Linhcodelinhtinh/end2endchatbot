@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+    <head profile="http://www.w3.org/2005/11/profile">
+        <link rel="icon" type="image/png" href="images/favicon.png" />
+        <title>(UET) ULIS </title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+                <script type="text/javascript" src="serve.php?f%5B0%5D=Libs%2Fprototype.js&f%5B1%5D=Libs%2Fjquery-1.7.2.min.js&f%5B2%5D=Libs%2Fjquery-ui-1.10.4.min.js&f%5B3%5D=Libs%2FHistoryKeeper.js&f%5B4%5D=Common%2Fuos.js&amp;1426753626"></script>
+                <link type="text/css" href="serve.php?f%5B0%5D=Libs%2Fjquery-ui-1.10.4.min.css&amp;1426753626" rel="stylesheet"></link>    
+        <style type="text/css">
+            #uosStatus {
+                /* Netscape 4, IE 4.x-5.0/Win and other lesser browsers will use this */
+                position: fixed;
+                left: 50%; top: 30%;
+                margin-left: -280px;
+                /* all */
+                /*background-color: #e6ecf2;*/
+                background-color: white;
+                border: 5px solid #336699;
+                visibility: hidden;
+                width: 560px;
+                text-align: center;
+                vertical-align: middle;
+                z-index: 2002;
+                color: #336699;
+                overflow: hidden;
+
+                /* css3 shadow border*/
+                -webkit-box-shadow: 1px 1px 15px black;
+                -moz-box-shadow: 1px 1px 15px black;
+                box-shadow: 1px 1px 15px black;
+                /* end css3 shadow border*/
+
+                /* border radius */
+                -webkit-border-radius: 6px;
+                -moz-border-radius: 6px;
+                border-radius: 6px;
+                /* end border radius */
+            }
+            #uosStatus table {
+                color: #336699;
+                font-weight: bold;
+                font-family: Tahoma, Verdana, Vera-Sans, DejaVu-Sans;
+                font-size: 11px;
+                border: 5px solid #FFFFFF;
+            }
+			body {
+			  background-image: url('anhnenchinh.jpg');
+			  background-repeat: no-repeat;
+			  background-attachment: fixed;
+			  background-size: 100% 100%;
+			}
+        </style>
+    </head>
+    <body >
+    <div id="body_content">
+        <div id="main_content" style="display:none;"></div>
+        <div id="debug_content" style="padding-top:97px;display:none;">
+            <div class="button" onclick="$('error_box').innerHTML = '';
+                $('debug_content').style.display = 'none';">Hide</div>
+            <div id="debug"></div>
+            <div id="error_box"></div>
+        </div>
+
+        <div id="uosStatus">
+            <table cellspacing="0" cellpadding="0" border="0" style="width: 100%;">
+                <tr>
+                    <td><img src="images/logo.png" alt="logo" width="550" height="200" border="0"></td>
+                </tr>
+                <tr>
+                    <td style="text-align: center; vertical-align: middle; height: 30px;"><span id="uosStatusText">Starting UET Operating Support System ...</span></td>
+                </tr>
+                <tr>
+                    <td style="text-align: center; vertical-align: middle; height: 30px;"><img src="images/loader.gif" alt="loader" width="256" height="10" border="0"></td>
+                </tr>
+            </table>
+        </div>	
+    </div>
+            <script type="text/javascript" src="init_js.php?"></script>
+        <noscript>Please enable JavaScript in your browser and let UET.OS work!</noscript>
+    
+</body>
+</html>

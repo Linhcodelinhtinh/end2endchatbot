@@ -1,0 +1,1960 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đặt lịch phòng họp</title>
+    <!-- Bao gồm Bootstrap CSS từ CDN -->
+    <link href="https://dangky.ulis.vnu.edu.vn/lichtuan/public/frontend/bootstrap.min.css" rel="stylesheet">
+    <!-- Bao gồm thư viện datetime picker từ CDN -->
+    <link href="https://dangky.ulis.vnu.edu.vn/lichtuan/public/frontend/flatpickr.min.css" rel="stylesheet">
+    <link href="https://dangky.ulis.vnu.edu.vn/lichtuan/public/frontend/select2.min.css" rel="stylesheet">
+    <link href="https://dangky.ulis.vnu.edu.vn/lichtuan/public/frontend/style.css" rel="stylesheet">
+
+    <!-- Bao gồm jQuery và Bootstrap JS từ CDN -->
+    <script src="https://dangky.ulis.vnu.edu.vn/lichtuan/public/frontend/js/jquery-3.6.0.min.js"></script>
+    <script src="https://dangky.ulis.vnu.edu.vn/lichtuan/public/frontend/js/bootstrap.bundle.min.js"></script>
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+</head>
+<body>
+<div class="">
+    <a href="https://dangky.ulis.vnu.edu.vn/lichtuan/"><img class="w-100" src="https://ulis.vnu.edu.vn/files/uploads/2024/01/Banner-ULIS-WEB-2024-1500-125px-.jpg" alt="Trường Đại học Ngoại ngữ - Đại học Quốc gia Hà Nội"></a>
+</div>
+
+<style>
+    .schedule table{
+        font-size: 16px;
+    }
+    .dropdown {
+        position: absolute; display: inline-block;top: 10px;right: 60px;
+    }
+
+    .dropdown button {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+
+    .dropdown button:hover {
+        background-color: #45a049;
+    }
+
+    .dropdown-menu {
+        display: none;
+        position: absolute;
+        background-color: white;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        border-radius: 5px;
+        z-index: 1;
+        margin-top: 10px;
+        padding: 10px 0;
+    }
+
+    .dropdown-menu a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        font-size: 14px;
+    }
+
+    .dropdown-menu a:hover {
+        background-color: #f1f1f1;
+    }
+
+    .dropdown.show .dropdown-menu {
+        display: block;
+    }
+    .lich-chinh-thuc p{
+        margin-bottom: 0;
+    }
+</style>
+
+<div class="container schedule mt-3 p-0 lich-chinh-thuc" >
+    <div class="row pt-2">
+        <div class="col-md-12 " style="position: relative">
+            <div class="d-flex justify-content-center mt-3 mb-3">
+                <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Lịch công tác tuần</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Lịch sử dụng phòng họp</button>
+                    </li>
+                </ul>
+            </div>
+            <div style="position: absolute;right: 35px;top: 16px;">
+                <select class="form-select" id="yearFilterLichCT" name="">
+                                            <option   value="99">Tuần 21 (18/05/2026 - 24/05/2026)</option>
+                                            <option selected  value="98">Tuần 20 (11/05/2026 - 17/05/2026)</option>
+                                            <option   value="97">Tuần 19 (04/05/2026 - 10/05/2026)</option>
+                                            <option   value="96">Tuần 18 (27/04/2026 - 03/05/2026)</option>
+                                            <option   value="95">Tuần 17 (20/04/2026 - 26/04/2026)</option>
+                                            <option   value="94">Tuần 16 (13/04/2026 - 19/04/2026)</option>
+                                            <option   value="93">Tuần 15 (06/04/2026 - 12/04/2026)</option>
+                                            <option   value="92">Tuần 14 (30/03/2026 - 05/04/2026)</option>
+                                            <option   value="91">Tuần 13 (23/03/2026 - 29/03/2026)</option>
+                                            <option   value="90">Tuần 12 (16/03/2026 - 22/03/2026)</option>
+                                            <option   value="89">Tuần 11 (09/03/2026 - 15/03/2026)</option>
+                                            <option   value="88">Tuần 10 (02/03/2026 - 08/03/2026)</option>
+                                            <option   value="87">Tuần 9 (23/02/2026 - 01/03/2026)</option>
+                                            <option   value="86">Tuần 8 (16/02/2026 - 22/02/2026)</option>
+                                            <option   value="85">Tuần 7 (09/02/2026 - 15/02/2026)</option>
+                                            <option   value="84">Tuần 6 (02/02/2026 - 08/02/2026)</option>
+                                            <option   value="83">Tuần 5 (26/01/2026 - 01/02/2026)</option>
+                                            <option   value="82">Tuần 4 (19/01/2026 - 25/01/2026)</option>
+                                            <option   value="81">Tuần 3 (12/01/2026 - 18/01/2026)</option>
+                                            <option   value="80">Tuần 2 (05/01/2026 - 11/01/2026)</option>
+                                            <option   value="79">Tuần 1 (29/12/2025 - 04/01/2026)</option>
+                                            <option   value="78">Tuần 52 (22/12/2025 - 28/12/2025)</option>
+                                            <option   value="77">Tuần 51 (15/12/2025 - 21/12/2025)</option>
+                                            <option   value="76">Tuần 50 (08/12/2025 - 14/12/2025)</option>
+                                            <option   value="75">Tuần 49 (01/12/2025 - 07/12/2025)</option>
+                                            <option   value="74">Tuần 48 (24/11/2025 - 30/11/2025)</option>
+                                            <option   value="73">Tuần 47 (17/11/2025 - 23/11/2025)</option>
+                                            <option   value="72">Tuần 46 (10/11/2025 - 16/11/2025)</option>
+                                            <option   value="71">Tuần 45 (03/11/2025 - 09/11/2025)</option>
+                                            <option   value="70">Tuần 44 (27/10/2025 - 02/11/2025)</option>
+                                            <option   value="69">Tuần 43 (20/10/2025 - 26/10/2025)</option>
+                                            <option   value="68">Tuần 42 (13/10/2025 - 19/10/2025)</option>
+                                            <option   value="67">Tuần 41 (06/10/2025 - 12/10/2025)</option>
+                                            <option   value="66">Tuần 40 (29/09/2025 - 05/10/2025)</option>
+                                            <option   value="65">Tuần 39 (22/09/2025 - 28/09/2025)</option>
+                                            <option   value="64">Tuần 38 (15/09/2025 - 21/09/2025)</option>
+                                            <option   value="63">Tuần 37 (08/09/2025 - 14/09/2025)</option>
+                                            <option   value="62">Tuần 36 (01/09/2025 - 07/09/2025)</option>
+                                            <option   value="61">Tuần 35 (25/08/2025 - 31/08/2025)</option>
+                                            <option   value="60">Tuần 34 (18/08/2025 - 24/08/2025)</option>
+                                            <option   value="59">Tuần 33 (11/08/2025 - 17/08/2025)</option>
+                                            <option   value="58">Tuần 32 (04/08/2025 - 10/08/2025)</option>
+                                            <option   value="57">Tuần 31 (28/07/2025 - 03/08/2025)</option>
+                                            <option   value="56">Tuần 30 (21/07/2025 - 27/07/2025)</option>
+                                            <option   value="55">Tuần 29 (14/07/2025 - 20/07/2025)</option>
+                                            <option   value="54">Tuần 28 (07/07/2025 - 13/07/2025)</option>
+                                            <option   value="53">Tuần 27 (30/06/2025 - 06/07/2025)</option>
+                                            <option   value="52">Tuần 26 (23/06/2025 - 29/06/2025)</option>
+                                            <option   value="51">Tuần 25 (16/06/2025 - 22/06/2025)</option>
+                                            <option   value="50">Tuần 24 (09/06/2025 - 15/06/2025)</option>
+                                            <option   value="49">Tuần 23 (02/06/2025 - 08/06/2025)</option>
+                                            <option   value="48">Tuần 22 (26/05/2025 - 01/06/2025)</option>
+                                            <option   value="47">Tuần 21 (19/05/2025 - 25/05/2025)</option>
+                                            <option   value="46">Tuần 20 (12/05/2025 - 18/05/2025)</option>
+                                            <option   value="45">Tuần 19 (05/05/2025 - 11/05/2025)</option>
+                                            <option   value="44">Tuần 18 (28/04/2025 - 04/05/2025)</option>
+                                            <option   value="43">Tuần 17 (21/04/2025 - 27/04/2025)</option>
+                                            <option   value="42">Tuần 16 (14/04/2025 - 20/04/2025)</option>
+                                            <option   value="41">Tuần 15 (07/04/2025 - 13/04/2025)</option>
+                                            <option   value="40">Tuần 14 (31/03/2025 - 06/04/2025)</option>
+                                            <option   value="39">Tuần 13 (24/03/2025 - 30/03/2025)</option>
+                                            <option   value="38">Tuần 12 (17/03/2025 - 23/03/2025)</option>
+                                            <option   value="37">Tuần 11 (10/03/2025 - 16/03/2025)</option>
+                                            <option   value="36">Tuần 10 (03/03/2025 - 09/03/2025)</option>
+                                            <option   value="35">Tuần 9 (24/02/2025 - 02/03/2025)</option>
+                                            <option   value="34">Tuần 8 (17/02/2025 - 23/02/2025)</option>
+                                            <option   value="33">Tuần 7 (10/02/2025 - 16/02/2025)</option>
+                                            <option   value="32">Tuần 6 (03/02/2025 - 09/02/2025)</option>
+                                            <option   value="31">Tuần 5 (27/01/2025 - 02/02/2025)</option>
+                                            <option   value="30">Tuần 4 (20/01/2025 - 26/01/2025)</option>
+                                            <option   value="29">Tuần 3 (13/01/2025 - 19/01/2025)</option>
+                                            <option   value="28">Tuần 2 (06/01/2025 - 12/01/2025)</option>
+                                            <option   value="27">Tuần 1 (30/12/2024 - 05/01/2025)</option>
+                                            <option   value="26">Tuần 26 (23/12/2024 - 29/12/2024)</option>
+                                            <option   value="25">Tuần 25 (16/12/2024 - 22/12/2024)</option>
+                                            <option   value="24">Tuần 24 (09/12/2024 - 15/12/2024)</option>
+                                            <option   value="23">Tuần 23 (02/12/2024 - 08/12/2024)</option>
+                                            <option   value="22">Tuần 22 (25/11/2024 - 01/12/2024)</option>
+                                    </select>
+            </div>
+
+<!--            <div class="dropdown">-->
+<!--                <button onclick="toggleMenu()">Tải File</button>-->
+<!--                <div id="dropdownMenu" class="dropdown-menu">-->
+<!--                    <a href="#" onclick="shareLink()">Chia sẻ liên kết</a>-->
+<!--                    <a href="path/to/your-file.docx" download>Tải file Word</a>-->
+<!--                    <a href="path/to/your-file.pdf" download>Tải file PDF</a>-->
+<!--                </div>-->
+<!--            </div>-->
+        </div>
+    </div>
+
+    <div class="m-5 mt-0 pb-5 ">
+
+        <div class="tab-content lich-thi-top" id="pills-tabContent">
+                        <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                <div style="font-weight: 600">
+                                            <p class="py-1 my-0">
+                    <span style="text-transform: uppercase">Lịch công tác
+                    <br/>
+                    của tập thể lãnh đạo trường đại học ngoại ngữ
+                    <br/>
+                    Tuần 20 Năm 2026                    <br/>
+                    </span>
+                            Từ ngày 11/05/2026 - đến ngày 17/05/2026                        </p>
+                        <p class="pb-0 mb-0" style="color: red">(Lịch chính thức)</p>
+                </div>
+                <table class="table">
+                    <tbody>
+                                            <tr>
+                            <th class="weekdaysInfo text-start">Thứ Hai, 11/05/2026</th>
+                            <th></th>
+                        </tr>
+                                                    <tr>
+                                <td class="weekdaysInfo text-start" style="font-weight: 600">
+                                                                        <span style="color: red">8:00  - 10:00</span>
+                                     tại P.301-A1                                </td>
+                                <td class="widthTable text-start">
+                                   
+                                    <p class="mb-0">
+                                        Bí thư Đảng uỷ                                        họp về việc hoàn thiện các bảng tiêu chí đánh giá xếp loại viên chức, người lao động ở trường ĐHNN, ĐHQGHN.                                     </p>
+
+                                                                                                                <span class="thanh-phan-tham-du" style="text-decoration: underline; font-style: italic">Thành phần tham dự:</span>
+                                                                        Dương Quỳnh Hoa, Trần Thế Sơn (P.QTĐH); Nguyễn Đoàn Phượng, Hoàng Nam, Lê Thị Huyền Trang (VP Đ-ĐT)                                                                                                             <p style="font-style: italic"></p>
+
+                                </td>
+                            </tr>
+                                                    <tr>
+                                <td class="weekdaysInfo text-start" style="font-weight: 600">
+                                    <span style="color: red">10:00 - 11:00</span></span>
+                                     tại P.208-A1                                </td>
+                                <td class="widthTable text-start">
+                                   
+                                    <p class="mb-0">
+                                        Bí thư Đảng uỷ, PHT Hà Lê Kim Anh                                        họp về quy định và sắp xếp các Bộ môn.                                     </p>
+
+                                                                                                                <span class="thanh-phan-tham-du" style="text-decoration: underline; font-style: italic">Thành phần tham dự:</span>
+                                                                        Dương Quỳnh Hoa (P.QTĐH); Nguyễn Thúy Lan (P.ĐT&NH)                                                                                                             <p style="font-style: italic"></p>
+
+                                </td>
+                            </tr>
+                                                    <tr>
+                                <td class="weekdaysInfo text-start" style="font-weight: 600">
+                                    <span style="color: red">10:30</span></span>
+                                     tại P.801, Nhà D2, Xuân Thuỷ                                </td>
+                                <td class="widthTable text-start">
+                                   
+                                    <p class="mb-0">
+                                        Hiệu trưởng                                        dự họp Hội đồng Thi đua - khen thưởng ĐHQGHN                                    </p>
+
+                                                                                                                                                                                                                         <p style="font-style: italic"></p>
+
+                                </td>
+                            </tr>
+                                                    <tr>
+                                <td class="weekdaysInfo text-start" style="font-weight: 600">
+                                    <span style="color: red">10:30 -11:30</span></span>
+                                     tại Văn phòng Cơ quan bộ Công an                                </td>
+                                <td class="widthTable text-start">
+                                   
+                                    <p class="mb-0">
+                                        PHT Hoa Ngọc Sơn                                         làm việc về tổ chức đào tạo ngoại ngữ cho cán bộ, chiến sỹ CAND.                                    </p>
+
+                                                                                                                <span class="thanh-phan-tham-du" style="text-decoration: underline; font-style: italic">Thành phần tham dự:</span>
+                                                                                                             lãnh đạo và chuyên viên phụ trách P.KHCN&HTPT                                                                         <p style="font-style: italic"></p>
+
+                                </td>
+                            </tr>
+                                                    <tr>
+                                <td class="weekdaysInfo text-start" style="font-weight: 600">
+                                    <span style="color: red">11:00</span></span>
+                                     tại P.801, Nhà D2, Xuân Thuỷ                                </td>
+                                <td class="widthTable text-start">
+                                   
+                                    <p class="mb-0">
+                                        Bí thư Đảng uỷ                                        họp Ban Thường vụ Đảng uỷ ĐHQGHN                                    </p>
+
+                                                                                                                                                                                                                         <p style="font-style: italic"></p>
+
+                                </td>
+                            </tr>
+                                                    <tr>
+                                <td class="weekdaysInfo text-start" style="font-weight: 600">
+                                                                        <span style="color: red">13:30  - 15:00</span>
+                                     tại P.410-A1                                </td>
+                                <td class="widthTable text-start">
+                                   
+                                    <p class="mb-0">
+                                        Bí thư Đảng uỷ                                        dự buổi tổ chức tập huấn, hướng dẫn nộp đảng phí qua hệ thống thông tin giải quyết thủ tục hành chính của Đảng                                    </p>
+
+                                                                                                                <span class="thanh-phan-tham-du" style="text-decoration: underline; font-style: italic">Thành phần tham dự:</span>
+                                                                                                             Bí thư chi bộ, cán bộ hỗ trợ công tác Đảng các chi bộ.                                                                         <p style="font-style: italic"></p>
+
+                                </td>
+                            </tr>
+                                                    <tr>
+                                <td class="weekdaysInfo text-start" style="font-weight: 600">
+                                                                        <span style="color: red">13:30  - 15:00</span>
+                                     tại P.208-A1                                </td>
+                                <td class="widthTable text-start">
+                                   
+                                    <p class="mb-0">
+                                        Hiệu trưởng                                        họp về phương án luân chuyển các vị trí chuyên viên và tương đương trong trường.                                    </p>
+
+                                                                                                                <span class="thanh-phan-tham-du" style="text-decoration: underline; font-style: italic">Thành phần tham dự:</span>
+                                                                        Dương Quỳnh Hoa, Cù Thanh Nghị (P.QTĐH)                                                                                                             <p style="font-style: italic"></p>
+
+                                </td>
+                            </tr>
+                                                                    <tr>
+                            <th class="weekdaysInfo text-start">Thứ Ba, 12/05/2026</th>
+                            <th></th>
+                        </tr>
+                                                    <tr>
+                                <td class="weekdaysInfo text-start" style="font-weight: 600">
+                                                                        <span style="color: red">8:00 - 9:30</span>
+                                     tại P.301-A1                                </td>
+                                <td class="widthTable text-start">
+                                   
+                                    <p class="mb-0">
+                                        Hiệu trưởng, PHT Lâm Quang Đông                                        họp xây dựng giải pháp cụ thể, hiệu quả để hỗ trợ ứng viên Phó giáo sư giai đoạn 2025-2030                                    </p>
+
+                                                                                                                <span class="thanh-phan-tham-du" style="text-decoration: underline; font-style: italic">Thành phần tham dự:</span>
+                                                                        Lê Văn Tuyển (P. KHTC); Dương Quỳnh Hoa (P.QTĐH)                                                                                                             <p style="font-style: italic"></p>
+
+                                </td>
+                            </tr>
+                                                    <tr>
+                                <td class="weekdaysInfo text-start" style="font-weight: 600">
+                                    <span style="color: red">9:00 - 12:00</span></span>
+                                     tại Hội Trường VĐL                                </td>
+                                <td class="widthTable text-start">
+                                   
+                                    <p class="mb-0">
+                                        PHT Hoa Ngọc Sơn                                        dự cuộc thi thuyết trình 'Tìm hiểu cộng đồng châu Á' lần thứ 14.                                    </p>
+
+                                                                                                                <span class="thanh-phan-tham-du" style="text-decoration: underline; font-style: italic">Thành phần tham dự:</span>
+                                                                        Dương Quỳnh Hoa (P.QTĐH); Nguyễn Thúy Lan (P.ĐT&NH); Nguyễn Đoàn Phượng (VP Đ-ĐT); Lưu Mạnh Kiên (P.KHCN&HTPT); Lê Văn Tuyển (P. KHTC)                                                                                                             <p style="font-style: italic"></p>
+
+                                </td>
+                            </tr>
+                                                    <tr>
+                                <td class="weekdaysInfo text-start" style="font-weight: 600">
+                                    <span style="color: red">14:00 - 16:00</span></span>
+                                     tại Hội trường NVĐ                                </td>
+                                <td class="widthTable text-start">
+                                   
+                                    <p class="mb-0">
+                                        PHT Hà Lê Kim Anh                                        dự Tọa đàm sức khỏe học đường với chuyên đề  “Giải mã làn da” cho sinh viên Trường ĐHNN, ĐHQGHN.                                    </p>
+
+                                                                                                                                                                                                                         <p style="font-style: italic"> </p>
+
+                                </td>
+                            </tr>
+                                                    <tr>
+                                <td class="weekdaysInfo text-start" style="font-weight: 600">
+                                                                        <span style="color: red">15:00 - 16:30</span>
+                                     tại P.410-A1                                </td>
+                                <td class="widthTable text-start">
+                                   
+                                    <p class="mb-0">
+                                        PHT Hoa Ngọc Sơn                                        tiếp và làm việc với đoàn YBM (Hàn Quốc).                                    </p>
+
+                                                                                                                <span class="thanh-phan-tham-du" style="text-decoration: underline; font-style: italic">Thành phần tham dự:</span>
+                                                                        Lưu Mạnh Kiên (P.KHCN&HTPT); Trần Thị Hường, Đỗ Phương Thùy (K.NN&VH Hàn Quốc)                                                                                                             <p style="font-style: italic"></p>
+
+                                </td>
+                            </tr>
+                                                                    <tr>
+                            <th class="weekdaysInfo text-start">Thứ Tư, 13/05/2026</th>
+                            <th></th>
+                        </tr>
+                                                    <tr>
+                                <td class="weekdaysInfo text-start" style="font-weight: 600">
+                                    <span style="color: red">8:00 - 8:30</span></span>
+                                     tại Hội Trường VĐL                                </td>
+                                <td class="widthTable text-start">
+                                   
+                                    <p class="mb-0">
+                                        Bí thư Đảng uỷ, Ban Giám hiệu                                        dự Hội nghị Tập thể lãnh đạo trường (lần 1)                                    </p>
+
+                                                                                                                <span class="thanh-phan-tham-du" style="text-decoration: underline; font-style: italic">Thành phần tham dự:</span>
+                                                                                                             các đồng chí Thường vụ Đảng uỷ                                                                         <p style="font-style: italic"></p>
+
+                                </td>
+                            </tr>
+                                                    <tr>
+                                <td class="weekdaysInfo text-start" style="font-weight: 600">
+                                    <span style="color: red">8:30 - 9:30</span></span>
+                                     tại Hội trường VĐL                                </td>
+                                <td class="widthTable text-start">
+                                   
+                                    <p class="mb-0">
+                                        Bí thư Đảng uỷ, Ban Giám hiệu                                        dự Hội nghị Tập thể lãnh đạo trường mở rộng.                                     </p>
+
+                                                                                                                <span class="thanh-phan-tham-du" style="text-decoration: underline; font-style: italic">Thành phần tham dự:</span>
+                                                                                                             các đồng chí Thường vụ Đảng uỷ; Trưởng/phụ trách các đơn vị trực thuộc trường.                                                                         <p style="font-style: italic"></p>
+
+                                </td>
+                            </tr>
+                                                    <tr>
+                                <td class="weekdaysInfo text-start" style="font-weight: 600">
+                                    <span style="color: red">10:00 - 11:00</span></span>
+                                     tại Hội trường VĐL                                </td>
+                                <td class="widthTable text-start">
+                                   
+                                    <p class="mb-0">
+                                        Bí thư Đảng uỷ, Ban Giám hiệu                                        dự Hội nghị cán bộ chủ chốt trường.                                    </p>
+
+                                                                                                                <span class="thanh-phan-tham-du" style="text-decoration: underline; font-style: italic">Thành phần tham dự:</span>
+                                                                                                             các đồng chí Thường vụ Đảng uỷ; trưởng/phó các đơn vị trực thuộc trường; Chủ tịch Công đoàn trường, Bí thư Đoàn TNCSHCM.                                                                          <p style="font-style: italic"></p>
+
+                                </td>
+                            </tr>
+                                                    <tr>
+                                <td class="weekdaysInfo text-start" style="font-weight: 600">
+                                    <span style="color: red">11:00 - 12:30</span></span>
+                                     tại Hội Trường VĐL                                </td>
+                                <td class="widthTable text-start">
+                                   
+                                    <p class="mb-0">
+                                        Bí thư Đảng uỷ, Ban Giám hiệu                                        dự Hội nghị Tập thể lãnh đạo trường (lần 2)                                    </p>
+
+                                                                                                                <span class="thanh-phan-tham-du" style="text-decoration: underline; font-style: italic">Thành phần tham dự:</span>
+                                                                                                             các đồng chí Thường vụ Đảng uỷ;                                                                         <p style="font-style: italic"></p>
+
+                                </td>
+                            </tr>
+                                                    <tr>
+                                <td class="weekdaysInfo text-start" style="font-weight: 600">
+                                                                        <span style="color: red">13:30  - 15:00</span>
+                                     tại P.410-A1                                </td>
+                                <td class="widthTable text-start">
+                                   
+                                    <p class="mb-0">
+                                        PHT Hà Lê Kim Anh                                        dự tập huấn xây dựng Thời khóa biểu trên phần mềm quản lí đào tạo SĐH.                                    </p>
+
+                                                                                                                <span class="thanh-phan-tham-du" style="text-decoration: underline; font-style: italic">Thành phần tham dự:</span>
+                                                                        Nguyễn Thúy Lan, Nguyễn Việt Hùng, Nguyễn Thị Mai Hương, Tạ Thị Bích Đào, Trịnh Hồng Nam, Trần Thị Phương Nhung (P.ĐT&NH)                                                                         ; cán bộ VPK phụ trách TKB SĐH của các Khoa đào tạo.                                     <p style="font-style: italic"></p>
+
+                                </td>
+                            </tr>
+                                                    <tr>
+                                <td class="weekdaysInfo text-start" style="font-weight: 600">
+                                    <span style="color: red">14:00 - 16:00</span></span>
+                                     tại HT tầng 1 Sunwah                                  </td>
+                                <td class="widthTable text-start">
+                                   
+                                    <p class="mb-0">
+                                        Bí thư Đảng uỷ, PHT Hoa Ngọc Sơn                                        dự Lễ ra mắt dự án “American English Viewing Marathon 2026” (nằm trong chuỗi các hoạt động của Kênh ULIS CONNECT 2026).                                    </p>
+
+                                                                                                                <span class="thanh-phan-tham-du" style="text-decoration: underline; font-style: italic">Thành phần tham dự:</span>
+                                                                                                              Lưu Mạnh Kiên, Nguyễn Lan Hường (P.KHCN&HTPT); Vũ Thị Thanh Nhã (K.NN&VH Anh); Ban Chỉ đạo, Ban Thư ký Dự án “American English Viewing Marathon 2026”; giảng viên, sinh viên quan tâm và khách mời.                                                                         <p style="font-style: italic"></p>
+
+                                </td>
+                            </tr>
+                                                                    <tr>
+                            <th class="weekdaysInfo text-start">Thứ Năm, 14/05/2026</th>
+                            <th></th>
+                        </tr>
+                                                    <tr>
+                                <td class="weekdaysInfo text-start" style="font-weight: 600">
+                                                                        <span style="color: red">8:00  - 10:00</span>
+                                     tại P.301-A1                                </td>
+                                <td class="widthTable text-start">
+                                   
+                                    <p class="mb-0">
+                                        Bí thư Đảng uỷ, PHT Hà Lê Kim Anh                                        họp về việc điều chỉnh các CTĐT bậc ĐH và xây dựng Hướng dẫn về tổ chức đào tạo và KTĐG đối với hệ đào tạo thường xuyên                                    </p>
+
+                                                                                                                <span class="thanh-phan-tham-du" style="text-decoration: underline; font-style: italic">Thành phần tham dự:</span>
+                                                                                                             Nguyễn Thuý Lan, Nguyễn Việt Hùng, Nguyễn Quỳnh Hoa; chuyên viên phụ trách phát triển CTĐT ĐHCQ, thường xuyên (P.ĐT&NH); Lê Thị Huyền Trang, Hoàng Nam (VP Đ-ĐT)                                                                         <p style="font-style: italic"></p>
+
+                                </td>
+                            </tr>
+                                                    <tr>
+                                <td class="weekdaysInfo text-start" style="font-weight: 600">
+                                    <span style="color: red">8:30</span></span>
+                                     tại P.801 ĐHKT                                </td>
+                                <td class="widthTable text-start">
+                                   
+                                    <p class="mb-0">
+                                        PHT Hoa Ngọc Sơn                                        dự họp Tổ thẩm định xác định chỉ tiêu các đơn vị đào tạo đại học                                    </p>
+
+                                                                                                                                                                                                                         <p style="font-style: italic"></p>
+
+                                </td>
+                            </tr>
+                                                    <tr>
+                                <td class="weekdaysInfo text-start" style="font-weight: 600">
+                                    <span style="color: red">9:00 - 11:00</span></span>
+                                     tại P.410-A1                                </td>
+                                <td class="widthTable text-start">
+                                   
+                                    <p class="mb-0">
+                                        PHT Lâm Quang Đông                                        dự Chương trình bồi dưỡng "Xây dựng trợ lý ảo phục vụ công tác truyền thông".                                    </p>
+
+                                                                                                                <span class="thanh-phan-tham-du" style="text-decoration: underline; font-style: italic">Thành phần tham dự:</span>
+                                                                                                             Nguyễn Tiến Dũng (P.QTĐH); Khoa Anh Việt (P.ĐT&NH); Ban Truyền thông tại Trường Đại học Ngoại ngữ, ĐHQGHN                                      theo <a href="https://ulisvnueduvn-my.sharepoint.com/:b:/g/personal/hcth_ulis_vnu_edu_vn/IQAOrLnLRcRFQ4T10Nwmrgy_AQLtSG_B03UYnYYE5v1pmAw?e=JCQAFl" target="_blank">Quyết định Số 425/QĐ-ĐHNN</a> của Hiệu trưởng.                                    <p style="font-style: italic"></p>
+
+                                </td>
+                            </tr>
+                                                    <tr>
+                                <td class="weekdaysInfo text-start" style="font-weight: 600">
+                                    <span style="color: red">9:15</span></span>
+                                     tại P.A101 Nhà Điều hành                                </td>
+                                <td class="widthTable text-start">
+                                   
+                                    <p class="mb-0">
+                                        Hiệu trưởng                                        dự họp Hội đồng Thi đua - Khen thưởng ĐHQGHN.                                     </p>
+
+                                                                                                                                                                                                                         <p style="font-style: italic"></p>
+
+                                </td>
+                            </tr>
+                                                    <tr>
+                                <td class="weekdaysInfo text-start" style="font-weight: 600">
+                                                                        <span style="color: red">10:00 - 11:30</span>
+                                     tại P.301-A1                                </td>
+                                <td class="widthTable text-start">
+                                   
+                                    <p class="mb-0">
+                                        PHT Hà Lê Kim Anh                                        dự Hội đồng nghiệm thu cấp Trường giáo trình “Vietnamese - English Translation Practice (Biên dịch)” của nhóm tác giả Khoa NN&VH Anh.
+                                    </p>
+
+                                                                                                                <span class="thanh-phan-tham-du" style="text-decoration: underline; font-style: italic">Thành phần tham dự:</span>
+                                                                                                                                                  thành viên Hội đồng nghiệm thu theo <a href="https://ulisvnueduvn-my.sharepoint.com/:b:/g/personal/hcth_ulis_vnu_edu_vn/IQCDBaDa0gBLTZlSkDtfdOm-AUJ8lfYI2ddi0uf6JcGAhbA?e=o6yJdT" target="_blank">QĐ số 728/QĐ-ĐHNN</a> của Hiệu trưởng                                    <p style="font-style: italic"></p>
+
+                                </td>
+                            </tr>
+                                                    <tr>
+                                <td class="weekdaysInfo text-start" style="font-weight: 600">
+                                    <span style="color: red">14:00 -17:00</span></span>
+                                     tại Hoà Lạc                                </td>
+                                <td class="widthTable text-start">
+                                   
+                                    <p class="mb-0">
+                                        Bí thư Đảng uỷ, Hiệu trưởng                                        họp nhóm điều chỉnh Kế hoạch CĐS của trường ĐHNN,ĐHQGHN giai đoạn 2025-2030                                    </p>
+
+                                                                                                                <span class="thanh-phan-tham-du" style="text-decoration: underline; font-style: italic">Thành phần tham dự:</span>
+                                                                                                             nhóm Giám sát kế hoạch CĐS và khách mời                                                                         <p style="font-style: italic"></p>
+
+                                </td>
+                            </tr>
+                                                    <tr>
+                                <td class="weekdaysInfo text-start" style="font-weight: 600">
+                                    <span style="color: red">14:00 - 15:30</span></span>
+                                     tại P.410-A1                                </td>
+                                <td class="widthTable text-start">
+                                   
+                                    <p class="mb-0">
+                                        PHT Hoa Ngọc Sơn                                        họp triển khai Đề án xây dựng các chương trình đào tạo và bồi dưỡng tài năng với các trường THPT chuyên                                    </p>
+
+                                                                                                                <span class="thanh-phan-tham-du" style="text-decoration: underline; font-style: italic">Thành phần tham dự:</span>
+                                                                        Nguyễn Phú Chiến (THPT CNN)                                                                                                             <p style="font-style: italic"></p>
+
+                                </td>
+                            </tr>
+                                                                    <tr>
+                            <th class="weekdaysInfo text-start">Thứ Sáu, 15/05/2026</th>
+                            <th></th>
+                        </tr>
+                                                    <tr>
+                                <td class="weekdaysInfo text-start" style="font-weight: 600">
+                                    <span style="color: red">Cả ngày</span></span>
+                                     tại Hoà Lạc                                </td>
+                                <td class="widthTable text-start">
+                                   
+                                    <p class="mb-0">
+                                        Bí thư Đảng uỷ                                        họp nhóm điều chỉnh Kế hoạch CĐS của Trường ĐHNN, ĐHQGHN giai đoạn 2025-2030.                                     </p>
+
+                                                                                                                <span class="thanh-phan-tham-du" style="text-decoration: underline; font-style: italic">Thành phần tham dự:</span>
+                                                                                                             nhóm Giám sát kế hoạch CĐS và khách mời                                                                         <p style="font-style: italic"></p>
+
+                                </td>
+                            </tr>
+                                                    <tr>
+                                <td class="weekdaysInfo text-start" style="font-weight: 600">
+                                    <span style="color: red">8:30 - 10:00</span></span>
+                                     tại P.301-A1                                </td>
+                                <td class="widthTable text-start">
+                                   
+                                    <p class="mb-0">
+                                        PHT Hà Lê Kim Anh                                        dự Hội đồng nghiệm thu đề cương học phần Thực hành thực tập (hệ VLVH)                                    </p>
+
+                                                                                                                <span class="thanh-phan-tham-du" style="text-decoration: underline; font-style: italic">Thành phần tham dự:</span>
+                                                                        Nguyễn Việt Hùng, Nguyễn Quỳnh Hoa, Hoàng Thị Kim Ngân, Khoa Anh Việt, Vũ Huy Tâm (P.ĐT&NH); Lê Thị Huyền Trang (VP Đ-ĐT); Nguyễn Đình Hiền (K.NN&VH Trung Quốc); Lại Thị Phương Thảo (K.NN&VH Anh)                                                                                                             <p style="font-style: italic"></p>
+
+                                </td>
+                            </tr>
+                                                    <tr>
+                                <td class="weekdaysInfo text-start" style="font-weight: 600">
+                                    <span style="color: red">16:00</span></span>
+                                     tại Phòng Khánh tiết, Nhà Điều hành                                </td>
+                                <td class="widthTable text-start">
+                                   
+                                    <p class="mb-0">
+                                        PHT Hoa Ngọc Sơn                                        tiếp ông Hà Quang Thái - Bí thư Đảng uỷ, Chủ tịch hội đồng Đại học Bắc Kinh                                    </p>
+
+                                                                                                                                                                                                                         <p style="font-style: italic"></p>
+
+                                </td>
+                            </tr>
+                                                    <tr>
+                                <td class="weekdaysInfo text-start" style="font-weight: 600">
+                                    <span style="color: red">20:00 - 21:30 </span></span>
+                                     tại tại Zoom Meeting                                </td>
+                                <td class="widthTable text-start">
+                                   
+                                    <p class="mb-0">
+                                        Bí thư Đảng uỷ                                        dự khoá bồi dưỡng ứng dụng AI dành cho đội ngũ cán bộ giảng dạy. (Nội dung: Chữa bài tập Module 1.1, 1.2, 1.3, 2.1, 2.2, 2.3).                                    </p>
+
+                                                                                                                <span class="thanh-phan-tham-du" style="text-decoration: underline; font-style: italic">Thành phần tham dự:</span>
+                                                                                                             thành viên Ban Tổ chức; giảng viên và học viên tham gia khoá học.                                                                         <p style="font-style: italic"></p>
+
+                                </td>
+                            </tr>
+                                                                    <tr>
+                            <th class="weekdaysInfo text-start">Thứ Bảy, 16/05/2026</th>
+                            <th></th>
+                        </tr>
+                                                    <tr>
+                                <td class="weekdaysInfo text-start" style="font-weight: 600">
+                                    <span style="color: red">7:30</span></span>
+                                     tại (dự kiến) TT HNQG                                </td>
+                                <td class="widthTable text-start">
+                                   
+                                    <p class="mb-0">
+                                        Ban Giám hiệu                                        dự Lễ kỉ niệm 120 năm Ngày truyền thống ĐHQGHN.                                    </p>
+
+                                                                                                                                                                                                                         <p style="font-style: italic"></p>
+
+                                </td>
+                            </tr>
+                                                    <tr>
+                                <td class="weekdaysInfo text-start" style="font-weight: 600">
+                                                                        <span style="color: red">8:00 - 9:30</span>
+                                     tại Hội Trường VĐL                                </td>
+                                <td class="widthTable text-start">
+                                   
+                                    <p class="mb-0">
+                                        PHT Hà Lê Kim Anh                                        dự Chung kết cuộc thi "Tìm kiếm Hướng dẫn viên du lịch Pháp ngữ" - mùa 5                                    </p>
+
+                                                                                                                <span class="thanh-phan-tham-du" style="text-decoration: underline; font-style: italic">Thành phần tham dự:</span>
+                                                                        Đàm Minh Thuỷ, Đặng Thị Thanh Thúy, Lê Xuân Thắng (K.NN&VH Pháp)                                     BCN, chuyên viên chuyên trách K.NN&VH Pháp; khách mời, giảng viên và sinh viên quan tâm.                                                                         <p style="font-style: italic"></p>
+
+                                </td>
+                            </tr>
+                                                    <tr>
+                                <td class="weekdaysInfo text-start" style="font-weight: 600">
+                                    <span style="color: red">8:00 - 12:00</span></span>
+                                     tại Hội trường Sunwah                                </td>
+                                <td class="widthTable text-start">
+                                   
+                                    <p class="mb-0">
+                                        PHT Hoa Ngọc Sơn                                        dự Hội thảo quốc gia “Giảng dạy ngoại ngữ trong bối cảnh đổi mới
+giáo dục quốc gia năm 2026”                                     </p>
+
+                                                                                                                <span class="thanh-phan-tham-du" style="text-decoration: underline; font-style: italic">Thành phần tham dự:</span>
+                                                                                                             Trần Thị Hoàng Anh (P.KHCN&HTPT); Trần Thị Thu Hiền (K.GDQT);                                     Ban Tổ chức theo <a href="https://ulisvnueduvn-my.sharepoint.com/:b:/g/personal/hcth_ulis_vnu_edu_vn/IQBqWWoscBBuRrqGSfAJ38JTAUWADfjWwZbGx0ejX6WYf9A?e=KX4iai" target="_blank">QĐ số 626/QĐ-ĐHNN</a>; Chủ trì, thư kí theo <a href="https://ulisvnueduvn-my.sharepoint.com/:b:/g/personal/hcth_ulis_vnu_edu_vn/IQAAB4C6AWU5T7wI6DfJHEqEARld5hl4apHGyWyBGb6NKls?e=rZldwr" target="_blank">QĐ số 656/QĐ-ĐHNN</a> của Hiệu trưởng; cán bộ, giảng viên, học viên, sinh viên quan tâm                                    <p style="font-style: italic"></p>
+
+                                </td>
+                            </tr>
+                                                    <tr>
+                                <td class="weekdaysInfo text-start" style="font-weight: 600">
+                                    <span style="color: red">13:30</span></span>
+                                     tại HT 19 Lê Thánh Tông                                </td>
+                                <td class="widthTable text-start">
+                                   
+                                    <p class="mb-0">
+                                        Đại diện BGH                                        dự Hội thảo " Từ Đại học Đông Dương đến Đại học Quốc Gia Hà Nội: truyền thống 120 năm tiên phong đào tạo tinh hoa".                                    </p>
+
+                                                                                                                                                                                                                         <p style="font-style: italic"></p>
+
+                                </td>
+                            </tr>
+                                                    <tr>
+                                <td class="weekdaysInfo text-start" style="font-weight: 600">
+                                    <span style="color: red">19:00</span></span>
+                                     tại HT 19 Lê Thánh Tông                                </td>
+                                <td class="widthTable text-start">
+                                   
+                                    <p class="mb-0">
+                                        Bí thư Đảng uỷ, Đại diện BGH                                        dự Khai mạc triển lãm 120 năm Đại học Đông Dương: khơi nguồn Giáo dục Khai phóng.                                    </p>
+
+                                                                                                                                                                                                                         <p style="font-style: italic"></p>
+
+                                </td>
+                            </tr>
+                                                                    <tr>
+                            <th class="weekdaysInfo text-start">Chủ nhật, 17/05/2026</th>
+                            <th></th>
+                        </tr>
+                                                    <tr>
+                                <td class="weekdaysInfo text-start" style="font-weight: 600">
+                                    <span style="color: red">13:00 - 18:00</span></span>
+                                     tại HT Nguyễn Văn Đạo                                </td>
+                                <td class="widthTable text-start">
+                                   
+                                    <p class="mb-0">
+                                        PHT Hà Lê Kim Anh, PHT Hoa Ngọc Sơn                                        dự Chương trình Chung kết cuộc thi APEC INNOVATION – LẦN II (2025 – 2026).
+                                    </p>
+
+                                                                                                                <span class="thanh-phan-tham-du" style="text-decoration: underline; font-style: italic">Thành phần tham dự:</span>
+                                                                        Lưu Mạnh Kiên, Nguyễn Thị Ngọc Anh (*) (P.KHCN&HTPT)                                                                                                             <p style="font-style: italic"></p>
+
+                                </td>
+                            </tr>
+                                            
+                    </tbody>
+                </table>
+                            </div>
+            <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                <div style="font-weight: 600">
+                                        <p class="py-1 my-0">
+                    <span style="text-transform: uppercase">Lịch đăng ký sử dụng phòng
+                    <br/>
+                    của tập thể trường đại học ngoại ngữ
+                    <br/>
+                    Tuần 20 Năm 2026                    <br/>
+                    </span>
+                        Từ ngày 11/05/2026 - đến ngày 17/05/2026                    </p>
+                    <p class="pb-0 mb-0" style="color: red">(Lịch chính thức)</p>
+                </div>
+                <table class="table">
+                    <tbody>
+                                            <tr>
+                            <th class="weekdaysInfo text-start">Thứ Hai, 11/05/2026</th>
+                            <th></th>
+                        </tr>
+                                                    <tr>
+                                <td class="weekdaysInfo text-start" style="font-weight: 600">
+                                    <span style="color: red">8:00 - 12:00</span>  tại P.306-A5                                    <!--                            -->                                </td>
+                                <td class="widthTable text-start">
+                                <p class="mb-0"><span>Đơn vị đăng ký: K.NN&VH Ả Rập</span></p>
+                                <p><span>Nội dung: </span>Tổ chức bảo vệ KLTN QH2022 (Ả Rập ) </p>
+                                 
+                                </td>
+                            </tr>
+                                                                    <tr>
+                            <th class="weekdaysInfo text-start">Thứ Ba, 12/05/2026</th>
+                            <th></th>
+                        </tr>
+                                                    <tr>
+                                <td class="weekdaysInfo text-start" style="font-weight: 600">
+                                    <span style="color: red">8:00 - 12:00</span>  tại P.306-A5                                    <!--                            -->                                </td>
+                                <td class="widthTable text-start">
+                                <p class="mb-0"><span>Đơn vị đăng ký: K.NN&VH Ả Rập</span></p>
+                                <p><span>Nội dung: </span>Tổ chức KLTN khóa QH2022 (Ả Rập) </p>
+                                 
+                                </td>
+                            </tr>
+                                                                    <tr>
+                            <th class="weekdaysInfo text-start">Thứ Tư, 13/05/2026</th>
+                            <th></th>
+                        </tr>
+                                                    <tr>
+                                <td class="weekdaysInfo text-start" style="font-weight: 600">
+                                    <span style="color: red">8:00 - 17:00</span>  tại P.306-A5                                    <!--                            -->                                </td>
+                                <td class="widthTable text-start">
+                                <p class="mb-0"><span>Đơn vị đăng ký: P.ĐT&NH</span></p>
+                                <p><span>Nội dung: </span>P.ĐT&NH kiểm tra hồ sơ CNN (Trang) </p>
+                                 
+                                </td>
+                            </tr>
+                                                                    <tr>
+                            <th class="weekdaysInfo text-start">Thứ Năm, 14/05/2026</th>
+                            <th></th>
+                        </tr>
+                                                    <tr>
+                                <td class="weekdaysInfo text-start" style="font-weight: 600">
+                                    <span style="color: red">8:00 - 17:00</span>  tại P.306-A5                                    <!--                            -->                                </td>
+                                <td class="widthTable text-start">
+                                <p class="mb-0"><span>Đơn vị đăng ký: P.ĐT&NH</span></p>
+                                <p><span>Nội dung: </span>P.ĐT&NH kiểm tra hồ sơ CNN (Trang) </p>
+                                 
+                                </td>
+                            </tr>
+                                                                    <tr>
+                            <th class="weekdaysInfo text-start">Thứ Sáu, 15/05/2026</th>
+                            <th></th>
+                        </tr>
+                                                    <tr>
+                                <td class="weekdaysInfo text-start" style="font-weight: 600">
+                                    <span style="color: red">13:00  - 16:30</span>  tại P.406-A1                                    <!--                            -->                                </td>
+                                <td class="widthTable text-start">
+                                <p class="mb-0"><span>Đơn vị đăng ký: P.ĐT&NH</span></p>
+                                <p><span>Nội dung: </span>HĐ chấm LV ThS tiếng Nhật (K. Nhật) </p>
+                                 
+                                </td>
+                            </tr>
+                                                    <tr>
+                                <td class="weekdaysInfo text-start" style="font-weight: 600">
+                                    <span style="color: red">8:00 - 17:00</span>  tại P.306-A5                                    <!--                            -->                                </td>
+                                <td class="widthTable text-start">
+                                <p class="mb-0"><span>Đơn vị đăng ký: P.ĐT&NH</span></p>
+                                <p><span>Nội dung: </span>P.ĐT&NH kiểm tra hồ sơ CNN (Trang) </p>
+                                 
+                                </td>
+                            </tr>
+                                                                    <tr>
+                            <th class="weekdaysInfo text-start">Thứ Bảy, 16/05/2026</th>
+                            <th></th>
+                        </tr>
+                                                                    <tr>
+                            <th class="weekdaysInfo text-start">Chủ nhật, 17/05/2026</th>
+                            <th></th>
+                        </tr>
+                                            
+                    </tbody>
+                </table>
+            </div>
+                    </div>
+        
+       
+    </div>
+
+</div>
+
+<script>
+    function toggleMenu() {
+        var menu = document.getElementById("dropdownMenu");
+        if (menu.style.display === "none") {
+            menu.style.display = "block";
+        } else {
+            menu.style.display = "none";
+        }
+    }
+
+    function shareLink() {
+        const link = "https://dangky.ulis.vnu.edu.vn/lichtuan/lich-cong-tac-chinh-thuc"; // Thay bằng liên kết của bạn
+        if (navigator.share) {
+            navigator.share({
+                title: 'Chia sẻ liên kết',
+                url: link
+            }).then(() => {
+                console.log('Link đã được chia sẻ thành công');
+            }).catch((error) => {
+                console.log('Lỗi khi chia sẻ liên kết:', error);
+            });
+        } else {
+            alert('Trình duyệt của bạn không hỗ trợ chia sẻ liên kết.');
+        }
+    }
+</script>
+<div class="bg-footer mt-5 pt-4 pb-2">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-9">
+                <p class="float-end mb-2">
+                    <img style="width: 30%" src="https://ulis.vnu.edu.vn/files/uploads/2016/10/ULIS-Logo-03-1.png">
+                </p>
+                
+                <p class="mb-0">Email: phonghcth.ulis@gmail.com</p>
+            </div>
+            <div class="col-sm-3 text-lg-end" style="">
+                                <p style="    margin-top: 50px;">Phát triển bởi <a class="text-white" target="_blank" href="http://hcmedia.com.vn/">HCmedia</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.quilljs.com/1.3.6/quill.min.js"></script>
+
+<script>
+    
+</script>
+
+<!-- Đính kèm thư viện Toast.js từ CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+<!-- Đính kèm CSS của Toast.js để định dạng thông báo -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+<script src="https://dangky.ulis.vnu.edu.vn/lichtuan/public/frontend/js/select2.min.js"></script>
+<!-- Bao gồm thư viện datetime picker từ CDN -->
+<script src="https://dangky.ulis.vnu.edu.vn/lichtuan/public/frontend/js/flatpickr.js"></script>
+<input type="hidden" id="csrfName" name="csrf_test_name" value="6f4e38d612edbf400b06d69041d24694">
+<script>
+    var csrf_test_name = $("input[name='csrf_test_name']").val();
+    let base_url = 'https://dangky.ulis.vnu.edu.vn/lichtuan/';
+</script>
+<!--<script src="--><!--js/scripts.js"></script>-->
+<script>
+
+    // Khởi tạo Quill
+    const toolbarOptions = [
+        ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
+        ['blockquote', 'code-block'],
+        ['link'], //, 'image', 'video', 'formula'
+        [{ 'list': 'ordered'}, { 'list': 'bullet' }, { 'list': 'check' }],
+        [{ 'indent': '-1'}, { 'indent': '+1' }],          // outdent/indent
+        // [{ 'direction': 'rtl' }],                         // text direction
+        [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+        [{ 'color': [] }, { 'background': [] }],
+        [{ 'align': [] }],
+        ['clean']                                         // remove formatting button
+    ];
+    var quill = new Quill('.editCustomTextarea', {
+        modules: {
+            toolbar: toolbarOptions
+        },
+        theme: 'snow'
+    });
+    var quillcustom = new Quill('.customTextarea', {
+        theme: 'snow'
+    });
+
+    var quillEdit = new Quill('.editTextarea', {
+        // modules: {
+        //     toolbar: toolbarOptions
+        // },
+        // theme: 'snow'
+    });
+
+
+
+    $(document).ready(function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const weeksFilter = urlParams.get('weeksFilter');
+
+        // Thiết lập datetime picker
+        flatpickr('.dateTimePicker', {
+            enableTime: true,
+            dateFormat: "d/m/Y",
+            defaultDate: "today",
+            minDate: "today",
+        });
+
+        flatpickr('.customdateTimePicker', {
+            enableTime: true,
+            dateFormat: "d/m/Y",
+            enableTime: false,
+        });
+
+        flatpickr('.dateTimePickerEnd', {
+            enableTime: true,
+            dateFormat: "d/m/Y",
+            defaultDate: getNextFriday(),
+            minDate: "today",
+        });
+
+        function getNextFriday() {
+            let currentDate = new Date();
+            let daysUntilFriday = (5 - currentDate.getDay() + 7) % 7; // Calculate days until next Friday (0 = Friday)
+            let nextFriday = new Date(currentDate);
+            nextFriday.setDate(currentDate.getDate() + daysUntilFriday); // Set date to next Friday
+            return nextFriday;
+        }
+
+        // Áp dụng Select2 cho componentSelect
+        $('#donVi_Id').select2({
+            placeholder: "Chọn đơn vị",
+            allowClear: true
+        }); 
+        $('#yearFilterLich').select2({
+            placeholder: "Chọn tuần trong năm học",
+            allowClear: true
+        });
+        $('#yearFilterLichCT').select2({
+            placeholder: "Chọn tuần trong năm học",
+            allowClear: true
+        });
+        $('#weeksYearFilter').select2({
+            placeholder: "Chọn tuần trong năm học",
+            allowClear: true
+        });
+        $('#thanhPhan_Id').select2({
+            placeholder: "Chọn thành phần",
+            allowClear: true
+        });
+        $('#banGiamHieu_Id').select2({
+            placeholder: "Chọn Tập thể lãnh đạo Trường",
+            allowClear: true
+        });
+        $('#banGiamHieuSelected').select2({
+            placeholder: "Chọn Tập thể lãnh đạo Trường",
+            allowClear: true
+        });
+        $('#donViDatLich_Id').select2({
+            placeholder: "Chọn đơn vị",
+            allowClear: true
+        });
+
+        $('input[name="caHop_Id"]').change(function() {
+            const selectedShift = $(this).val();
+            $.ajax({
+                url: 'khung-gio', // Đường dẫn tới API hoặc script xử lý yêu cầu
+                method: 'POST',
+                dataType: 'json',
+                data: { caHop_Id: selectedShift, csrf_test_name: csrf_test_name }, // Dữ liệu gửi đi (ví dụ: ca làm việc đã chọn)
+                success: function(response) {
+                    $('#chiTietCaHop_Id').empty();
+                    response.forEach(function(meeting) {
+                        let meetingId = meeting.id;
+                        let startTime = meeting.gioBatDau;
+                        let endTime = meeting.gioKetThuc;
+                        $('#chiTietCaHop_Id').append(`<option value="${meetingId}">${startTime} - ${endTime}</option>`);
+                    });
+                },
+                error: function(xhr, status, error) {
+                    console.error('Lỗi khi gửi yêu cầu AJAX:', error);
+                }
+            });
+        });
+
+        // $('#donVi_Id').select2();
+        // $('#thanhPhan_Id').select2();
+        //
+        // // Lấy danh sách thanhPhan theo DonVi đã chọn (dành cho chế độ Edit)
+        // if (selectedDonViIds.length > 0) {
+        //     // loadThanhPhan(selectedDonViIds, selectedThanhPhanIds);
+        // }
+        // console.log('selectedDonViIds', selectedDonViIds)
+        // let selectedComponentsMap = {};
+        // $('#donVi_Id').on('change', function() {
+        //     let selectedComponents = $(this).val() || [];
+        //     let selectedComponentsString = selectedComponents.join(',');
+        //     // Lấy các donVi_Id đã bị xóa
+        //     let removedDonViIds = Object.keys(selectedComponentsMap).filter(id => !selectedComponents.includes(id));
+        //     // Xóa các thanhPhan_Id liên kết với các donVi_Id đã bị xóa
+        //     removedDonViIds.forEach(donViId => {
+        //         let relatedThanhPhanIds = selectedComponentsMap[donViId] || [];
+        //         relatedThanhPhanIds.forEach(thanhPhanId => {
+        //             // Kiểm tra xem thanhPhanId có còn liên kết với donVi_Id nào khác không
+        //             let shouldRemove = Object.keys(selectedComponentsMap).every(id => !selectedComponentsMap[id].includes(thanhPhanId));
+        //             // Nếu không còn liên kết với donVi_Id nào khác, xóa option
+        //             if (shouldRemove) {
+        //                 $(`#thanhPhan_Id option[value="${thanhPhanId}"]`).remove();
+        //             }
+        //         });
+        //         // Xóa donViId khỏi selectedComponentsMap
+        //         delete selectedComponentsMap[donViId];
+        //     });
+        //     // Gửi yêu cầu AJAX để lấy các thanhPhan_Id mới theo donVi_Id đã chọn
+        //     $.ajax({
+        //         url: 'thanh-phan', // Đường dẫn tới API hoặc script xử lý yêu cầu
+        //         method: 'POST',
+        //         dataType: 'json',
+        //         data: { donVi_Id: selectedComponentsString, csrf_test_name: csrf_test_name },
+        //         success: function(response) {
+        //             let currentSelectedValues = $('#thanhPhan_Id').val() || [];
+        //
+        //             // Lưu các thanhPhan_Id mới vào selectedComponentsMap
+        //             selectedComponents.forEach(donViId => {
+        //                 if (!selectedComponentsMap[donViId]) {
+        //                     selectedComponentsMap[donViId] = [];
+        //                 }
+        //             });
+        //
+        //             // Cập nhật lại danh sách Select2 bằng cách xóa và thêm option
+        //             $('#thanhPhan_Id').select2('destroy').html(''); // Xóa tất cả các option hiện có
+        //
+        //             response.forEach(function(person) {
+        //                 let Id = person.id;
+        //                 let hoTen = person.hoTen;
+        //
+        //                 // Thêm các option mới
+        //                 $('#thanhPhan_Id').append(`<option value="${Id}">${hoTen}</option>`);
+        //
+        //                 // Cập nhật selectedComponentsMap với các thanhPhan_Id mới
+        //                 selectedComponents.forEach(donViId => {
+        //                     if (!selectedComponentsMap[donViId].includes(Id)) {
+        //                         selectedComponentsMap[donViId].push(Id);
+        //                     }
+        //                 });
+        //             });
+        //
+        //             // Khôi phục các lựa chọn đã chọn trước đó
+        //             $('#thanhPhan_Id').val(currentSelectedValues);
+        //
+        //             // Khởi tạo lại Select2
+        //             $('#thanhPhan_Id').select2();
+        //         },
+        //         error: function(xhr, status, error) {
+        //             console.error('Lỗi khi gửi yêu cầu AJAX:', error);
+        //         }
+        //     });
+        // });
+        let selectedComponentsMap = {};
+
+        // Khởi tạo Select2 cho DonVi và ThanhPhan
+        $('#donVi_Id').select2();
+        $('#thanhPhan_Id').select2();
+
+        // Nếu danh sách DonVi đã chọn tồn tại, tải danh sách ThanhPhan tương ứng
+        if (typeof selectedDonViIds !== 'undefined' && selectedDonViIds.length > 0) {
+            loadThanhPhan(selectedDonViIds, selectedThanhPhanIds);
+        }
+
+        // Sự kiện thay đổi DonVi_Id
+        $('#donVi_Id').on('change', function () {
+            let selectedComponents = $(this).val() || [];
+            let selectedComponentsString = selectedComponents.join(',');
+
+            // Lấy các DonVi_Id đã bị xóa
+            let removedDonViIds = Object.keys(selectedComponentsMap).filter(
+                id => !selectedComponents.includes(id)
+            );
+
+            // Xóa các ThanhPhan_Id liên kết với các DonVi_Id đã bị xóa
+            removedDonViIds.forEach(donViId => {
+                let relatedThanhPhanIds = selectedComponentsMap[donViId] || [];
+                relatedThanhPhanIds.forEach(thanhPhanId => {
+                    // Kiểm tra nếu ThanhPhan_Id không còn liên kết với DonVi_Id nào khác
+                    let shouldRemove = Object.keys(selectedComponentsMap).every(
+                        id => !selectedComponentsMap[id].includes(thanhPhanId)
+                    );
+                    if (shouldRemove) {
+                        $(`#thanhPhan_Id option[value="${thanhPhanId}"]`).remove();
+                    }
+                });
+                // Xóa DonVi_Id khỏi selectedComponentsMap
+                delete selectedComponentsMap[donViId];
+            });
+
+            // Tải danh sách ThanhPhan mới qua AJAX
+            loadThanhPhan(selectedComponents, []);
+        });
+
+        // Hàm tải danh sách ThanhPhan qua AJAX
+        function loadThanhPhan(donViIds, preselectedThanhPhanIds) {
+            if (donViIds.length === 0) {
+                // Nếu không có DonVi nào được chọn, xóa tất cả options trong ThanhPhan
+                $('#thanhPhan_Id').html('').select2();
+                return;
+            }
+
+            $.ajax({
+                url: 'thanh-phan', // API lấy danh sách ThanhPhan
+                method: 'POST',
+                dataType: 'json',
+                data: {
+                    donVi_Id: donViIds.join(','), // Gửi danh sách DonVi đã chọn
+                    csrf_test_name: csrf_test_name // CSRF token nếu có
+                },
+                success: function (response) {
+                    let currentSelectedValues = $('#thanhPhan_Id').val() || [];
+
+                    // Lưu các ThanhPhan_Id mới vào selectedComponentsMap
+                    donViIds.forEach(donViId => {
+                        if (!selectedComponentsMap[donViId]) {
+                            selectedComponentsMap[donViId] = [];
+                        }
+                    });
+
+                    // Cập nhật danh sách ThanhPhan
+                    $('#thanhPhan_Id').select2('destroy').html(''); // Xóa tất cả các options hiện có
+                    response.forEach(person => {
+                        let Id = person.id;
+                        let hoTen = person.hoTen;
+
+                        // Thêm các option mới
+                        $('#thanhPhan_Id').append(`<option value="${Id}">${hoTen}</option>`);
+
+                        // Cập nhật selectedComponentsMap với ThanhPhan_Id mới
+                        donViIds.forEach(donViId => {
+                            if (!selectedComponentsMap[donViId].includes(Id)) {
+                                selectedComponentsMap[donViId].push(Id);
+                            }
+                        });
+                    });
+
+                    // Phục hồi các lựa chọn đã chọn trước đó
+                    $('#thanhPhan_Id').val(preselectedThanhPhanIds.length > 0 ? preselectedThanhPhanIds : currentSelectedValues).trigger('change');
+
+                    // Khởi tạo lại Select2
+                    $('#thanhPhan_Id').select2();
+                },
+                error: function (xhr, status, error) {
+                    console.error('Lỗi khi lấy danh sách ThanhPhan:', error);
+                }
+            });
+        }
+
+
+
+
+        $('body').on('change', '#banGiamHieu_Id', function() {
+            let caHop_Id = $('body').find('input[name="caHop_Id"]').val();
+            let chiTietCaHop_Id = $('body').find('input[name="chiTietCaHop_Id"]').val();
+            let ngayDatLich = $('body').find('input[name="ngayDatLich"]').val();
+            let banGiamHieu_Id = $(this).val()
+            let banGiamHieu_Ids = banGiamHieu_Id.join(',');
+            $.ajax({
+                url: 'canh-bao-ban-giam-hieu', // Đường dẫn tới API hoặc script xử lý yêu cầu
+                method: 'POST',
+                dataType: 'json',
+                data: { caHop_Id: caHop_Id, chiTietCaHop_Id: chiTietCaHop_Id, ngayDatLich: ngayDatLich, banGiamHieu_Ids: banGiamHieu_Ids, csrf_test_name: csrf_test_name }, // Dữ liệu gửi đi (ví dụ: ca làm việc đã chọn)
+                success: function(response) {
+                    if(response && response.length > 0) {
+                        let html = '';
+                        for (let i = 0; i < response.length; i++) {
+                            let ten = response[i].ten;
+                            let chucVu = response[i].chucVu;
+                            let tenPhong = response[i].tenPhong;
+                            html += '<p class="mb-0"><span class="badge bg-warning text-dark">' + ten + ' - ' + chucVu + ' đã có lịch tại phòng ' + tenPhong + '</span></p>';
+                        }
+                        html += '<p><span class="badge bg-secondary">Bạn có thể đặt lịch vào khung giờ khác hoặc ngày khác</span></p>'
+                        $('.showWarning').html(html);
+                    } else {
+                        $('.showWarning').html('');
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.error('Lỗi khi gửi yêu cầu AJAX:', error);
+                }
+            });
+        })
+
+        // Xử lý sự kiện submit form
+        $('#dangKyDatLich').submit(function(e) {
+            e.preventDefault();
+            //if (confirm("Bạn có chắc chắn muốn gửi không?")) {
+                // Lấy dữ liệu từ các trường input
+                let banGiamHieu_Id = $('#banGiamHieu_Id').val();
+                let banGiamHieu_Ids = banGiamHieu_Id.join(',');
+                let donVi_Id = $('#donVi_Id').val();
+                let donVi_Ids = donVi_Id.join(',');
+                let ngayDatLich = $('input[name="ngayDatLich"]').val();
+                let caHop_Id = $('input[name="caHop_Id"]').val();
+                let chiTietCaHop_Id = $('input[name="chiTietCaHop_Id"]').val();
+                let phong_Id = $('input[name="phong_Id"]').val();
+                let thanhPhan_Id = $('#thanhPhan_Id').val();
+                let thanhPhan_Ids = thanhPhan_Id.join(',');
+                let noiDung = $('#noiDung').val();
+                let donViDatLich_Id = $('#donViDatLich_Id').val();
+                let thongTinNguoiDatLich = $('#thongTinNguoiDatLich').val();
+                let sdtNguoiDat = $('#sdtNguoiDat').val();
+                let luuY = $('#luuY').val();
+                let thanhPhanKhacValue = quillcustom.root.innerHTML;
+                let thanhPhanKhac = thanhPhanKhacValue;
+                let token = $('input[name="token"]').val();
+                let phongKhac = $('input[name="phongKhac"]').val();
+
+                $.ajax({
+                    url: 'dat-lich', // Đường dẫn tới API hoặc script xử lý yêu cầu
+                    method: 'POST',
+                    dataType: 'json',
+                    data: {
+                        banGiamHieu_Id: banGiamHieu_Ids,
+                        ngayDatLich: ngayDatLich,
+                        caHop_Id: caHop_Id,
+                        chiTietCaHop_Id: chiTietCaHop_Id,
+                        phong_Id: phong_Id,
+                        donVi_Id: donVi_Ids,
+                        thanhPhan_Id: thanhPhan_Ids,
+                        donViDatLich_Id: donViDatLich_Id,
+                        thongTinNguoiDatLich: thongTinNguoiDatLich,
+                        sdtNguoiDat: sdtNguoiDat,
+                        noiDung: noiDung,
+                        luuY: luuY,
+                        thanhPhanKhac: thanhPhanKhac,
+                        token: token,
+                        phongKhac: phongKhac ?? "",
+                        csrf_test_name: csrf_test_name
+                    }, // Dữ liệu gửi đi (ví dụ: ca làm việc đã chọn)
+                    success: function (response) {
+                        if (response.status) {
+                            toastr.success(response.message);
+                            setTimeout(function () {
+                                window.location.href = base_url + 'lich-tuan'; // Replace 'success.html' with your desired URL
+                            }, 5000);
+                        } else {
+                            toastr.error(response.message);
+                        }
+
+                    },
+                    error: function (xhr, status, error) {
+                        console.error('Lỗi khi gửi yêu cầu AJAX:', error);
+                    }
+                });
+            //}
+
+        });
+
+        $('#dangKyDatPhong').submit(function(e) {
+            e.preventDefault();
+            
+            let ngayDatLich = $('input[name="ngayDatLich"]').val();
+            let caHop_Id = $('input[name="caHop_Id"]').val();
+            let chiTietCaHop_Id = $('input[name="chiTietCaHop_Id"]').val();
+            let phong_Id = $('input[name="phong_Id"]').val();
+            let noiDung = $('#noiDung').val();
+            let donViDatLich_Id = $('#donViDatLich_Id').val();
+            let thongTinNguoiDatLich = $('#thongTinNguoiDatLich').val();
+            let sdtNguoiDat = $('#sdtNguoiDat').val();
+            let luuY = $('#luuY').val();
+            let token = $('input[name="token"]').val();
+
+            $.ajax({
+                url: 'dat-phong', // Đường dẫn tới API hoặc script xử lý yêu cầu
+                method: 'POST',
+                dataType: 'json',
+                data: {
+                    ngayDatLich: ngayDatLich,
+                    caHop_Id: caHop_Id,
+                    chiTietCaHop_Id: chiTietCaHop_Id,
+                    phong_Id: phong_Id,
+                    donViDatLich_Id: donViDatLich_Id,
+                    thongTinNguoiDatLich: thongTinNguoiDatLich,
+                    noiDung: noiDung,
+                    sdtNguoiDat: sdtNguoiDat,
+                    luuY: luuY,
+                    token: token,
+                    csrf_test_name: csrf_test_name }, // Dữ liệu gửi đi (ví dụ: ca làm việc đã chọn)
+                success: function(response) {
+                    if(response.status){
+                        toastr.success(response.message);
+                        setTimeout(function() {
+                            window.location.href = base_url + 'list-phong'; // Replace 'success.html' with your desired URL
+                        }, 5000);
+                    } else {
+                        toastr.error(response.message);
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.error('Lỗi khi gửi yêu cầu AJAX:', error);
+                }
+            });
+
+        });
+
+        $('#adminDangKyDatPhong').submit(function(e) {
+            e.preventDefault();
+
+            let ngayDatLich = $('input[name="ngayDatLich"]').val();
+            let caHop_Id = $('input[name="caHop_Id"]:checked').val();
+            let chiTietCaHop_Id = $('select[name="chiTietCaHop_Id"]').val();
+            let phong_Id = $('select[name="phong_Id"]').val();
+            let noiDung = $('#noiDung').val();
+            let donViDatLich_Id = $('#donViDatLich_Id').val();
+            let thongTinNguoiDatLich = $('#thongTinNguoiDatLich').val();
+            let luuY = $('#luuY').val();
+            let token = $('input[name="token"]').val();
+            let weeksFilter = $('select[name="weeksFilter"]').val();
+
+            $.ajax({
+                url: 'admin-phong-action', // Đường dẫn tới API hoặc script xử lý yêu cầu
+                method: 'POST',
+                dataType: 'json',
+                data: {
+                    ngayDatLich: ngayDatLich,
+                    caHop_Id: caHop_Id,
+                    chiTietCaHop_Id: chiTietCaHop_Id,
+                    phong_Id: phong_Id,
+                    donViDatLich_Id: donViDatLich_Id,
+                    thongTinNguoiDatLich: thongTinNguoiDatLich,
+                    noiDung: noiDung,
+                    luuY: luuY,
+                    token: token,
+                    weeksFilter: weeksFilter ?? "",
+                    csrf_test_name: csrf_test_name }, // Dữ liệu gửi đi (ví dụ: ca làm việc đã chọn)
+                success: function(response) {
+                    if(response.status){
+                        toastr.success(response.message);
+                        setTimeout(function() {
+                            // window.location.href = base_url + 'info'; // Replace 'success.html' with your desired URL
+                            window.location.href = base_url + 'info' + (weeksFilter ? '?weeksFilter=' + weeksFilter : '');
+                        }, 2000);
+                    } else {
+                        toastr.error(response.message);
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.error('Lỗi khi gửi yêu cầu AJAX:', error);
+                }
+            });
+
+        });
+        
+        $('#editDangKyDatPhong').submit(function(e) {
+            e.preventDefault();
+            
+            let ngayDatLich = $('input[name="ngayDatLich"]').val();
+            let caHop_Id = $('input[name="caHop_Id"]:checked').val();
+            let chiTietCaHop_Id = $('select[name="chiTietCaHop_Id"]').val();
+            let phong_Id = $('select[name="phong_Id"]').val();
+            let noiDung = $('#noiDung').val();
+            let donViDatLich_Id = $('#donViDatLich_Id').val();
+            let thongTinNguoiDatLich = $('#thongTinNguoiDatLich').val();
+            let luuY = $('#luuY').val();
+            let id = $('input[name="id"]').val();
+            let token = $('input[name="token"]').val();
+            let weeksFilter = $('input[name="weeksFilter"]').val();
+            let khungGioKhac = $('input[name="khungGioKhac"]').val();
+            $.ajax({
+                url: 'edit-dat-phong', // Đường dẫn tới API hoặc script xử lý yêu cầu
+                method: 'POST',
+                dataType: 'json',
+                data: {
+                    ngayDatLich: ngayDatLich,
+                    caHop_Id: caHop_Id,
+                    chiTietCaHop_Id: chiTietCaHop_Id,
+                    phong_Id: phong_Id,
+                    donViDatLich_Id: donViDatLich_Id,
+                    thongTinNguoiDatLich: thongTinNguoiDatLich,
+                    noiDung: noiDung,
+                    luuY: luuY,
+                    khungGioKhac: khungGioKhac,
+                    weeksFilter: weeksFilter ?? "",
+                    token: token,
+                    id: id,
+                    csrf_test_name: csrf_test_name }, // Dữ liệu gửi đi (ví dụ: ca làm việc đã chọn)
+                success: function(response) {
+                    if(response.status){
+                        toastr.success(response.message);
+                        setTimeout(function() {
+                            // window.location.href = base_url + 'info'; // Replace 'success.html' with your desired URL
+                            window.location.href = base_url + 'info' + (weeksFilter ? '?weeksFilter=' + weeksFilter : '');
+                        }, 2000);
+                    } else {
+                        toastr.error(response.message);
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.error('Lỗi khi gửi yêu cầu AJAX:', error);
+                }
+            });
+
+        });
+
+        $('#editDangKyDatLich').submit(function(e) {
+            e.preventDefault();
+            let thanhPhanKhacValue = quill.root.innerHTML;
+            // let thanhPhanKhacValue = quill.getText();
+            // Lấy dữ liệu từ các trường input
+            let banGiamHieu_Id = $('#banGiamHieu_Id').val();
+            let banGiamHieu_Ids = banGiamHieu_Id.join(',');
+            let donVi_Id = $('#donVi_Id').val();
+            let donVi_Ids = donVi_Id.join(',');
+            let id = $('input[name="id"]').val();
+            let ngayDatLich = $('input[name="ngayDatLichForm"]').val();
+            let caHop_Id = $('input[name="caHop_Id"]:checked').val();
+            let chiTietCaHop_Id = $('#chiTietCaHop_Id').val();
+            let phong_Id = $('#phong_Id').val();
+            let thanhPhan_Id = $('#thanhPhan_Id').val();
+            let thanhPhan_Ids = thanhPhan_Id.join(',');
+            let noiDung = $('#noiDung').val();
+            let thanhPhanText = $('#thanhPhanText').val();
+            let donViDatLich_Id = $('#donViDatLich_Id').val();
+            let thongTinNguoiDatLich = $('#thongTinNguoiDatLich').val();
+            let luuY = $('#luuY').val();
+            let khungGioKhac = $('#khungGioKhac').val();
+            let phongKhac = $('#phongKhac').val();
+            let thanhPhanKhac = thanhPhanKhacValue;
+            let token = $('input[name="token"]').val();
+            let weeksFilter = $('input[name="weeksFilter"]').val();
+            $.ajax({
+                url: 'sua-dat-lich', // Đường dẫn tới API hoặc script xử lý yêu cầu
+                method: 'POST',
+                dataType: 'json',
+                data: {
+                    id: id,
+                    banGiamHieu_Id: banGiamHieu_Ids,
+                    ngayDatLich: ngayDatLich,
+                    caHop_Id: caHop_Id,
+                    chiTietCaHop_Id: chiTietCaHop_Id,
+                    phong_Id: phong_Id,
+                    donVi_Id: donVi_Ids,
+                    thanhPhan_Id: thanhPhan_Ids,
+                    donViDatLich_Id: donViDatLich_Id,
+                    thongTinNguoiDatLich: thongTinNguoiDatLich,
+                    noiDung: noiDung,
+                    thanhPhanText: thanhPhanText,
+                    luuY: luuY,
+                    khungGioKhac: khungGioKhac,
+                    thanhPhanKhac: thanhPhanKhac,
+                    phongKhac: phongKhac ?? "",
+                    weeksFilter: weeksFilter ?? "",
+                    token: token,
+                    csrf_test_name: csrf_test_name }, // Dữ liệu gửi đi (ví dụ: ca làm việc đã chọn)
+                success: function(response) {
+                   if(response.status){
+                       toastr.success(response.message);
+                       setTimeout(function() {
+                           // window.location.href = base_url + 'info'; // Replace 'success.html' with your desired URL
+                           window.location.href = base_url + 'info' + (weeksFilter ? '?weeksFilter=' + weeksFilter : '');
+                       }, 1000);
+                   } else {
+                       toastr.error(response.message);
+                   }
+                },
+                error: function(xhr, status, error) {
+                    console.error('Lỗi khi gửi yêu cầu AJAX:', error);
+                }
+            });
+
+        });
+
+        $('#adminDangKyDatLich').submit(function(e) {
+            e.preventDefault();
+
+            let banGiamHieu_Id = $('#banGiamHieu_Id').val();
+            let banGiamHieu_Ids = banGiamHieu_Id.join(',');
+            let donVi_Id = $('#donVi_Id').val();
+            let donVi_Ids = donVi_Id.join(',');
+            let thanhPhan_Id = $('#thanhPhan_Id').val();
+            let thanhPhan_Ids = thanhPhan_Id.join(',');
+            let donViDatLich_Id = $('#donViDatLich_Id').val();
+            let thongTinNguoiDatLich = $('#thongTinNguoiDatLich').val();
+            let sdtNguoiDat = $('#sdtNguoiDat').val();
+            let thanhPhanKhacValue = quillcustom.root.innerHTML;
+            let thanhPhanKhac = thanhPhanKhacValue;
+            let ngayDatLich = $('input[name="ngayDatLich"]').val();
+            let caHop_Id = $('input[name="caHop_Id"]:checked').val();
+            let chiTietCaHop_Id = $('#chiTietCaHop_Id').val();
+            let phong_Id = $('#phong_Id').val();
+            let noiDung = $('#noiDung').val();
+            let luuY = $('#luuY').val();
+            let token = $('input[name="token"]').val();
+            let phongKhac = $('input[name="phongKhac"]').val();
+            let khungGioKhac = $('#khungGioKhac').val();
+            let thanhPhanText = $('#thanhPhanText').val();
+            let id = $('input[name="id"]').val();
+            let weeksFilter = $('select[name="weeksFilter"]').val();
+            $.ajax({
+                url: 'admin-action', // Đường dẫn tới API hoặc script xử lý yêu cầu
+                method: 'POST',
+                dataType: 'json',
+                data: {
+                    banGiamHieu_Id: banGiamHieu_Ids,
+                    donVi_Id: donVi_Ids,
+                    thanhPhan_Id: thanhPhan_Ids,
+                    ngayDatLich: ngayDatLich,
+                    donViDatLich_Id: donViDatLich_Id,
+                    thongTinNguoiDatLich: thongTinNguoiDatLich,
+                    sdtNguoiDat: sdtNguoiDat,
+                    thanhPhanKhac: thanhPhanKhac,
+                    caHop_Id: caHop_Id,
+                    chiTietCaHop_Id: chiTietCaHop_Id,
+                    phong_Id: phong_Id,
+                    thanhPhanText: thanhPhanText,
+                    noiDung: noiDung,
+                    luuY: luuY,
+                    token: token,
+                    phongKhac: phongKhac ?? "",
+                    khungGioKhac: khungGioKhac ?? "",
+                    id: id ?? "",
+                    weeksFilter: weeksFilter ?? "",
+                    csrf_test_name: csrf_test_name }, // Dữ liệu gửi đi (ví dụ: ca làm việc đã chọn)
+                success: function(response) {
+                    if(response.status){
+                        toastr.success(response.message);
+                        setTimeout(function() {
+                            // window.location.href = base_url + 'info'; // Replace 'success.html' with your desired URL
+                            window.location.href = base_url + 'info' + (weeksFilter ? '?weeksFilter=' + weeksFilter : '');
+                        }, 1000);
+
+                    } else {
+                        toastr.error(response.message);
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.error('Lỗi khi gửi yêu cầu AJAX:', error);
+                }
+            });
+
+        });
+
+        $('#henGioDangKyDatLich').submit(function(e) {
+            e.preventDefault();
+
+            let banGiamHieu_Id = $('#banGiamHieu_Id').val();
+            let banGiamHieu_Ids = banGiamHieu_Id.join(',');
+            let donVi_Id = $('#donVi_Id').val();
+            let donVi_Ids = donVi_Id.join(',');
+            let thanhPhan_Id = $('#thanhPhan_Id').val();
+            let thanhPhan_Ids = thanhPhan_Id.join(',');
+            let donViDatLich_Id = $('#donViDatLich_Id').val();
+            let thongTinNguoiDatLich = $('#thongTinNguoiDatLich').val();
+            let sdtNguoiDat = $('#sdtNguoiDat').val();
+            let thanhPhanKhacValue = quillcustom.root.innerHTML;
+            let thanhPhanKhac = thanhPhanKhacValue;
+            let ngayDatLich = $('input[name="ngayDatLich"]').val();
+            let caHop_Id = $('input[name="caHop_Id"]:checked').val();
+            let chiTietCaHop_Id = $('#chiTietCaHop_Id').val();
+            let phong_Id = $('#phong_Id').val();
+            let noiDung = $('#noiDung').val();
+            let luuY = $('#luuY').val();
+            let token = $('input[name="token"]').val();
+            let phongKhac = $('input[name="phongKhac"]').val();
+            let khungGioKhac = $('#khungGioKhac').val();
+            let thanhPhanText = $('#thanhPhanText').val();
+            let id = $('input[name="id"]').val();
+            let weeksFilter = $('input[name="weeksFilter"]').val();
+            $.ajax({
+                url: 'dat-lich-hen-action', // Đường dẫn tới API hoặc script xử lý yêu cầu
+                method: 'POST',
+                dataType: 'json',
+                data: {
+                    banGiamHieu_Id: banGiamHieu_Ids,
+                    donVi_Id: donVi_Ids,
+                    thanhPhan_Id: thanhPhan_Ids,
+                    ngayDatLich: ngayDatLich,
+                    donViDatLich_Id: donViDatLich_Id,
+                    thongTinNguoiDatLich: thongTinNguoiDatLich,
+                    sdtNguoiDat: sdtNguoiDat,
+                    thanhPhanKhac: thanhPhanKhac,
+                    caHop_Id: caHop_Id,
+                    chiTietCaHop_Id: chiTietCaHop_Id,
+                    phong_Id: phong_Id,
+                    thanhPhanText: thanhPhanText,
+                    noiDung: noiDung,
+                    luuY: luuY,
+                    token: token,
+                    phongKhac: phongKhac ?? "",
+                    khungGioKhac: khungGioKhac ?? "",
+                    id: id ?? "",
+                    weeksFilter: weeksFilter ?? "",
+                    csrf_test_name: csrf_test_name }, // Dữ liệu gửi đi (ví dụ: ca làm việc đã chọn)
+                success: function(response) {
+                    if(response.status){
+                        toastr.success(response.message);
+                        setTimeout(function() {
+                            // window.location.href = base_url + 'info'; // Replace 'success.html' with your desired URL
+                            window.location.href = base_url;
+                        }, 1000);
+
+                    } else {
+                        toastr.error(response.message);
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.error('Lỗi khi gửi yêu cầu AJAX:', error);
+                }
+            });
+
+        });
+        
+        $('body').on('click', '.congKhaiChinhThuc', function() {
+            let week = $(this).data('week');
+            let title = $(this).data('title');
+            if (confirm("Bạn có chắc chắn muốn công khai tuần "+title+"?")) {
+                $.ajax({
+                    url: 'cong-khai-chinh-thuc', // Đường dẫn tới API hoặc script xử lý yêu cầu
+                    method: 'post',
+                    dataType: 'json',
+                    data: {week: week, csrf_test_name: csrf_test_name}, // Dữ liệu gửi đi (ví dụ: ca làm việc đã chọn)
+                    success: function (response) {
+                        toastr.success(response.message);
+                        // setTimeout(function() {
+                        //     window.location.href = base_url + 'lich-cong-tac-chinh-thuc'; // Replace 'success.html' with your desired URL
+                        // }, 1000);
+                    },
+                    error: function (xhr, status, error) {
+                        console.error('Lỗi khi gửi yêu cầu AJAX:', error);
+                    }
+                });
+            }
+        })
+
+        $('body').on('click', '.duyetLichHop', function() {
+            let week = $(this).data('week');
+            $.ajax({
+                url: 'duyet-lich-hop', // Đường dẫn tới API hoặc script xử lý yêu cầu
+                method: 'post',
+                dataType: 'json',
+                data: {week: week, csrf_test_name: csrf_test_name }, // Dữ liệu gửi đi (ví dụ: ca làm việc đã chọn)
+                success: function(response) {
+                    toastr.success(response.message);
+                    // setTimeout(function() {
+                    //     window.location.href = base_url + 'info-ttldulis'; // Replace 'success.html' with your desired URL
+                    // }, 1000);
+                },
+                error: function(xhr, status, error) {
+                    console.error('Lỗi khi gửi yêu cầu AJAX:', error);
+                }
+            });
+        })
+
+        $('body').on('click', '.duyetLichDatPhong', function() {
+            let week = $(this).data('week');
+            $.ajax({
+                url: 'duyet-lich-dat-phong', // Đường dẫn tới API hoặc script xử lý yêu cầu
+                method: 'post',
+                dataType: 'json',
+                data: {week: week, csrf_test_name: csrf_test_name }, // Dữ liệu gửi đi (ví dụ: ca làm việc đã chọn)
+                success: function(response) {
+                    toastr.success(response.message);
+                    // setTimeout(function() {
+                    //     window.location.href = base_url + 'info-ttldulis'; // Replace 'success.html' with your desired URL
+                    // }, 1000);
+                },
+                error: function(xhr, status, error) {
+                    console.error('Lỗi khi gửi yêu cầu AJAX:', error);
+                }
+            });
+        })
+
+        $('body').on('click', '.congKhaiChinhThucPhong', function() {
+            let week = $(this).data('week');
+            $.ajax({
+                url: 'cong-khai-chinh-thuc-dat-phong', // Đường dẫn tới API hoặc script xử lý yêu cầu
+                method: 'post',
+                dataType: 'json',
+                data: {week: week, csrf_test_name: csrf_test_name }, // Dữ liệu gửi đi (ví dụ: ca làm việc đã chọn)
+                success: function(response) {
+                    toastr.success(response.message);
+                    // setTimeout(function() {
+                    //     window.location.href = base_url + 'lich-cong-tac-chinh-thuc'; // Replace 'success.html' with your desired URL
+                    // }, 1000);
+                },
+                error: function(xhr, status, error) {
+                    console.error('Lỗi khi gửi yêu cầu AJAX:', error);
+                }
+            });
+        })
+
+        // fetchEventsWithBanGiamHieu(null);
+        
+        function updateUrl() {
+            var banGiamHieuVal = $('#banGiamHieuInfo').val(); // Giá trị của banGiamHieuInfo
+            var weeksYearFilterVal = $('#weeksYearFilter').val(); // Giá trị của weeksYearFilter
+            var url = base_url + 'info';
+            var params = [];
+            if (banGiamHieuVal > 0) {
+                params.push('banGiamHieu_Id=' + banGiamHieuVal);
+            }
+            if (weeksYearFilterVal > 0) {
+                params.push('weeksFilter=' + weeksYearFilterVal);
+            }
+            if (params.length > 0) {
+                url += '?' + params.join('&');
+            }
+            window.location.href = url;
+        }
+        $('body').on('change', '#banGiamHieuInfo, #weeksYearFilter', function() {
+            updateUrl(); // Gọi hàm để cập nhật URL
+        });
+
+        $('body').on('change', '#yearFilterLich', function() {
+            var yearFilterLich = $('#yearFilterLich').val();
+            var url = base_url + 'info-ttldulis';
+            var params = [];
+            if (yearFilterLich > 0) {
+                params.push('yearFilterLich=' + yearFilterLich);
+            }
+            if (params.length > 0) {
+                url += '?' + params.join('&');
+            }
+            window.location.href = url;
+        });
+        $('body').on('change', '#yearFilterLichCT', function() {
+            var yearFilterLichCT = $('#yearFilterLichCT').val();
+            var url = base_url + 'lich-cong-tac-chinh-thuc';
+            var params = [];
+            if (yearFilterLichCT > 0) {
+                params.push('yearFilterLich=' + yearFilterLichCT);
+            }
+            if (params.length > 0) {
+                url += '?' + params.join('&');
+            }
+            window.location.href = url;
+        });
+
+        function fetchEventsWithBanGiamHieu(banGiamHieu_Id) {
+            $.ajax({
+                url: 'tim-ban-giam-hieu', // Đường dẫn tới API hoặc script xử lý yêu cầu
+                method: 'get',
+                dataType: 'json',
+                data: { banGiamHieu_Id: banGiamHieu_Id, csrf_test_name: csrf_test_name }, // Dữ liệu gửi đi (ví dụ: ca làm việc đã chọn)
+                success: function(response) {
+                    $('.highlight').removeClass('highlight');
+                    var result = response.data;
+                    var counts = response.counts;
+                    $.each(result, function(index, day) {
+                        $('[data-event-id="' + day.id + '"]').addClass('highlight');
+                    });
+                },
+                error: function(xhr, status, error) {
+                    console.error('Lỗi khi gửi yêu cầu AJAX:', error);
+                }
+            });
+        }
+
+        $('body').on('click', '.banGiamHieuList li', function () {
+            var that = $(this);
+            var banGiamHieu_Id = that.val(); // Get the selected option value
+            $.ajax({
+                url: 'tim-ban-giam-hieu', // Đường dẫn tới API hoặc script xử lý yêu cầu
+                method: 'get',
+                dataType: 'json',
+                data: { banGiamHieu_Id: banGiamHieu_Id, csrf_test_name: csrf_test_name }, // Dữ liệu gửi đi (ví dụ: ca làm việc đã chọn)
+                success: function(response) {
+                    $('[class^="row_"]').css('color', '');
+                    $('[class^="bgh_"]').css('color', '');
+                    response.forEach(function(item) {
+                        let id = item.id;
+                        let banGiamHieu = item.banGiamHieu_Id;
+                        if (item.color) {
+                            let color = item.color;
+                            $('.row_' + id).css('color', color);
+                            $('.result_' + id + ' .bgh_' + banGiamHieu).css('color', color);
+                        } else {
+                            console.warn('Màu không hợp lệ cho phần tử', item);
+                        }
+                    });
+                },
+                error: function(xhr, status, error) {
+                    console.error('Lỗi khi gửi yêu cầu AJAX:', error);
+                }
+            });
+        });
+
+        $('#nhacViecForm').submit(function(e) {
+            e.preventDefault();
+            let noidungValue = quill.root.innerHTML;
+            let noidung = noidungValue;
+            let phongban = $('#phongban').val();
+            if(phongban == '' || noidung == '<p><br></p>'){
+                toastr.error('Vui lòng nhâp đầy đủ thông tin');
+                return false;
+            }
+            $.ajax({
+                url: 'nhac-viec',
+                method: 'POST',
+                dataType: 'json',
+                data: {
+                    noidung: noidung,
+                    phongban: phongban,
+                    csrf_test_name: csrf_test_name
+                },
+                success: function (response) {
+                    if(response.status){
+                        toastr.success(response.message);
+                        setTimeout(function () {
+                            window.location.href = base_url;
+                        }, 1000);
+                    } else {
+                        toastr.error(response.message);
+                        return false;
+                    }
+                },
+                error: function (xhr, status, error) {
+                    console.error('Lỗi khi gửi yêu cầu AJAX:', error);
+                }
+            });
+        });
+
+    });
+
+
+    $(document).ready(function() {
+        $('#banGiamHieu_Id').change(function() {
+            var selectedIds = $(this).val();
+            $.ajax({
+                type: 'POST',
+                url: 'canh-bao-ban-giam-hieu',
+                data: { banGiamHieuIds: selectedIds, csrf_test_name: csrf_test_name },
+                success: function(response) {
+                    var data = JSON.parse(response);
+                    $('#result').html('Count: ' + data.count + '<br>Filtered: ' + JSON.stringify(data.filteredBanGiamHieu));
+                },
+                error: function() {
+                    $('#result').html('Error processing request.');
+                }
+            });
+        });
+
+        $('.updateSTT').change(function() {
+            var id = $(this).data('id');
+            var type = $(this).data('type');
+            var value = $(this).val();
+            $.ajax({
+                type: 'POST',
+                url: 'Home/updateStt',
+                data: { id: id, type: type, value: value, csrf_test_name: csrf_test_name },
+                success: function(response) {
+                    var data = JSON.parse(response);
+                    // $('#result').html('Count: ' + data.count + '<br>Filtered: ' + JSON.stringify(data.filteredBanGiamHieu));
+                },
+                error: function() {
+                    $('#result').html('Error processing request.');
+                }
+            });
+        });
+
+        $('.updateSTTNhacViec').change(function() {
+            var id = $(this).data('id');
+            var value = $(this).val();
+            $.ajax({
+                type: 'POST',
+                url: 'Home/updateSttNhacViec',
+                data: { id: id, value: value, csrf_test_name: csrf_test_name },
+                success: function(response) {
+                    var data = JSON.parse(response);
+                    // $('#result').html('Count: ' + data.count + '<br>Filtered: ' + JSON.stringify(data.filteredBanGiamHieu));
+                },
+                error: function() {
+                    $('#result').html('Error processing request.');
+                }
+            });
+        });
+
+    });
+
+
+
+    // Initialize tooltips
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl)
+    })
+</script>
+
+<script>
+    $(document).ready(function() {
+        $('#loginForm').on('submit', function(event) {
+            event.preventDefault();
+            $.ajax({
+                url: "https://dangky.ulis.vnu.edu.vn/lichtuan/User/process",
+                method: "POST",
+                data: $(this).serialize(),
+                dataType: "json",
+                success: function(data) {
+                    if(!data.status) {
+                        toastr.error(data.message)
+                    } else {
+                        window.location.href = 'https://dangky.ulis.vnu.edu.vn/lichtuan/' + data.url + '';
+                    }
+                }
+            });
+        });
+    });
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const myTab = document.querySelector('#tabDanhMuc');
+        const tabs = myTab.querySelectorAll('[data-bs-toggle="tab"]');
+
+        // Ưu tiên kích hoạt tab từ URL hash hoặc query string
+        const urlParams = new URLSearchParams(window.location.search);
+        const tabParam = urlParams.get('tab'); // Lấy giá trị từ query string, ví dụ ?tab=phongHop-tab
+        const hash = window.location.hash; // Lấy giá trị từ URL hash, ví dụ #phongHop-tab
+        let activeTab = tabParam ? `#${tabParam}` : hash;
+
+        // Nếu không có hash hoặc query string, kiểm tra localStorage
+        if (!activeTab) {
+            activeTab = localStorage.getItem("activeTab");
+        }
+
+        // Kích hoạt tab mong muốn
+        if (activeTab) {
+            const tab = document.querySelector(activeTab);
+            if (tab) {
+                const bootstrapTab = new bootstrap.Tab(tab);
+                bootstrapTab.show();
+            }
+        }
+
+        // Lắng nghe sự kiện tab thay đổi
+        tabs.forEach(tab => {
+            tab.addEventListener('shown.bs.tab', function (event) {
+                localStorage.setItem("activeTab", `#${event.target.id}`);
+            });
+        });
+    });
+
+</script>
+
+<script>
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    });
+</script>
+</body>
+</html>
+
+

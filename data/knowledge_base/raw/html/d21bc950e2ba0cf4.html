@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Äang chuyá»n hÆ°á»ng - VNU IT Services</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root { --vnu-blue: #002060; --vnu-gold: #c59b46; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f8fafc;
+            height: 100dvh;
+            width: 100vw;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        .bg-gradient-blur {
+            position: absolute; width: 150%; height: 150%;
+            background: radial-gradient(circle at 50% 50%, rgba(37, 99, 235, 0.08) 0%, rgba(255, 255, 255, 0) 60%);
+            animation: pulse-bg 4s infinite ease-in-out; z-index: 0;
+        }
+        @keyframes pulse-bg {
+            0%, 100% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.1); opacity: 1; }
+        }
+        .loader-card {
+            position: relative; z-index: 10; display: flex;
+            flex-direction: column; align-items: center;
+            padding: 2rem; width: 100%; max-width: 400px;
+        }
+        .logo-container {
+            position: relative; width: 120px; height: 120px;
+            margin-bottom: 2rem; display: flex;
+            align-items: center; justify-content: center;
+        }
+        .logo-img {
+            width: 80px; height: 80px; object-fit: contain;
+            position: relative; z-index: 2;
+            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+            animation: float 3s ease-in-out infinite;
+        }
+        .spinner-ring {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            transform: rotate(-90deg);
+        }
+        .spinner-ring circle { fill: none; stroke-width: 3; stroke-linecap: round; }
+        .spinner-bg { stroke: #e2e8f0; }
+        
+        /* --- CHá» Sá»¬A 1: Tá»c Äá» vÃ²ng trÃ²n (0.5s) --- */
+        .spinner-progress {
+            stroke: #1e40af;
+            stroke-dasharray: 360; stroke-dashoffset: 360;
+            animation: progress 0.5s ease-out forwards; 
+        }
+
+        .ripple {
+            position: absolute; top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%; height: 100%; border-radius: 50%;
+            border: 1px solid rgba(30, 64, 175, 0.3);
+            animation: ripple 2s infinite cubic-bezier(0, 0.2, 0.8, 1);
+        }
+        .ripple:nth-child(2) { animation-delay: -0.5s; }
+        @keyframes ripple {
+            0% { width: 80px; height: 80px; opacity: 1; }
+            100% { width: 200px; height: 200px; opacity: 0; }
+        }
+        @keyframes progress { to { stroke-dashoffset: 0; } }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+        .loading-text { font-size: 1.1rem; font-weight: 600; color: #1e3a8a; margin-bottom: 0.5rem; letter-spacing: -0.01em; }
+        .sub-text { font-size: 0.875rem; color: #64748b; }
+        .dots::after {
+            content: '...'; animation: dots 1.5s steps(4, end) infinite;
+            display: inline-block; width: 1.5em; text-align: left;
+        }
+        @keyframes dots {
+            0%, 20% { content: ''; } 40% { content: '.'; }
+            60% { content: '..'; } 80%, 100% { content: '...'; }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-gradient-blur"></div>
+    <div class="loader-card">
+        <div class="logo-container">
+            <div class="ripple"></div><div class="ripple"></div>
+            <svg class="spinner-ring" viewBox="0 0 120 120">
+                <circle class="spinner-bg" cx="60" cy="60" r="57"></circle>
+                <circle class="spinner-progress" cx="60" cy="60" r="57"></circle>
+            </svg>
+            <img src="https://it.vnu.edu.vn/vnu_it.png" alt="VNU IT Logo" class="logo-img">
+        </div>
+        <div class="text-center space-y-2">
+            <h1 class="loading-text">VNU IT Services</h1>
+            <p class="sub-text flex items-center justify-center">
+                <i class="fa-solid fa-server mr-2 text-xs"></i><span class="dots">Äang káº¿t ná»i há» thá»ng</span>
+            </p>
+        </div>
+        <div class="mt-8 w-32 h-1 bg-slate-200 rounded-full overflow-hidden">
+            <div class="h-full bg-blue-700 rounded-full animate-[loading-bar_0.5s_ease-out_forwards]"></div>
+        </div>
+    </div>
+    <div class="fixed bottom-6 left-0 right-0 text-center opacity-40">
+        <img src="https://cdnportal.vnu.edu.vn/data/0/images/2025/09/09/upload_2/logo-vnu-1995.png" class="h-8 mx-auto grayscale" alt="VNU">
+    </div>
+
+    <script>
+        // --- CHá» Sá»¬A 3: Thá»i gian chá» (500ms = 0.5s) ---
+        const REDIRECT_DELAY = 500;
+        const TARGET_URL = 'https://it.vnu.edu.vn/';
+
+        setTimeout(() => {
+            // Hiá»u á»©ng má» dáº§n nhanh hÆ¡n
+            document.body.style.transition = 'opacity 0.2s'; 
+            document.body.style.opacity = '0';
+            setTimeout(() => { window.location.href = TARGET_URL; }, 200);
+        }, REDIRECT_DELAY);
+
+        document.addEventListener('touchmove', (e) => e.preventDefault(), { passive: false });
+    </script>
+
+    <style> @keyframes loading-bar { 0% { width: 0%; } 100% { width: 100%; } } </style>
+</body>
+</html>
