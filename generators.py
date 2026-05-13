@@ -60,7 +60,7 @@ class HuggingFaceAnswerGenerator:
     def __init__(
         self,
         model_name: str = "Qwen/Qwen3-1.7B",
-        max_new_tokens: int = 256,
+        max_new_tokens: int | None = None,
         temperature: float | None = None,
         top_p: float | None = None,
         top_k: int | None = None,
@@ -102,8 +102,12 @@ class HuggingFaceAnswerGenerator:
 
     def _generation_config(self):
         generation_config = copy.deepcopy(self.model.generation_config)
-        generation_config.max_new_tokens = self.max_new_tokens
         generation_config.pad_token_id = self.tokenizer.eos_token_id
+        if self.max_new_tokens is None:
+            generation_config.max_new_tokens = None
+            generation_config.max_length = self._model_context_window()
+        else:
+            generation_config.max_new_tokens = self.max_new_tokens
 
         if self.do_sample:
             generation_config.do_sample = True
@@ -119,6 +123,16 @@ class HuggingFaceAnswerGenerator:
         generation_config.top_p = 1.0
         generation_config.top_k = 50
         return generation_config
+
+    def _model_context_window(self) -> int:
+        for attr in ("max_position_embeddings", "n_positions", "seq_length"):
+            value = getattr(self.model.config, attr, None)
+            if isinstance(value, int) and value > 0:
+                return value
+        model_max_length = getattr(self.tokenizer, "model_max_length", None)
+        if isinstance(model_max_length, int) and 0 < model_max_length < 10**9:
+            return model_max_length
+        return 32768
 
     def _tokenize_prompt(self, prompt: str):
         messages = [
@@ -168,7 +182,7 @@ def build_prompt(question: str, contexts: Sequence[str]) -> str:
 
 def make_generator(
     model_name: str | None = None,
-    max_new_tokens: int = 256,
+    max_new_tokens: int | None = None,
     temperature: float | None = None,
     top_p: float | None = None,
     top_k: int | None = None,

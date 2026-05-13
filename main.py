@@ -18,7 +18,11 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--embedder", choices=["tfidf", "sentence-transformer"], default="tfidf")
     parser.add_argument("--retriever-model", help="SentenceTransformer model name/path.")
     parser.add_argument("--generator-model", help="Open HuggingFace causal/chat model name/path.")
-    parser.add_argument("--max-new-tokens", type=int, default=256, help="Maximum LLM tokens to generate.")
+    parser.add_argument(
+        "--max-new-tokens",
+        type=int,
+        help="Optional maximum LLM tokens to generate. Omit to let the model run until EOS/context limit.",
+    )
     parser.add_argument("--temperature", type=float, help="Enable sampling with this temperature.")
     parser.add_argument("--top-p", type=float, help="Nucleus sampling value for LLM generation.")
     parser.add_argument("--llm-top-k", type=int, help="Top-k sampling value for LLM generation.")

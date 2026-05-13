@@ -56,6 +56,13 @@ By default, LLM generation is deterministic. To sample:
 python main.py --kb knowledge_base --embedder sentence-transformer --retriever-model BAAI/bge-m3 --generator-model Qwen/Qwen3-1.7B --temperature 0.2 --top-p 0.9 --llm-top-k 20
 ```
 
+Generation is not capped by a small default token limit. Add a cap when you want
+faster or shorter responses:
+
+```powershell
+python main.py --kb data/knowledge_base/processed/chunks.jsonl --embedder sentence-transformer --retriever-model BAAI/bge-m3 --generator-model Qwen/Qwen3-1.7B --max-new-tokens 512
+```
+
 Install the optional model dependencies first if needed:
 
 ```powershell
