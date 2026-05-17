@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="/img/icon.png" />
+    
+    <style>
+        .btn-top {
+            background: #fff;
+            border: 1px solid #d4d4d4;
+            bottom: 20px;
+            cursor: pointer;
+            display: none;
+            outline: medium none;
+            padding: 10px 15px;
+            position: fixed;
+            right: 20px;
+            z-index: 4;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 5px;
+        }
+
+            .btn-top i {
+                display: block;
+            }
+    </style>
+    <link href="http://dangkynoitru.css.vnu.edu.vn/css/normalize.css" rel="stylesheet" />
+    <link rel="stylesheet" href="http://dangkynoitru.css.vnu.edu.vn/lib/bootstrap/css/bootstrap.min.css" />
+
+    <link href="http://dangkynoitru.css.vnu.edu.vn/lib/fontawesome/css/all.min.css" rel="stylesheet" />
+
+        <style>
+        .header-right .hotline {
+            background: url(http://dangkynoitru.css.vnu.edu.vn/img/mobile.png) no-repeat;
+        }
+
+        .header-right .email {
+            background: url(http://dangkynoitru.css.vnu.edu.vn/img/email.png) no-repeat;
+        }
+        footer {
+            background: url(http://dangkynoitru.css.vnu.edu.vn/img/bg-logo-footer.png) no-repeat #03539D;
+        }
+        .van-ban-content {
+            background: url(http://dangkynoitru.css.vnu.edu.vn/img/pencel.png) no-repeat 10px 14px;
+        }
+        .thoitiet-main{ background: url(http://dangkynoitru.css.vnu.edu.vn/img/thoitiet.png) no-repeat;}
+        .video .wrapper .playpause {
+            background-image: url(http://dangkynoitru.css.vnu.edu.vn/img/icon_logo/video_play_button.png);
+
+        }
+
+        .zone-10-title {
+            background: url(http://dangkynoitru.css.vnu.edu.vn/img/zone10_icon.png) no-repeat 0 3px;
+        }
+        .gallery-main {
+            background: url(http://dangkynoitru.css.vnu.edu.vn/img/bg_gallery.png) top right no-repeat #07659E;
+        }
+        .hoc-tap-title {
+            background: url( http://dangkynoitru.css.vnu.edu.vn/img/icon-book.png) #fff no-repeat  19px 0;
+
+        }
+        .ykien-content {
+            background: url(http://dangkynoitru.css.vnu.edu.vn/img/pencel.png) no-repeat;
+        }
+
+
+        @font-face {
+            font-family: 'BeVietnamPro-Medium';
+            src: url('http://dangkynoitru.css.vnu.edu.vn/fonts/BeVietnamPro-Medium.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'BeVietnamPro-Regular';
+            src: url('http://dangkynoitru.css.vnu.edu.vn/fonts/BeVietnamPro-Regular.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'BeVietnamPro-Bold';
+            src: url('http://dangkynoitru.css.vnu.edu.vn/fonts/BeVietnamPro-Bold.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'BeVietnamPro-Italic';
+            src: url('http://dangkynoitru.css.vnu.edu.vn/fonts/BeVietnamPro-Italic.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'BeVietnamPro-LightItalic';
+            src: url('http://dangkynoitru.css.vnu.edu.vn/fonts/BeVietnamPro-LightItalic.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'BeVietnamPro-Light';
+            src: url('http://dangkynoitru.css.vnu.edu.vn/fonts/BeVietnamPro-Light.ttf') format('truetype');
+        }
+    </style>
+
+
+    <link href="http://dangkynoitru.css.vnu.edu.vn/css/common.css" rel="stylesheet" />
+    <link rel="stylesheet" href="http://dangkynoitru.css.vnu.edu.vn/css/custom.css" />
+
+    <!--load all styles -->
+    <script src="http://dangkynoitru.css.vnu.edu.vn/lib/popper/js/popper.min.js"></script>
+    <script src="http://dangkynoitru.css.vnu.edu.vn/lib/jquery/dist/jquery.min.js"></script>
+    <script src="http://dangkynoitru.css.vnu.edu.vn/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!--Select2-->
+    <link href="http://dangkynoitru.css.vnu.edu.vn/lib/select2/css/select2.css" rel="stylesheet" />
+    <link href="http://dangkynoitru.css.vnu.edu.vn/lib/select2/css/select2-bootstrap-5-theme.min.css" rel="stylesheet" />
+    <script src="http://dangkynoitru.css.vnu.edu.vn/lib/select2/js/select2.js"></script>
+
+    <!--toastr-->
+    <link href="http://dangkynoitru.css.vnu.edu.vn/lib/toastr/css/toastr.min.css" rel="stylesheet" />
+    <script src="http://dangkynoitru.css.vnu.edu.vn/lib/toastr/js/toastr.min.js"></script>
+
+    <!--Datetime picker-->
+    <link href="http://dangkynoitru.css.vnu.edu.vn/lib/datetimepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+    <script src="http://dangkynoitru.css.vnu.edu.vn/lib/datetimepicker/js/moment.min.js"></script>
+    <script src="http://dangkynoitru.css.vnu.edu.vn/lib/datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+
+    <!--datatable-->
+    <link href="http://dangkynoitru.css.vnu.edu.vn/lib/datatable/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <script src="http://dangkynoitru.css.vnu.edu.vn/lib/datatable/js/jquery.dataTables.min.js"></script>
+
+    <link href="http://dangkynoitru.css.vnu.edu.vn/lib/fancy-box/css/jquery.fancybox.min.css" rel="stylesheet" />
+    <script src="http://dangkynoitru.css.vnu.edu.vn/lib/fancy-box/js/jquery.fancybox.min.js"></script>
+
+
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113292499-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-113292499-1');
+
+        BASE_URL = 'http://dangkynoitru.css.vnu.edu.vn';
+    </script>
+    <script src="http://dangkynoitru.css.vnu.edu.vn/js/axios.min.js"></script>
+    <script src="http://dangkynoitru.css.vnu.edu.vn/js/common.js"></script>
+    
+</head>
+<body>
+    <div id="loadingOverlay" class="position-fixed d-flex d-none flex-column  align-items-center justify-content-center" style="z-index: 100000; background: var(--VNU_transparent); bottom: 0; left: 0; right: 0; top: 0;">
+        <span><i class="fas fa-fan fa-spin color-VNU-green fa-6x"></i></span>
+        <div class="color-VNU-White">Đang tải...</div>
+    </div>
+
+    
+
+<div class="container-fluid ">
+    <div class="row align-items-center py-2 mx-3">
+        <div class="col-3">
+            <a href="http://dangkynoitru.css.vnu.edu.vn/HomePage">
+                <img src="/img/icon_logo/VNU_LOGO.png" class=" img-fluid float-start" />
+            </a>
+        </div>
+        <div class="col-6 text-center">
+            <h1 class="text_22_bold color-VNU-green">TRUNG TÂM HỖ TRỢ SINH VIÊN</h1>
+        </div>
+        <div class="col-3">
+            <img src="/img/icon_logo/VNU_CSS_LOGO.png" class=" img-fluid float-end" />
+        </div>
+    </div>
+</div>
+
+
+
+    <main role="main">
+        
+
+<script src="https://www.google.com/recaptcha/api.js?render=6LfDWIUcAAAAAFO2PVXStqYbivbv89v-JGTAyGHM"></script>
+<script>
+    function ReloadCaptchaToken() {
+        grecaptcha.ready(function () {
+        grecaptcha.execute('6LfDWIUcAAAAAFO2PVXStqYbivbv89v-JGTAyGHM', { action: 'reset' }).then(function (token) {
+            document.getElementById("googleRecaptchaV3Token").value = token;
+        });
+    });
+    }
+</script>
+<script src="http://dangkynoitru.css.vnu.edu.vn/js/countDown.js"></script>
+<script src="http://dangkynoitru.css.vnu.edu.vn/js/register/reset.js"></script>
+<script src="http://dangkynoitru.css.vnu.edu.vn/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="http://dangkynoitru.css.vnu.edu.vn/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
+<div class="background-div d-flex align-items-center">
+    <!-- container -->
+    <div class="container position-relative " style="z-index: 1;">
+        <button class="back-button btn" onclick="history.back();" style="z-index:1;"><i class="fas fa-caret-left p-2"></i></button>
+        <div class="d-flex justify-content-center align-items-center flex-wrap">
+            <div class="form-section my-4">
+                <div class="form-section-form card p-4 ms-0 ms-md-5">
+                        <form method="post" action="/StudentUser/ForgetPassword">
+                            <input type="hidden" id="googleRecaptchaV3Token" name="googleRecaptchaV3Token" value="" />
+
+                            <div class="form-section-title py-2">
+                                <h3 class="ps-5 m-0">
+                                    Quên mật khẩu
+                                </h3>
+                            </div>
+
+
+                            <!-- student code input -->
+                            <div class="form-section-input my-2">
+                                <div class="input-group">
+                                    <div class="form-floating flex-grow-1">
+                                        <input type="text" class="form-control" placeholder="Mã sinh viên" data-val="true" data-val-required="kh&#xF4;ng &#x111;&#x1B0;&#x1EE3;c &#x111;&#x1EC3; tr&#x1ED1;ng" id="fullName" name="fullName" value="">
+                                        <label for="fullName">H&#x1ECD; v&#xE0; t&#xEA;n</label>
+                                    </div>
+
+                                </div>
+                                <span class="text-danger field-validation-valid" data-valmsg-for="fullName" data-valmsg-replace="true"></span>
+                            </div>
+                            <div class="form-section-input my-md-2">
+                                <div class="input-group">
+                                    <div class="form-floating flex-grow-1">
+                                        <input type="text" class="form-control" placeholder="Mã sinh viên" data-val="true" data-val-required="kh&#xF4;ng &#x111;&#x1B0;&#x1EE3;c &#x111;&#x1EC3; tr&#x1ED1;ng" id="studentCode" name="studentCode" value="">
+                                        <label for="studentCode">CMT/CCCD/M&#xE3; sinh vi&#xEA;n</label>
+                                    </div>
+
+
+                                </div>
+                                <span class="text-danger field-validation-valid" data-valmsg-for="studentCode" data-valmsg-replace="true"></span>
+                            </div>
+
+                            <div class="form-section-input my-md-2">
+                                <div class="input-group">
+                                    <div class="form-floating flex-grow-1">
+                                        <input type="text" class="form-control" placeholder="Mã sinh viên" data-val="true" data-val-required="S&#x1ED1; &#x111;i&#x1EC7;n tho&#x1EA1;i kh&#xF4;ng &#x111;&#x1B0;&#x1EE3;c &#x111;&#x1EC3; tr&#x1ED1;ng" id="phoneNumber" name="phoneNumber" value="">
+                                        <label for="phoneNumber">S&#x1ED1; &#x111;i&#x1EC7;n tho&#x1EA1;i</label>
+                                    </div>
+
+
+                                </div>
+                                <span class="text-danger field-validation-valid" data-valmsg-for="phoneNumber" data-valmsg-replace="true"></span>
+                            </div>
+
+
+                            <div class="form-section-input my-2">
+                                <div class="input-group">
+                                    <div class="form-floating flex-grow-1">
+                                        <input type="text" class="form-control" placeholder="Mã sinh viên" data-val="true" data-val-required="kh&#xF4;ng &#x111;&#x1B0;&#x1EE3;c &#x111;&#x1EC3; tr&#x1ED1;ng" id="email" name="email" value="">
+                                        <label for="email">Email</label>
+                                    </div>
+
+
+                                </div>
+                                <span class="text-danger field-validation-valid" data-valmsg-for="email" data-valmsg-replace="true"></span>
+                            </div>
+                            <div class="my-2">
+                                <button data-loading-text="<i class='fa-solid fa-spin fa-fan'></i>" class="btn w-100 form-section-button">Cập nhật</button>
+                            </div>
+                        <input name="__RequestVerificationToken" type="hidden" value="CfDJ8PicsLPuoG1FgYONt1_0RJJt12FuQjKlSYLuUaO7o4yqeYDe6IorCp2O3XYhFsxkXtCLKBkqZHkL-5dgW3qplPZ8r27_dAxlABmUi59Vhzon6yTJQs8PrI_QkG-s6R-ddQNKOY5bbzx6ROFJDM51iOA" /></form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+</script>
+
+    </main>
+    
+
+<footer>
+
+</footer>
+
+
+    <a class="btn-top form-section-button text-decoration-none" href="javascript:void(0);" title="Top" style="display: inline;">
+        <i class="fas fa-angle-double-up" style="font-size: 24px;"></i>
+    </a>
+
+
+    <script>
+        jQuery(document).ready(function ($) {
+            if ($(".btn-top").length > 0) {
+                $(window).scroll(function () {
+                    var e = $(window).scrollTop();
+                    if (e > 20) {
+                        $(".btn-top").show();
+                    } else {
+                        $(".btn-top").hide();
+                    }
+                });
+                $(".btn-top").click(function () {
+                    $('body,html').animate({
+                        scrollTop: 0
+                    })
+                })
+            }
+        });
+    </script>
+    
+</body>
+</html>

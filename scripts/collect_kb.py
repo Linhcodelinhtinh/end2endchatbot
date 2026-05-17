@@ -15,8 +15,10 @@ import argparse
 import csv
 import hashlib
 import json
+import re
 import threading
 import time
+from collections import deque
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from dataclasses import dataclass
 from datetime import datetime, timezone
@@ -44,6 +46,47 @@ MANIFEST_FIELDS = [
 ]
 
 TRACKING_QUERY_PREFIXES = ("utm_", "fbclid", "gclid", "mc_")
+NON_CONTENT_EXTENSIONS = {
+    ".css",
+    ".js",
+    ".json",
+    ".xml",
+    ".jpg",
+    ".jpeg",
+    ".png",
+    ".gif",
+    ".svg",
+    ".webp",
+    ".ico",
+    ".mp3",
+    ".wav",
+    ".mp4",
+    ".avi",
+    ".mov",
+    ".zip",
+    ".rar",
+    ".7z",
+    ".tar",
+    ".gz",
+    ".doc",
+    ".docx",
+    ".xls",
+    ".xlsx",
+    ".ppt",
+    ".pptx",
+}
+LOW_VALUE_URL_PATTERNS = (
+    "/wp-json/",
+    "/feed",
+    "/comment",
+    "/login",
+    "/dang-nhap",
+    "/register",
+    "/dang-ky",
+    "/search",
+    "/tag/",
+)
+URL_PATTERN_RE = re.compile(r"""https?://[^\s"'<>]+""", flags=re.IGNORECASE)
 
 
 @dataclass
@@ -158,6 +201,14 @@ def is_allowed_url(
         return False
 
     url_l = url.lower()
+    path_l = parsed.path.lower()
+    if any(path_l.endswith(ext) for ext in NON_CONTENT_EXTENSIONS):
+        return False
+    if any(pattern in url_l for pattern in LOW_VALUE_URL_PATTERNS):
+        return False
+    if len(parsed.query) > 220:
+        return False
+
     if any(keyword in url_l for keyword in blocked_keywords):
         return False
     if exclude_keywords and any(keyword in url_l for keyword in exclude_keywords):
@@ -169,10 +220,73 @@ def is_allowed_url(
 
 def extract_links(base_url: str, html_text: str) -> list[str]:
     soup = BeautifulSoup(html_text, "html.parser")
-    links: list[str] = []
-    for a_tag in soup.find_all("a", href=True):
-        links.append(urljoin(base_url, a_tag["href"]))
-    return links
+    links: set[str] = set()
+
+    attr_candidates = ("href", "src", "data-src", "data-url", "action")
+    for tag in soup.find_all(True):
+        for attr_name in attr_candidates:
+            value = tag.attrs.get(attr_name)
+            if not value:
+                continue
+            if isinstance(value, list):
+                for item in value:
+                    if item:
+                        links.add(urljoin(base_url, str(item)))
+            else:
+                links.add(urljoin(base_url, str(value)))
+
+    for tag in soup.find_all(True):
+        onclick = tag.attrs.get("onclick")
+        if not onclick:
+            continue
+        match = re.search(r"""['"](https?://[^'"]+|/[^'"]+)['"]""", str(onclick))
+        if match:
+            links.add(urljoin(base_url, match.group(1)))
+
+    # Parse URL-like strings embedded in scripts/inline text (helps discover hidden PDF endpoints).
+    for match in URL_PATTERN_RE.finditer(html_text):
+        links.add(match.group(0).strip(".,);]}>\"'"))
+
+    cleaned: list[str] = []
+    for link in links:
+        if not link:
+            continue
+        link = link.strip().strip("\\")
+        if link.startswith(("javascript:", "mailto:", "tel:", "#")):
+            continue
+        if "\\" in link:
+            continue
+        cleaned.append(link)
+    return cleaned
+
+
+def is_pdf_candidate(url: str, content_type: str) -> bool:
+    url_l = url.lower()
+    ctype_l = content_type.lower()
+    if "application/pdf" in ctype_l:
+        return True
+    if any(token in ctype_l for token in ("application/octet-stream", "application/download")) and (
+        ".pdf" in url_l or "pdf" in url_l
+    ):
+        return True
+    if ".pdf" in url_l:
+        return True
+    return False
+
+
+def looks_like_pdf(binary_content: bytes) -> bool:
+    # Some endpoints return HTML error pages while keeping a *.pdf URL.
+    prefix = (binary_content or b"")[:1024].lstrip()
+    return prefix.startswith(b"%PDF-")
+
+
+def queue_priority(url: str) -> int:
+    url_l = url.lower()
+    if ".pdf" in url_l:
+        return 0
+    if any(token in url_l for token in ("/home/?c", "/dao-tao", "/tuyen-sinh", "/quy-che", "/van-ban")):
+        return 1
+    return 2
 
 
 def write_manifest(path: Path, rows: list[dict[str, str]]) -> None:
@@ -199,6 +313,17 @@ def load_existing_urls_from_manifest(path: Path) -> set[str]:
     return seen
 
 
+def load_manifest_rows(path: Path) -> list[dict[str, str]]:
+    if not path.exists():
+        return []
+    rows: list[dict[str, str]] = []
+    with path.open("r", encoding="utf-8", newline="") as f:
+        reader = csv.DictReader(f)
+        for row in reader:
+            rows.append({field: row.get(field, "") for field in MANIFEST_FIELDS})
+    return rows
+
+
 def fetch_with_retry(
     url: str,
     headers: dict[str, str],
@@ -213,7 +338,10 @@ def fetch_with_retry(
     for attempt in range(max_retries + 1):
         pacer.wait(domain)
         try:
-            response = requests.get(url, headers=headers, timeout=timeout_seconds, allow_redirects=True)
+            req_headers = dict(headers)
+            if "cdnportal.vnu.edu.vn" in domain and "Referer" not in req_headers:
+                req_headers["Referer"] = "https://vnu.edu.vn/"
+            response = requests.get(url, headers=req_headers, timeout=timeout_seconds, allow_redirects=True)
             retriable_status = response.status_code in {429, 500, 502, 503, 504}
             if retriable_status and attempt < max_retries:
                 if response.status_code == 429 and not retry_429:
@@ -309,11 +437,31 @@ def fetch_url(
                 is_pdf=False,
             )
 
-        if "application/pdf" in content_type or final_url.lower().endswith(".pdf"):
-            target_path = pdf_dir / f"{doc_id}.pdf"
-            target_path.write_bytes(response.content)
-            if sleep_seconds > 0:
-                time.sleep(sleep_seconds)
+        if is_pdf_candidate(final_url, content_type):
+            if looks_like_pdf(response.content):
+                target_path = pdf_dir / f"{doc_id}.pdf"
+                target_path.write_bytes(response.content)
+                if sleep_seconds > 0:
+                    time.sleep(sleep_seconds)
+                return FetchResult(
+                    row=build_error_row(
+                        doc_id=doc_id,
+                        source_id=source_id,
+                        category=category,
+                        priority=priority,
+                        url=final_url,
+                        status="ok",
+                        status_code=status_code,
+                        content_type=content_type,
+                        file_path=str(target_path),
+                    ),
+                    links=[],
+                    is_success=True,
+                    is_pdf=True,
+                )
+            content_type = "text/html; charset=utf-8"
+
+        if "text/html" not in content_type and "application/xhtml+xml" not in content_type:
             return FetchResult(
                 row=build_error_row(
                     doc_id=doc_id,
@@ -321,14 +469,14 @@ def fetch_url(
                     category=category,
                     priority=priority,
                     url=final_url,
-                    status="ok",
+                    status="ignored_non_content",
                     status_code=status_code,
                     content_type=content_type,
-                    file_path=str(target_path),
+                    error="not_html_or_pdf",
                 ),
                 links=[],
-                is_success=True,
-                is_pdf=True,
+                is_success=False,
+                is_pdf=False,
             )
 
         text = response.text
@@ -383,7 +531,7 @@ def collect_for_source(
 ) -> list[dict[str, str]]:
     max_depth = int(crawl_cfg.get("max_depth", 2))
     max_pages_per_seed = int(crawl_cfg.get("max_pages_per_seed", 80))
-    timeout_seconds = float(args.request_timeout)
+    timeout_seconds = float(crawl_cfg.get("request_timeout_seconds", args.request_timeout))
     user_agent = str(crawl_cfg.get("user_agent", "End2EndNLPBot/2.0"))
     allowed_domains = set(crawl_cfg.get("allowed_domains", []))
     blocked_keywords = list(crawl_cfg.get("blocked_path_keywords", []))
@@ -392,7 +540,11 @@ def collect_for_source(
     include_keywords = list(source.get("include_url_keywords", []) or [])
     exclude_keywords = list(source.get("exclude_url_keywords", []) or [])
 
-    headers = {"User-Agent": user_agent}
+    headers = {
+        "User-Agent": user_agent,
+        "Accept": "text/html,application/pdf,application/xhtml+xml;q=0.9,*/*;q=0.8",
+        "Accept-Language": "vi,en;q=0.8",
+    }
     source_id = str(source["id"])
     category = str(source.get("category", "unknown"))
     priority = str(source.get("priority", "medium"))
@@ -417,7 +569,7 @@ def collect_for_source(
         if args.max_runtime_seconds > 0 and (time.monotonic() - started_at) >= args.max_runtime_seconds:
             log("[runtime-limit] reached, stopping current source.")
             break
-        queue: list[tuple[str, int]] = [(canonicalize_url(seed_url), 0)]
+        queue: deque[tuple[str, int]] = deque([(canonicalize_url(seed_url), 0)])
         discovered: set[str] = {canonicalize_url(seed_url)}
         fetched_this_seed = 0
         seed_attempted = 0
@@ -439,7 +591,7 @@ def collect_for_source(
 
             batch: list[tuple[str, int]] = []
             while queue and len(batch) < args.workers:
-                url, depth = queue.pop(0)
+                url, depth = queue.popleft()
                 if url in existing_urls:
                     seed_skipped += 1
                     source_skipped += 1
@@ -503,7 +655,10 @@ def collect_for_source(
                             norm = canonicalize_url(link)
                             if norm not in discovered and norm not in existing_urls:
                                 discovered.add(norm)
-                                queue.append((norm, depth + 1))
+                                if queue_priority(norm) <= 1:
+                                    queue.appendleft((norm, depth + 1))
+                                else:
+                                    queue.append((norm, depth + 1))
 
                     if args.progress_every > 0 and (source_attempted % args.progress_every == 0):
                         elapsed = time.monotonic() - source_start
@@ -570,8 +725,12 @@ def main() -> None:
     all_rows: list[dict[str, str]] = []
     existing_urls: set[str] = set()
     if args.resume_from_manifest:
+        all_rows = load_manifest_rows(manifest_path)
         existing_urls = load_existing_urls_from_manifest(manifest_path)
-        log(f"[resume] loaded {len(existing_urls)} URLs from existing manifest")
+        log(
+            f"[resume] loaded {len(existing_urls)} successful URLs "
+            f"and {len(all_rows)} manifest rows"
+        )
 
     sources = cfg.get("sources", [])
     crawl_cfg = cfg.get("crawl", {})

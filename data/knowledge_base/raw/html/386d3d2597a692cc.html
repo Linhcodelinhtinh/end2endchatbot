@@ -1,0 +1,732 @@
+
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+	function java_toasoan(){
+		width=450; height=250;
+		LeftPosition = (screen.width) ? (screen.width-width)/2 : 0;
+		TopPosition = (screen.height) ? (screen.height-height)/2 : 0;				
+		var sWindowFeatures='top='+TopPosition+',left='+LeftPosition+',height='+height+',width='+width+',status=no,toolbar=no,menubar=no,location=no,scrollbars=1,edge: Raised,center: Yes';
+		var resultHanddle=window.open("/Libaries/toasoan.html","window",sWindowFeatures);	
+	}
+//-->
+</SCRIPT>
+<script language="javascript">
+	function MouseMenuOver(Obj,cateid,thutu,length)
+	{
+		var sDiv=document.getElementById(thutu);
+		sDiv.style.display="block";
+		Obj.className="clsMenuNgangOver";	
+		//alert(thutu);
+	}
+	function MouseMenuOut(Obj,cateid,thutu)
+	{
+		Obj.className="clsMenuNgang";
+		var sDiv=document.getElementById(thutu);
+		sDiv.style.display="none";
+	}
+	function MouseMenuOut12(Obj,cateid,thutu)
+	{
+		Obj.className="clsMenuNgang";
+		//var sDiv=document.getElementById(thutu);
+		//sDiv.style.display="none";
+	}
+</script>
+<style>
+	.clsMenuNgang{font-family:arial;font-weight:bold;font-size:11px ; color:#ffffff;text-decoration:none;}
+	.clsMenuNgangOver{font-family:arial;font-weight:bold;font-size:11px ; color:#974522;text-decoration:none;cursor:hand;}
+	.clsMenuNgang:hover{font-family:arial;font-weight:bold;font-size:11px ; color:#974522;text-decoration:none;cursor:hand;}
+	.clssubmenungang{font-family:arial;font-weight:normal;font-size:12px ; color:#003399;text-decoration:none;cursor:hand;text-decoration:none;}
+	.clssubmenungang:hover{font-family:arial;font-weight:normal;font-size:12px ; color:#974522;text-decoration:none;cursor:hand;text-decoration:none;}
+	.clsDate{font-family:arial;font-weight:normal;font-size:11px;color:#ffffff;}
+	.clslinsPage{font-family:arial;font-weight:bold;font-size:12px;color:#ffffff;text-decoration:none;}
+	.clslinsPage:hover{font-family:arial;font-weight:bold;font-size:12px;color:#ffffff;text-decoration:underline;}
+	.clsMenuphai{font-family:arial;font-weight:bold;font-size:11px ; color:#ffffff; text-transform:uppercase; text-decoration:none;}
+	.clsMenuphaiselect{font-family:arial;font-weight:bold;font-size:11px ; color:#8F3E16; text-transform:uppercase; text-decoration:none;}
+	.clsMenuphai:hover{font-family:arial;font-weight:bold;font-size:11px ; color:#990000; text-transform:uppercase; text-decoration:underline;}
+	.clssubmenuphai{font-family:arial;font-weight:bold;font-size:11px ; color:#ffffff;text-decoration:none;cursor:hand;text-decoration:none;}
+	.clssubmenuphai:hover{font-family:arial;font-weight:bold;font-size:11px ; color:#F3725A;text-decoration:none;cursor:hand;text-decoration:underline;}
+	.clssubmenuphaiselect{font-family:arial;font-weight:bold;font-size:11px ; color:#FFB401;text-decoration:none;cursor:hand;text-decoration:none;}
+	.clstinanh{font-family:arial;font-weight:bold;font-size:12px;color:#ffffff;padding-top:4px;padding-bottom:3px;}
+	.clsTitleNew{font-family:arial;font-weight:bold;font-size:12px;color:#1F1F1F;text-decoration:none;}
+	.clsTitleNew:hover{font-family:arial;font-weight:bold;font-size:12px;color:#1F1F1F;text-decoration:underline;}
+	.clsTrangchu{font-family:arial;font-weight:bold;font-size:11px;color:#ffffff;text-decoration:none;}
+	.clsTrangchu:hover{font-family:arial;font-weight:bold;font-size:11px;color:#000095;text-decoration:none;}
+	.scltacgia{font-family:arial;font-weight:bold;font-size:12px;color:#ffffff;text-decoration:none;}
+
+</style>
+
+<style>
+	.album{font-family:arial;font-weight:bold;font-size:12px;color:#272727;}
+	.clsnameCD{font-family:arial;font-weight:bold;font-size:12px;color:#272727;}
+	.clsTTQA{font-family:arial;font-weight:bold;font-size:12px;color:#ffffff;}
+	.clstitle{font-family:arial;font-weight:normal;font-size:12px;color:#444444;}
+	.clschuyendetitle{font-family:arial;font-weight:normal;font-size:12px;color:#3D120C;text-decoration:none;}
+	.clschuyendetitle:hover{font-family:arial;font-weight:normal;font-size:12px;color:#3D120C;text-decoration:underline;}
+	.clsTable_Service{border-top:#406ECB 3px solid;border-bottom:#406ECB 4px solid;border-left:#406ECB 3px solid;border-right:#406ECB 3px solid;}
+</style>
+
+<script>
+	function Java_showimg(sUrl,nwidth,nheigh)
+	{ 	
+			var w=nwidth
+			var h=nheigh 
+			width=400; height=450;
+			LeftPosition = (screen.width) ? (screen.width-width)/2 : 0;
+			TopPosition = (screen.height) ? (screen.height-height)/2 : 0;	window.open("/ttsk/showImg.asp?url="+sUrl+"&nwidth="+nwidth+"&nheigh="+nheigh,"window","Top="+TopPosition+"; Left="+LeftPosition+"; Height="+h+"px; Width="+w+"px; center= 1; resizable=no; status= 0");		  	
+	}
+</script>
+
+<style>
+.tvanh
+{
+	font-family:arial;
+	font-size:12px;
+	font-weight:normal;
+	cursor:hand;	
+}
+</style>
+
+<HTML><HEAD>
+<title>GS. VÃµ QuÃ½ - nhÃ  giÃ¡o, nhÃ  Äiá»u há»c, ngÆ°á»i báº¡n cá»§a thiÃªn nhiÃªn - Báº£n tin Äáº¡i há»c Quá»c gia HÃ  Ná»i</title>
+<META http-equiv=Content-Type content="text/html; charset=UTF-8">
+<META content=no-cache http-equiv=Pragma>
+<meta http-equiv="REFRESH" content="600">
+
+<LINK href="/Libaries/Style/vBGPortal/default.css" rel=STYLESHEET type=text/css media="screen">
+<script language="Javascript" src="/Libaries/Script/sUBNDCommon.js"></script>
+<script language="Javascript" src="/Libaries/Script/MenuHorizontor/SCMS151.js"></script>
+<script language="Javascript">
+	function Show_Author()
+	{		
+	  var width=1800; 
+	  var height=1000;
+	  var LeftPosition = (screen.width) ? (screen.width-width)/2 : 0;
+	  var TopPosition = (screen.height) ? (screen.height-height)/2 : 0;
+	  window.open("/Libaries/img/DHDD/tacgia.html","window","Top="+TopPosition+"; Left="+LeftPosition+"; Height=360; Width=400; center= 1; resizable=no; status= 0");
+	}
+</script>
+<style>
+	.clslienquan{font-family:arial;font-weight:bold;font-size:12px;color:#000095;text-decoration:none;}
+</style>
+</HEAD>
+<BODY text=#000000 vLink=#666699 aLink=#003399 link=#003399 bgColor=#FFFFFF leftMargin=1 topMargin=0 rightMargin=0 marginheight="0" marginwidth="0" align=center>
+
+
+<TABLE cellSpacing=0 cellPadding=0 width="790px" align=center valign="top" style="BORDER-left: #A2A2A2 1px solid;BORDER-right: #A2A2A2 1px solid;BORDER-bottom: #A2A2A2 1px solid;" border=0>
+ <TBODY>
+<TR><TD colspan="2" bgcolor="#B2C1E0">
+	<TABLE cellSpacing=0 cellPadding=0 width="800" valign="top" align="center">
+		<TR><TD valign="top">
+<TABLE WIDTH="700px" CELLPADDING="0" CELLSPACING="0" align="top" valign="top" border="0"  bgcolor="#B2C1E0">
+   <TR><TD align="top" valign="top" bgcolor="#244287" CELLPADDING="0" CELLSPACING="0" style="border-top:#244287 1px solid;border-left:#244287 5px solid;" ><img  src="/Libaries/img/DHDD/baner01.gif" ></TD>
+		<TD><table border=0 width="100%" height="100%" cellspacing="0" cellpadding="0">
+				<tr><td><img  src="/Libaries/img/DHDD/02.gif" ></td></tr>
+				<tr height="18px"><td bgcolor="#b2c1eo" style="border-bottom:#ffffff 0px solid;">
+					<table  cellspacing="0" cellpadding="0" border="0" >
+						<tr><td>		
+								<table  cellspacing="0" cellpadding="0" border="0">
+									<tr><td width="6px;">&nbsp;</td>
+										<td class="clsTrangchu"><a href="http://www.vnu.edu.vn" class="clsTrangchu"> Trang chá»§ ÄHQGHN</a> | 	</td>
+										<td class="clsTrangchu"><a href="/BTDHQGHN/Vietnamese/" class="clsTrangchu"> &nbsp; Trang nháº¥t</a> </td>
+									</tr></table>
+							 </td>
+						<td>&nbsp;</td>
+						</tr>
+					</table>
+		   </td></tr>		   
+		   </table>          
+      </TD>
+   </TR>
+</TABLE>
+</TD></TR>  
+	</TABLE>
+</TD></TR>
+ <TR><TD colspan="2" bgcolor="#B2C1E0">
+		<TABLE cellSpacing=0 cellPadding=0 valign="top" width="800" align=center STYLE="border-RIGHT:#004221 0PX solid;" border=0>
+		<TR vAlign=center align=middle><TD valign="middle" width="800">
+			
+	<table width="805px" cellspacing="0" cellpadding="0" border=0  >
+		<tr >
+			<td width="160px" class="clsDate" style="padding-left:4px;" background="/Libaries/img/DHDD/mon_day.gif">NgÃ y 17 ThÃ¡ng 5  NÄm 2026 </td>
+			<TD style="height:2px;padding-top:0px" bgcolor="#CED9F1" > &nbsp;<MARQUEE onmouseover=this.stop() onmouseout=this.start() bgcolor="#CED9F1" scrollAmount=2 scrollDelay=2 bgcolor="#CED9F1">&nbsp;</MARQUEE></TD>
+			<td width="173px" class="clsDate" style="padding-right:0px;" background="/Libaries/img/DHDD/couter.gif" align="center">Sá» ngÆ°á»i truy cáº­p: <a href="#" onclick="Show_Author()" class="scltacgia">  1123737 </a></td>
+		</tr>
+	</table>
+
+		</TD></TR>
+		</TABLE>
+ </TD></TR>
+ <TR>
+
+   <TD width="190px" valign="top"bgcolor="#F3EACC">
+    <TABLE WIDTH=100% BORDER=0 CELLSPACING=0 CELLPADDING=0 valign="top " >		
+	
+	 <TR><TD width="100%" valign="top" colspan="2" >
+	 
+		<table width="210" cellspacing="2" cellpadding="1" border=0 bgcolor="#000000" background="/Libaries/img/DHDD/011.gif" >
+		<tr height="5px"><td></td></tr>
+		
+		<tr><td class="clsMenuphai" style="padding-left:0px;" style="border-bottom:#6C94E4 1px solid">
+			<table width="100%" cellspacing="0" cellpadding="0" border="0">
+			<tr><td valign="top" width="20px" style="padding-top:3px;">
+				<img src="/Libaries/img/DHDD/arrow01.gif"></td>
+				<td class="clsMenuphai" style="padding-left:0px;" style="border-bottom:#6C94E4 1px solid">
+			     <a href="/btdhqghn/vietnamese/c1764/2006/03/n7374/" class="clsMenuphai" align="left">Theo dÃ²ng lá»ch sá»­ 100 nÄm</a>
+			</td></tr>
+			</table>
+		<td></tr>
+		
+	<tr height="0px"><td> </td></tr>
+	
+	<tr><td class="clssubmenuphai" title="" style="padding-left:15px;" style="border-bottom:#6C94E4 1px solid">- <a class="clssubmenuphai" href="/BTDHQGHN/Vietnamese/C1764/C1810/">Lá»ch sá»­ Äáº¡i há»c Quá»c gia HÃ  Ná»i</a></td></tr>
+	<tr><td style="padding-left:20px;">
+		<table>	
+			
+		</table>
+	</td></tr>
+	
+	<tr><td class="clssubmenuphai" title="" style="padding-left:15px;" style="border-bottom:#6C94E4 1px solid">- <a class="clssubmenuphai" href="/BTDHQGHN/Vietnamese/C1764/C1811/">ThÃ nh tá»±u 100 nÄm</a></td></tr>
+	<tr><td style="padding-left:20px;">
+		<table>	
+			
+		</table>
+	</td></tr>
+
+	<tr height="1px"><td> </td></tr>	
+
+		</div>
+	
+		<tr><td class="clsMenuphai" style="padding-left:0px;" style="border-bottom:#6C94E4 1px solid">
+			<table width="100%" cellspacing="0" cellpadding="0" border="0">
+			<tr><td valign="top" width="20px" style="padding-top:3px;">
+				<img src="/Libaries/img/DHDD/arrow01.gif"></td>
+				<td class="clsMenuphai" style="padding-left:0px;" style="border-bottom:#6C94E4 1px solid">
+			     <a href="/BTDHQGHN/Vietnamese/C1770/" class="clsMenuphai" align="left">Tin tá»©c & Sá»± kiá»n</a>
+			</td></tr>
+			</table>
+		<td></tr>
+		
+		</div>
+	
+		<tr><td class="clsMenuphai" style="padding-left:0px;" style="border-bottom:#6C94E4 1px solid">
+			<table width="100%" cellspacing="0" cellpadding="0" border="0">
+			<tr><td valign="top" width="20px" style="padding-top:3px;">
+				<img src="/Libaries/img/DHDD/arrow01.gif"></td>
+				<td class="clsMenuphai" style="padding-left:0px;" style="border-bottom:#6C94E4 1px solid">
+			     <a href="/BTDHQGHN/Vietnamese/C1771/" class="clsMenuphai" align="left">CÃ¡c hoáº¡t Äá»ng ká»· niá»m 100 nÄm</a>
+			</td></tr>
+			</table>
+		<td></tr>
+		
+	<tr height="0px"><td> </td></tr>
+	
+	<tr><td class="clssubmenuphai" title="" style="padding-left:15px;" style="border-bottom:#6C94E4 1px solid">- <a class="clssubmenuphai" href="/BTDHQGHN/Vietnamese/C1771/C1841/">Ká»· niá»m 50 nÄm TrÆ°á»ng Äáº¡i há»c Khoa há»c tá»± nhiÃªn</a></td></tr>
+	<tr><td style="padding-left:20px;">
+		<table>	
+			
+		</table>
+	</td></tr>
+
+	<tr height="1px"><td> </td></tr>	
+
+		</div>
+	
+		<tr><td class="clsMenuphai" style="padding-left:0px;" style="border-bottom:#6C94E4 1px solid">
+			<table width="100%" cellspacing="0" cellpadding="0" border="0">
+			<tr><td valign="top" width="20px" style="padding-top:3px;">
+				<img src="/Libaries/img/DHDD/arrow01.gif"></td>
+				<td class="clsMenuphai" style="padding-left:0px;" style="border-bottom:#6C94E4 1px solid">
+			     <a href="/BTDHQGHN/Vietnamese/C1778/" class="clsMenuphai" align="left">Con ngÆ°á»i & Sá»± kiá»n</a>
+			</td></tr>
+			</table>
+		<td></tr>
+		
+	<tr height="0px"><td> </td></tr>
+	
+	<tr><td class="clssubmenuphaiselect" title="" style="padding-left:15px;" style="border-bottom:#6C94E4 1px solid">- <a class="clssubmenuphaiselect" href="/BTDHQGHN/Vietnamese/C1778/C1779/">100 chÃ¢n dung - Má»t Tháº¿ ká»· Äáº¡i há»c Quá»c gia HÃ  Ná»i</a></td></tr>
+	<tr><td style="padding-left:20px;">
+		<table>	
+			
+		</table>
+	</td></tr>
+	
+	<tr><td class="clssubmenuphai" title="" style="padding-left:15px;" style="border-bottom:#6C94E4 1px solid">- <a class="clssubmenuphai" href="/BTDHQGHN/Vietnamese/C1778/C1783/">ChÃ¢n dung NhÃ  giÃ¡o</a></td></tr>
+	<tr><td style="padding-left:20px;">
+		<table>	
+			
+		</table>
+	</td></tr>
+	
+	<tr><td class="clssubmenuphai" title="" style="padding-left:15px;" style="border-bottom:#6C94E4 1px solid">- <a class="clssubmenuphai" href="/BTDHQGHN/Vietnamese/C1778/C1784/">Nhá»¯ng gÆ°Æ¡ng máº·t tráº» tiÃªu biá»u</a></td></tr>
+	<tr><td style="padding-left:20px;">
+		<table>	
+			
+		</table>
+	</td></tr>
+
+	<tr height="1px"><td> </td></tr>	
+
+		</div>
+	
+		<tr><td class="clsMenuphai" style="padding-left:0px;" style="border-bottom:#6C94E4 1px solid">
+			<table width="100%" cellspacing="0" cellpadding="0" border="0">
+			<tr><td valign="top" width="20px" style="padding-top:3px;">
+				<img src="/Libaries/img/DHDD/arrow01.gif"></td>
+				<td class="clsMenuphai" style="padding-left:0px;" style="border-bottom:#6C94E4 1px solid">
+			     <a href="/BTDHQGHN/Vietnamese/C1787/" class="clsMenuphai" align="left">TÆ° liá»u</a>
+			</td></tr>
+			</table>
+		<td></tr>
+		
+		</div>
+	
+		<tr><td class="clsMenuphai" style="padding-left:0px;" style="border-bottom:#6C94E4 1px solid">
+			<table width="100%" cellspacing="0" cellpadding="0" border="0">
+			<tr><td valign="top" width="20px" style="padding-top:3px;">
+				<img src="/Libaries/img/DHDD/arrow01.gif"></td>
+				<td class="clsMenuphai" style="padding-left:0px;" style="border-bottom:#6C94E4 1px solid">
+			     <a href="/BTDHQGHN/Vietnamese/C1794/" class="clsMenuphai" align="left">Diá»n ÄÃ n HÃ  Ná»i vá» GDÄH Tháº¿ ká»· XXI</a>
+			</td></tr>
+			</table>
+		<td></tr>
+		
+		</div>
+	
+		<tr><td class="clsMenuphai" style="padding-left:0px;" style="border-bottom:#6C94E4 1px solid">
+			<table width="100%" cellspacing="0" cellpadding="0" border="0">
+			<tr><td valign="top" width="20px" style="padding-top:3px;">
+				<img src="/Libaries/img/DHDD/arrow01.gif"></td>
+				<td class="clsMenuphai" style="padding-left:0px;" style="border-bottom:#6C94E4 1px solid">
+			     <a href="http://100years.vnu.edu.vn:8080/BTDHQGHN/Vietnamese/C1770/2006/04/N7611/" class="clsMenuphai" align="left">HÆ°á»ng dáº«n ÄÄng kÃ½ cá»±u sinh viÃªn, cÃ¡n bá» vÃ  ÄÄng nháº­p diá»n ÄÃ n</a>
+			</td></tr>
+			</table>
+		<td></tr>
+		
+		</div>
+	
+		<tr><td class="clsMenuphai" style="padding-left:0px;" style="border-bottom:#6C94E4 1px solid">
+			<table width="100%" cellspacing="0" cellpadding="0" border="0">
+			<tr><td valign="top" width="20px" style="padding-top:3px;">
+				<img src="/Libaries/img/DHDD/arrow01.gif"></td>
+				<td class="clsMenuphai" style="padding-left:0px;" style="border-bottom:#6C94E4 1px solid">
+			     <a href="/BTDHQGHN/Vietnamese/C1838/" class="clsMenuphai" align="left">TÃ¢m sá»± vá» ngÃ´i trÆ°á»ng 100 tuá»i</a>
+			</td></tr>
+			</table>
+		<td></tr>
+		
+		</div>
+	
+		</table>
+</TD></TR>
+     
+	 <TR><TD width="100%" valign="top" colspan="2" style="padding-top:4px;padding-bottom:4px">
+		<TABLE  border=0 width="100%" STYLE="BORDER-TOP:0PX #387070 SOLID;BORDER-left:0PX #387070 SOLID;border-right=0px #387070 solid;border-bottom:0px #387070 solid;" CELLPADDING=0 CELLSPACING=0 height="50px">
+		<FORM METHOD=POST name="frmSearch" onsubmit="return FSCMSProcessSearch('vBGPortal','1779');">
+			<TR><TD width="100%"><font face="arial" size="2px;"><B>&nbsp;</B></font></TD></TR>
+			<TR><TD align="center"></TD></TR>
+			<TR height="10px"><TD></TD></TR>
+		</FORM></TABLE>
+ 	  <TR><TD width="100%" valign="top" colspan="2">
+	 
+	 </TD></TR>
+	 </TABLE>
+   </TD>
+
+<TD width="614px" valign="top" class="clsTblMain">
+	<TABLE WIDTH=100% BORDER=0 CELLSPACING=0 CELLPADDING=0 valign="top"> 
+	<TR><TD valign=top width="438px">
+	<TABLE WIDTH=100% BORDER=0 CELLSPACING=0 CELLPADDING=0 valign="top"> 
+	
+	<TR vAlign=center align=middle><Td style="height:2px">
+	<TABLE WIDTH=100% BORDER=0 CELLSPACING=0 CELLPADDING=0 valign="top"> 
+	<TR><TD valign=top width="100%" style="border-right: 0px #BBBBBB inset;border-bottom: 1px #BBBBBB inset; border-top: 0px #DFDFDF outset;border-left: 1px #CFCFCF ; padding-right:4px ; padding-top: 9px;">
+	
+   <TABLE WIDTH=100% BORDER=0 CELLSPACING=0 CELLPADDING=0 valign="top">
+	 <TR><TD valign="top" class="clsHotTD1">GS. VÃµ QuÃ½ - nhÃ  giÃ¡o, nhÃ  Äiá»u há»c, ngÆ°á»i báº¡n cá»§a thiÃªn nhiÃªn</TD></TR>
+	 <TR><TD class=clsBreakTable></TD></TR>
+	 <TR><TD valign="top" width="100%" align=left style="padding-left:4px">
+	 
+        <TABLE cellSpacing=0 cellPadding=0 align=left border=0 width="250" height="194">
+        <TR><TD>
+        <IMG border=0 src="/btdhqghn/vietnamese/c1778/c1779/2006/05/n7880/voquy_s.jpg"  width="250" height="194" title="Xem hinh dung kich co" style="cursor:hand" onclick="openImageNews(this,210,270)"></TD></TR>
+        
+        </TABLE>
+	 
+	 <p class=clsDetailShort align=left></p>
+	 <p class=clsDetailNews align=left><P align=justify><SPAN><FONT face=Arial><FONT size=2>Sinh ra vÃ  lá»n lÃªn á» YÃªn Há» (Äá»©c Thá», HÃ  TÄ©nh), ÄÆ°á»£c trá»i phÃº cho má»t nghá» lá»±c, trÃ­ thÃ´ng minh vÃ  lÃ²ng kiÃªn trÃ¬ hiáº¿m cÃ³, tá»i tuá»i 77, Ã´ng ÄÃ£ Äáº·t chÃ¢n lÃªn háº§u háº¿t má»i miá»n rá»«ng nÃºi cá»§a Tá» quá»c. Khi tiáº¿p xÃºc vá»i Ã´ng, bao giá» ngÆ°á»i Äá»i thoáº¡i cÅ©ng cáº£m nháº­n ÄÆ°á»£c tá»« con ngÆ°á»i cÃ³ ÄÃ´i máº¯t sÃ¡ng biáº¿t nÃ³i áº¥y má»t phong thÃ¡i giáº£n dá», dá» tiáº¿p xÃºc, dá» trao Äá»i vÃ  dá» tÃ¬m ÄÆ°á»£c tiáº¿ng nÃ³i chung. Báº¡n bÃ¨, Äá»ng nghiá»p thÆ°á»ng gá»i Ã´ng lÃ  "nhÃ  giÃ¡o", "nhÃ  sinh há»c", "nhÃ  Äiá»u há»c", "ngÆ°á»i báº¡n cá»§a thiÃªn nhiÃªn". Ãng chÃ­nh lÃ  GS. VÃµ QuÃ½.<?xml:namespace prefix = o ns = "urn:schemas-microsoft-com:office:office" /><o:p></o:p></FONT></FONT></SPAN></P>
+<P align=justify><SPAN><FONT face=Arial><FONT size=2>Sinh nÄm 1929, thuá» nhá» Ã´ng ÄÃ£ cÃ³ duyÃªn vá»i thiÃªn nhiÃªn, thÃ­ch quan sÃ¡t, khÃ¡m phÃ¡, tÃ¬m tÃ²i nhá»¯ng bÃ­ áº©n á» xung quanh. NÄm 1946, Ã´ng thi vÃ o TrÆ°á»ng Quá»c há»c Huáº¿ vÃ  lÃ  má»t trong bá»n há»c sinh ngÆ°á»i Nghá» - TÄ©nh ÄÃ£ Äá» vÃ o trÆ°á»ng khoÃ¡ áº¥y. Tuy há»c 4 lá»p khÃ¡c nhau, song 4 anh em Äá»u nháº¯c nhá» nhau pháº£i há»c lÃ m sao Äá» Äá»©ng Äáº§u lá»p. NhÆ°ng chá» há»c ÄÆ°á»£c vÃ i thÃ¡ng thÃ¬ thá»±c dÃ¢n PhÃ¡p ÄÃ¡nh vÃ o Huáº¿, Ã´ng pháº£i vá» quÃª lÃ m ruá»ng. Má»t nÄm sau, TrÆ°á»ng chuyá»n ra HÃ  TÄ©nh, Ã´ng ÄÆ°á»£c Äi há»c trá» láº¡i vÃ  tháº¿ lÃ  Æ°á»c mÆ¡ cá»§a Ã´ng láº¡i ÄÆ°á»£c cháº¯p cÃ¡nh.<o:p></o:p></FONT></FONT></SPAN></P>
+<P align=justify><SPAN><FONT face=Arial><FONT size=2>Ãng Äáº¿n vá»i nghá» sÆ° pháº¡m nhÆ° má»t Äá»nh má»nh. Ãng ká»: <I>"LÃºc Äáº§u tÃ´i thÃ­ch ngÃ nh Y láº¯m. Ba láº§n toan tá»« bá» nghá» "gÃµ Äáº§u tráº»" nhÆ°ng khÃ´ng thÃ nh. Cá»±c cháº³ng ÄÃ£, nghÄ© mÃ¬nh khÃ´ng thá» thoÃ¡t khá»i nghá» "gÃµ Äáº§u tráº»" thÃ¬ pháº£i lÃ m tháº­t tá»t. Rá»i mÃ¬nh trá» nÃªn yÃªu nghá» tháº­t sá»±. Tháº¿ mÃ  láº¡i hay</I>."
+<TABLE style="WIDTH: 200px; HEIGHT: 261px" align=right valign="auto">
+<TBODY>
+<TR>
+<TD><IMG style="BORDER-RIGHT: #000000 1px solid; BORDER-TOP: #000000 1px solid; BORDER-LEFT: #000000 1px solid; WIDTH: 200px; CURSOR: hand; BORDER-BOTTOM: #000000 1px solid; HEIGHT: 261px" onclick=openImageNews(this,392,300); hspace=0 src="/btdhqghn/vietnamese/c1778/c1779/2006/05/n7880/gs%20vo%20quy4.jpg" align=right valign="auto"></TD></TR>
+<TR>
+<TD align=middle>
+<P><FONT size=1><STRONG>GS. VÃµ QuÃ½ táº¡i phÃ²ng lÃ m viá»c á» Trung tÃ¢m NghiÃªn cá»©u TÃ i nguyÃªn vÃ  MÃ´i trÆ°á»ng - ÄHQGHN</STRONG></FONT></P></TD></TR></TBODY></TABLE><o:p></o:p></FONT></FONT></SPAN></P>
+<P align=justify><SPAN><FONT face=Arial><FONT size=2>NÄm 1949, Ã´ng báº¯t Äáº§u sá»± nghiá»p cáº§m pháº¥n á» trÆ°á»ng cáº¥p II LiÃªn Viá»t táº¡i xÃ£ nhÃ  (nay lÃ  trÆ°á»ng THCS Nguyá»n Biá»u, HÃ  TÄ©nh). NÄm 1950, Ã´ng ÄÆ°á»£c Tá»nh uá»· HÃ  TÄ©nh Äiá»u sang dáº¡y táº¡i trÆ°á»ng cáº¥p III Phan ÄÃ¬nh PhÃ¹ng (HÃ  TÄ©nh). Tiáº¿p ÄÃ³, Ã´ng ÄÆ°á»£c chuyá»n Äáº¿n TrÆ°á»ng SÆ° pháº¡m trung cáº¥p LiÃªn khu IV (Nghá» An), trÆ°á»ng cáº¥p III Lam SÆ¡n (Thanh HÃ³a), rá»i Nha GiÃ¡o dá»¥c phá» thÃ´ng (Bá» GiÃ¡o dá»¥c) vÃ  Äáº¿n nÄm 1956, Ã´ng chuyá»n cÃ´ng tÃ¡c vá» TrÆ°á»ng Äáº¡i há»c Tá»ng há»£p HÃ  Ná»i.<o:p></o:p></FONT></FONT></SPAN></P>
+<P align=justify><SPAN><FONT face=Arial><FONT size=2>Táº¡i TrÆ°á»ng Äáº¡i há»c Tá»ng há»£p HÃ  Ná»i vÃ  nay lÃ  Äáº¡i há»c Quá»c gia HÃ  Ná»i, Ã´ng ÄÃ£ Äáº£m nhiá»m nhiá»u cÆ°Æ¡ng vá» cÃ´ng tÃ¡c khÃ¡c nhau: giáº£ng viÃªn, TrÆ°á»ng phÃ²ng ÄÃ o táº¡o (1975 - 1980), Chá»§ nhiá»m Khoa Sinh há»c (1980 - 1990). Ãng cÃ²n tham gia giáº£ng dáº¡y táº¡i cÃ¡c trÆ°á»ng Äáº¡i há»c khÃ¡c nhÆ°: Äáº¡i há»c SÆ° pháº¡m HÃ  Ná»i, Äáº¡i há»c NÃ´ng nghiá»p HÃ  Ná»i, Äáº¡i há»c SÆ° pháº¡m Vinh... NgoÃ i ra, Ã´ng ÄÃ£ ÄÆ°á»£c má»i giáº£ng bÃ i táº¡i Äáº¡i há»c Wisconsin, Äáº¡i há»c Berkley (Hoa Ká»³), Äáº¡i há»c Oxford (Anh)... Tá»« nÄm 1985, Ã´ng sÃ¡ng láº­p ra Trung tÃ¢m NghiÃªn cá»©u TÃ i nguyÃªn vÃ  MÃ´i trÆ°á»ng trá»±c thuá»c TrÆ°á»ng ÄHTHHN (nay lÃ  Trung tÃ¢m NghiÃªn cá»©u TÃ i nguyÃªn vÃ  MÃ´i trÆ°á»ng trá»±c thuá»c ÄHQGHN) - trung tÃ¢m Äáº§u tiÃªn cá»§a <SPAN>Viá»t <?xml:namespace prefix = st1 ns = "urn:schemas-microsoft-com:office:smarttags" /><st1:country-region w:st="on"><st1:place w:st="on">Nam</st1:place></st1:country-region> nghiÃªn cá»©u vÃ  ÄÃ o táº¡o vá» mÃ´i trÆ°á»ng. Ãng giá»¯ chá»©c vá»¥ GiÃ¡m Äá»c trung tÃ¢m trong 10 nÄm liá»n (1985 - 1995) vÃ  tá»« 1995 tá»i nay lÃ  Chá»§ tá»ch danh dá»± cá»§a Trung tÃ¢m. Tráº£i qua 20 nÄm xÃ¢y dá»±ng vÃ  phÃ¡t triá»n, cÃ¹ng vá»i sá»± gÃ³p sá»©c tÃ­ch cá»±c cá»§a Ã´ng, hiá»n nay</SPAN> Trung tÃ¢m NghiÃªn cá»©u TÃ i nguyÃªn vÃ  MÃ´i trÆ°á»ng lÃ  má»t <SPAN>trung tÃ¢m máº¡nh, cÃ³ Äá»i ngÅ© cÃ¡n bá» tráº» ÄÆ°á»£c ÄÃ o táº¡o bÃ i báº£n, cÃ³ cá»ng tÃ¡c viÃªn á» háº§u kháº¯p cÃ¡c tá»nh vÃ  cÃ³ quan há» há»£p tÃ¡c vá»i nhiá»u nÆ°</SPAN>á»c vÃ  nhiá»u tá» chá»©c quá»c táº¿. <o:p></o:p></FONT></FONT></SPAN></P>
+<P align=justify><SPAN><FONT face=Arial><FONT size=2>Gáº§n 50 nÄm Äá»©ng trÃªn bá»¥c giáº£ng vá» chuyÃªn ngÃ nh Sinh há»c, tá»«ng lÃ  Chá»§ nhiá»m Khoa Sinh há»c cá»§a TrÆ°á»ng Äáº¡i há»c Tá»ng há»£p HÃ  Ná»i, GS. VÃµ QuÃ½ ÄÃ£ ÄÃ o táº¡o nhiá»u tháº¿ há» cÃ¡n bá» nghiÃªn cá»©u vÃ  giáº£ng dáº¡y sinh há»c cho Äáº¥t nÆ°á»c. Há»c trÃ² cá»§a Ã´ng háº§u háº¿t ÄÃ£ trÆ°á»ng thÃ nh, nhiá»u ngÆ°á»i ÄÃ£ thÃ nh danh vÃ  cÃ³ nhiá»u cá»ng hiáº¿n cho sá»± nghiá»p báº£o vá» vÃ  xÃ¢y dá»±ng Äáº¥t nÆ°á»c. CÃ³ nhá»¯ng ngÆ°á»i, do ÄÆ°á»£c ÄÃ o táº¡o bÃ i báº£n, ÄÆ°á»£c Ã´ng giÃºp Äá»¡, hÆ°á»ng dáº«n táº­n tÃ¬nh nay ÄÃ£ trá» thÃ nh Äá»ng nghiá»p, cá»ng sá»± Äáº¯c lá»±c cá»§a Ã´ng. Äáº·c biá»t, trong sá» áº¥y lÃ  ngÆ°á»i con trai thá»© hai cá»§a Ã´ng, TS. VÃµ Thanh SÆ¡n, nay lÃ  PhÃ³ giÃ¡m Äá»c Trung tÃ¢m NghiÃªn cá»©u TÃ i nguyÃªn vÃ  MÃ´i trÆ°á»ng - ÄHQGHN.<o:p></o:p></FONT></FONT></SPAN></P>
+<P align=justify><SPAN><FONT face=Arial><FONT size=2>
+<TABLE style="WIDTH: 250px; HEIGHT: 185px" align=right valign="auto">
+<TBODY>
+<TR>
+<TD><IMG style="BORDER-RIGHT: #ffffff 0px; BORDER-TOP: #ffffff 0px; BORDER-LEFT: #ffffff 0px; WIDTH: 250px; CURSOR: hand; BORDER-BOTTOM: #ffffff 0px; HEIGHT: 185px" onclick=openImageNews(this,222,300); hspace=0 src="/btdhqghn/vietnamese/c1778/c1779/2006/05/n7880/gs%20vo%20quy2.jpg" align=right valign="auto"></TD></TR>
+<TR>
+<TD align=middle>
+<P><FONT face=Verdana size=1><STRONG>GS. VÃµ QuÃ½ cÃ³ thá» ngá»i láº·ng hÃ ng giá» Äá» ghi láº¡i tiáº¿ng chim</STRONG></FONT></P></TD></TR></TBODY></TABLE>Vá»n lÃ  ngÆ°á»i yÃªu thiÃªn nhiÃªn, ham thÃ­ch nuÃ´i chim tá»« thuá» thiáº¿u thá»i, GS. VÃµ QuÃ½ ÄÃ£ sá»m Äá»nh hÆ°á»ng cho mÃ¬nh theo Äuá»i nghiÃªn cá»©u chuyÃªn ngÃ nh Äiá»u loáº¡i há»c ngay tá»« khi báº¯t Äáº§u giáº£ng dáº¡y táº¡i Khoa Sinh há»c, TrÆ°á»ng Äáº¡i há»c Tá»ng há»£p HÃ  Ná»i (1956). Khi ÄÃ£ lÃ  má»t nhÃ  sinh váº­t há»c, Ã´ng cÃ³ dá»p Äi ÄÃ¢y Äi ÄÃ³, tá»« Báº¯c chÃ­ Nam, tá»« miá»n nÃºi Äáº¿n vÃ¹ng biá»n, ÄÆ°á»£c máº¯t tháº¥y, tai nghe nhá»¯ng cÃ¡i hay, cÃ¡i Äáº¹p cá»§a tá»± nhiÃªn, cá»§a Äáº¥t nÆ°á»c vÃ  cáº£ nhá»¯ng cÃ¡i chÆ°a ÄÆ°á»£c. Qua nhiá»u dá»p ra nÆ°á»c ngoÃ i, Ã´ng nháº­n tháº¥y Äiá»u mÃ  cÃ¡c nÆ°á»c trÃªn tháº¿ giá»i quan tÃ¢m nháº¥t lÃ  mÃ´i trÆ°á»ng vÃ  Ã´ng nghÄ©: "<I>Pháº£i lÃ m gÃ¬ Äá» khÃ´ng chá» gÃ¬n giá»¯ mÃ  cÃ²n phÃ¡t huy nhá»¯ng Äiá»u kiá»n tá»t Äáº¹p cá»§a mÃ´i trÆ°á»ng, Äem láº¡i nguá»n lá»£i cho Äáº¥t nÆ°á»c mÃ¬nh</I>". VÃ  tá»« ÄÃ³, nhiá»u ngÆ°á»i ÄÃ£ biáº¿t Äáº¿n Ã´ng vá»i vai trÃ² cá»§a má»t nhÃ  nghiÃªn cá»©u, má»t ngÆ°á»i cÃ³ nhiá»u tÃ¢m huyáº¿t vá»i váº¥n Äá» báº£o vá» mÃ´i trÆ°á»ng, má»t nhÃ  Äiá»u há»c - nhÃ  nghiÃªn cá»©u vá» chim hÃ ng Äáº§u cá»§a Viá»t <st1:place w:st="on"><st1:country-region w:st="on">Nam</st1:country-region></st1:place>.<o:p></o:p></FONT></FONT></SPAN></P>
+<P align=justify><SPAN><FONT face=Arial><FONT size=2>Ãng ÄÃ£ cÃ³ cÃ´ng phÃ¡t hiá»n ra má»t loÃ i TrÄ© má»i cho khoa há»c á» vÃ¹ng Káº» Gá» (huyá»n Ká»³ Anh, tá»nh HÃ  TÄ©nh). GS. VÃµ QuÃ½ phÃ¡t hiá»n ra con TrÄ© lam HÃ  TÄ©nh khi Ã´ng má»i ngoÃ i 30 tuá»i, nhÆ°ng lÃºc áº¥y nghiÃªn cá»©u cá»§a Ã´ng chÆ°a ÄÆ°á»£c cÃ¡c nhÃ  khoa há»c tháº¿ giá»i cÃ´ng nháº­n ngay. Ãng ÄÃ£ kiÃªn trÃ¬ nghiÃªn cá»©u vÃ  tÃ¬m tÃ i liá»u chá»©ng minh con TrÄ© lam HÃ  TÄ©nh mÃ  dÃ¢n Äá»a phÆ°Æ¡ng quen gá»i lÃ  "GÃ  lá»«ng" lÃ  má»t loÃ i TrÄ© má»i. Tháº¥m thoáº¯t 20 nÄm trÃ´i qua, sau nhiá»u láº§n kiá»m chá»©ng, Há»i Äá»ng Quá»c táº¿ Báº£o vá» chim (ICBP) ÄÃ£ cÃ´ng nháº­n nghiÃªn cá»©u cá»§a Ã´ng lÃ  ÄÃºng vÃ  Äáº·t tÃªn cho loÃ i chim nÃ y lÃ  "Vo Quy Pheasant" (TrÄ© VÃµ QuÃ½) Äá» ghi nhá» cÃ´ng lao cá»§a ngÆ°á»i ÄÃ£ phÃ¡t hiá»n vÃ  mÃ´ táº£ chÃ­nh xÃ¡c má»t loÃ i TrÄ© má»i quÃ½ hiáº¿m. Äá»i má»t ngÆ°á»i lÃ m khoa há»c, háº¡nh phÃºc nháº¥t lÃ  nhá»¯ng cÃ´ng trÃ¬nh, niá»m say mÃª cá»§a mÃ¬nh ÄÆ°á»£c ghi nháº­n. Ãng cÅ©ng váº­y.<o:p></o:p></FONT></FONT></SPAN></P>
+<P align=justify><SPAN><FONT size=2>
+<TABLE style="WIDTH: 250px; HEIGHT: 193px" align=right valign="auto">
+<TBODY>
+<TR>
+<TD><FONT face=Arial><IMG style="BORDER-RIGHT: #ffffff 0px; BORDER-TOP: #ffffff 0px; BORDER-LEFT: #ffffff 0px; WIDTH: 250px; CURSOR: hand; BORDER-BOTTOM: #ffffff 0px; HEIGHT: 193px" onclick=openImageNews(this,232,300); hspace=0 src="/btdhqghn/vietnamese/c1778/c1779/2006/05/n7880/gs%20vo%20quy3.jpg" align=right valign="auto"></FONT></TD></TR>
+<TR>
+<TD align=middle>
+<P><FONT face=Verdana size=1><STRONG>GS. VÃµ QuÃ½ vá»i ngÆ°á»i dÃ¢n Äáº¯c Láº¯c</STRONG></FONT></P></TD></TR></TBODY></TABLE><FONT face=Arial>GS. VÃµ QuÃ½ ÄÃ£ cÃ¹ng cÃ¡c Äá»ng nghiá»p, há»c trÃ² "kiá»m kÃª" tá» má», ká»¹ cÃ ng hÆ¡n 1.000 loÃ i vÃ  phÃ¢n loÃ i chim á» nÆ°á»c ta. Ãng ÄÃ£ lÃ  tÃ¡c giáº£ cá»§a 14 cuá»n sÃ¡ch, tiÃªu biá»u nhÆ°: "<I>Chim Viá»t Nam</I>" (táº­p 1, 2), "<I>Cuá»c sá»ng cÃ¡c loÃ i chim</I>", "<I>Danh má»¥c cÃ¡c loÃ i chim Viá»t Nam</I>"...; lÃ  dá»ch giáº£ chÃ­nh cá»§a 3 cuá»n sÃ¡ch vá» mÃ´i trÆ°á»ng Äá»ng thá»i cÅ©ng lÃ  tÃ¡c giáº£ cá»§a hÆ¡n 100 cÃ´ng trÃ¬nh khoa há»c ÄÃ£ cÃ´ng bá» trong nÆ°á»c vÃ  nÆ°á»c ngoÃ i. Sá»± gáº¯n bÃ³ cá»§a GS. VÃµ QuÃ½ vá»i thiÃªn nhiÃªn thá» hiá»n ngay trong khÃ´ng gian sá»ng gáº§n gÅ©i nháº¥t cá»§a Ã´ng lÃ  nhÃ  riÃªng vÃ  phÃ²ng lÃ m viá»c vá»i nhá»¯ng bá»©c tranh áº£nh vá» cÃ¡c loÃ i chim quÃ½. Äiá»u nÃ y khiáº¿n tÃ´i chá»£t liÃªn tÆ°á»ng tá»i Ã´ng tiÃªn trong truyá»n cá» tÃ­ch. TÃ´i tháº¯c máº¯c: "<I>Táº¡i sao giÃ¡o sÆ° khÃ´ng nghiÃªn cá»©u má»t loÃ i khÃ¡c, giá»ng khÃ¡c mÃ  chá» táº­p trung nghiÃªn cá»©u vá» loÃ i chim?</I>"<I>.</I> Ãng cÆ°á»i vÃ  báº£o: "<I>CÅ©ng cÃ³ nhiá»u ngÆ°á»i tháº¯c máº¯c nhÆ° cÃ´ Äáº¥y!... TÃ´i cÃ³ thÃ³i quen quan sÃ¡t chim tá»« lÃºc 5 - 6 tuá»i nÃªn tÃ´i biáº¿t táº¥t cáº£ nhá»¯ng loÃ i chim cá»§a quÃª mÃ¬nh. Biáº¿t thÃ³i quen cá»§a tá»«ng loÃ i nhÆ° thá»©c dáº­y lÃºc máº¥y giá», bay vá» tá» lÃºc nÃ o, Än quáº£ cÃ¢y gÃ¬, sinh sáº£n ra sao... Khi lÃªn Äáº¡i há»c, tÃ´i quyáº¿t Äá»nh Äi theo con ÄÆ°á»ng lÃ m khoa há»c vÃ  cÃ¡c loÃ i chim trá» thÃ nh Äá»i tÆ°á»£ng nghiÃªn cá»©u cá»§a tÃ´i</I>".<o:p></o:p></FONT></FONT></SPAN></P>
+<P align=justify><SPAN><FONT face=Arial><FONT size=2>Äáº¿n nay, GS. VÃµ QuÃ½ ÄÃ£ thá»±c hiá»n nhiá»u dá»± Ã¡n nghiÃªn cá»©u vá» chim, vá» cÃ¡c loÃ i Äá»ng váº­t quÃ½ hiáº¿m, vá» báº£o vá» tÃ i nguyÃªn thiÃªn nhiÃªn vÃ  mÃ´i trÆ°á»ng vÃ  vá» háº­u quáº£ cá»§a cháº¥t Äá»c hoÃ¡ há»c mÃ  quÃ¢n Äá»i Má»¹ ÄÃ£ dÃ¹ng trong chiáº¿n tranh Äá»i vá»i mÃ´i trÆ°á»ng vÃ  tÃ i nguyÃªn thiÃªn nhiÃªn. Ãng lÃ  thÃ nh viÃªn cá»§a nhiá»u tá» chá»©c quá»c táº¿ nhÆ° Há»i Äá»ng VÆ°á»n quá»c gia vÃ  Khu báº£o tá»n quá»c táº¿ (WCPA/IUCN), Há»i Äá»ng quá»c táº¿ vá» Báº£o vá» cÃ¡c loÃ i nguy cáº¥p (SSC/IUCN). á» trong nÆ°á»c, Ã´ng lÃ  ngÆ°á»i Äá»©ng Äáº§u hoáº·c lÃ  ngÆ°á»i sÃ¡ng láº­p vÃ  thÃ nh viÃªn tÃ­ch cá»±c cá»§a nhiá»u tá» chá»©c nhÆ° Tá»ng Há»i CÃ¡c nhÃ  sinh há»c Viá»t Nam, Há»i báº£o vá» thiÃªn nhiÃªn vÃ  mÃ´i trÆ°á»ng Viá»t Nam, Há»i Sinh thÃ¡i há»c Viá»t Nam, Há»i Náº¡n nhÃ¢n cháº¥t Äá»c Da cam/Dioxin Viá»t Nam...<o:p></o:p></FONT></FONT></SPAN></P>
+<P align=justify><SPAN><FONT face=Arial><FONT size=2>NÄm 1971, trong khÃ³i lá»­a cá»§a chiáº¿n tranh miá»n <st1:place w:st="on"><st1:country-region w:st="on">Nam</st1:country-region></st1:place>, theo gá»£i Ã½ cá»§a GS. TÃ´n Tháº¥t TÃ¹ng, Ã´ng cÃ¹ng má»t nhÃ³m cÃ¡c nhÃ  khoa há»c Äi kháº£o sÃ¡t háº­u quáº£ chiáº¿n tranh do cháº¥t Äá»c hÃ³a há»c Má»¹ ráº£i xuá»ng vÃ¹ng Báº¿n Háº£i. Tháº¿ lÃ  ngoÃ i viá»c nghiÃªn cá»©u vá» chim, Ã´ng báº¯t Äáº§u nghiÃªn cá»©u vá» mÃ´i trÆ°á»ng chiáº¿n tranh tá»« lÃºc ÄÃ³. NhÆ°ng do nÄm 1971, chiáº¿n tranh khá»c liá»t, bom Äáº¡n tÆ¡i bá»i, ÄoÃ n cÃ´ng tÃ¡c cá»§a GS. VÃµ QuÃ½ vÃ o Äáº¿n Hiá»n LÆ°Æ¡ng thÃ¬ khÃ´ng thá» vÆ°á»£t qua vÄ© tuyáº¿n 17 Äá» vÃ o <st1:place w:st="on"><st1:country-region w:st="on">Nam</st1:country-region></st1:place>. Chuyáº¿n Äi thá»±c Äá»a Äáº§u tiÃªn khÃ´ng thÃ nh. NÄm 1974, Ã´ng láº¡i xin vÃ o <st1:place w:st="on"><st1:country-region w:st="on">Nam</st1:country-region></st1:place> láº§n ná»¯a, mang theo má»t ÄoÃ n cÃ´ng tÃ¡c gá»m 10 ngÆ°á»i. Ba thÃ¡ng láº·n lá»i dá»c theo ÄÆ°á»ng TrÆ°á»ng SÆ¡n, chá»©ng kiáº¿n hÃ ng ngÃ n hecta rá»«ng bá» Má»¹ ráº£i cháº¥t Äá»c hÃ³a há»c, má»i sá»± sá»ng bá» huá»· diá»t má»t cÃ¡ch tÃ n khá»c, Ã´ng ÄÃ£ quyáº¿t Äá»nh dÃ nh trá»n cuá»c Äá»i cho mÃ´i trÆ°á»ng. <o:p></o:p></FONT></FONT></SPAN></P>
+<P align=justify><SPAN><FONT face=Arial><FONT size=2>
+<TABLE style="WIDTH: 250px; HEIGHT: 193px" align=right valign="auto">
+<TBODY>
+<TR>
+<TD><IMG style="BORDER-RIGHT: #ffffff 0px; BORDER-TOP: #ffffff 0px; BORDER-LEFT: #ffffff 0px; WIDTH: 250px; CURSOR: hand; BORDER-BOTTOM: #ffffff 0px; HEIGHT: 193px" onclick=openImageNews(this,232,300); hspace=0 src="/btdhqghn/vietnamese/c1778/c1779/2006/05/n7880/gs%20vo%20quy6.jpg" align=right valign="auto"></TD></TR>
+<TR>
+<TD align=middle>
+<P><STRONG><FONT face=Verdana size=1>GS. VÃµ QuÃ½ vÃ  Äá»ng nghiá»p trong chuyáº¿n thá»±c Äá»a</FONT></STRONG></P></TD></TR></TBODY></TABLE>Trong chuyáº¿n kháº£o sÃ¡t áº¥y, 300 thÆ°á»c phim 16 ly cá»§a GS. VÃµ QuÃ½ ÄÃ£ ghi láº¡i ÄÆ°á»£c cáº£nh nhá»¯ng cÃ¡nh rá»«ng rá»ng lá»n vá»i nhá»¯ng cÃ¢y cá» thá»¥ nhiá»u ngÆ°á»i Ã´m bá» cháº¿t khÃ´ vÃ¬ cháº¥t Äá»c da cam, quang cáº£nh hoang váº¯ng, khÃ´ng má»t tiáº¿ng chim kÃªu, vÆ°á»£n hÃ³t. ÄÃ³ cÅ©ng lÃ  láº§n Äáº§u tiÃªn Viá»t <st1:country-region w:st="on"><st1:place w:st="on">Nam</st1:place></st1:country-region> ÄÆ°a ra lá»i kháº³ng Äá»nh chÃ­nh thá»©c vÃ  Äáº§y Äá»§ cÄn cá»© khoa há»c vá» tÃ¡c Äá»ng khá»§ng khiáº¿p cá»§a cháº¥t Äá»c da cam Äá»i vá»i mÃ´i trÆ°á»ng. ChÃ­nh tá»« nhá»¯ng gÃ¬ táº­n máº¯t chá»©ng kiáº¿n ÄÃ£ khiáº¿n Ã´ng Äi Äáº¿n káº¿t luáº­n ngay tá»« nhá»¯ng nÄm 1980 ráº±ng pháº£i máº¥t hÃ ng trÄm nÄm thÃ¬ hai triá»u hecta rá»«ng bá» ráº£i cháº¥t Äá»c má»i cÃ³ thá» tá»± há»i sinh. KhÃ´ng thá» chá» rá»«ng há»i sinh tá»± nhiÃªn, Ã´ng ÄÃ£ cÃ¹ng Äá»ng nghiá»p Äá» xuáº¥t giáº£i phÃ¡p trá»ng rá»«ng vÃ  ÄÆ°á»£c nhiá»u Äá»a phÆ°Æ¡ng hÆ°á»ng á»©ng. Vá»i sá»± ná» lá»±c cá»§a Trung tÃ¢m NghiÃªn cá»©u TÃ i nguyÃªn vÃ  MÃ´i trÆ°á»ng, nhiá»u dá»± Ã¡n vá» báº£o vá» thiÃªn nhiÃªn vÃ  phá»¥c há»i nhá»¯ng vÃ¹ng Äáº¥t bá» suy thoÃ¡i ÄÃ£ dáº§n dáº§n ÄÆ°á»£c thá»±c hiá»n cÃ³ hiá»u quáº£.<o:p></o:p></FONT></FONT></SPAN></P>
+<P align=justify><SPAN><FONT face=Arial><FONT size=2>GS. VÃµ QuÃ½ lÃ  Äá»ng sÃ¡ng láº­p vÃ  PhÃ³ chá»§ nhiá»m, rá»i Chá»§ nhiá»m hai ChÆ°Æ¡ng trÃ¬nh quá»c gia vá» mÃ´i trÆ°á»ng tá»« nÄm 1981 Äáº¿n nÄm 1990. Ãng ÄÃ£ cÃ³ nhá»¯ng ÄÃ³ng gÃ³p quan trá»ng trong viá»c Äá» xuáº¥t cÃ¡c chÃ­nh sÃ¡ch phÃ¡t triá»n bá»n vá»¯ng. Ãng cÅ©ng lÃ  ngÆ°á»i biÃªn táº­p vÃ  lÃ  Äá»ng tÃ¡c giáº£ cá»§a báº£n tháº£o Äáº§u tiÃªn vá» Chiáº¿n lÆ°á»£c báº£o vá» mÃ´i trÆ°á»ng vÃ  Luáº­t báº£o vá» mÃ´i trÆ°á»ng.<o:p></o:p></FONT></FONT></SPAN></P>
+<P align=justify><SPAN><FONT face=Arial><FONT size=2>KhÃ³ cÃ³ thá» ká» háº¿t nhá»¯ng huÃ¢n chÆ°Æ¡ng, huy chÆ°Æ¡ng, báº±ng khen cao quÃ½ tá»i nhá»¯ng pháº§n thÆ°á»ng mÃ  cÃ¡c tá» chá»©c trong nÆ°á»c vÃ  quá»c táº¿ ÄÃ£ trao táº·ng cho GS. VÃµ QuÃ½, tá»« HuÃ¢n chÆ°Æ¡ng KhÃ¡ng chiáº¿n háº¡ng Ba, HuÃ¢n chÆ°Æ¡ng Lao Äá»ng háº¡ng Ba, danh hiá»u NhÃ  giÃ¡o Æ°u tÃº tá»i Huy chÆ°Æ¡ng vÃ ng cá»§a NgÃ¢n quá»¹ Quá»c táº¿ Báº£o vá» thiÃªn nhiÃªn (WWF), Báº±ng danh dá»± Global 500 cá»§a LiÃªn hiá»p quá»c, Huy chÆ°Æ¡ng John Philipps - pháº§n thÆ°á»ng cao quÃ½ nháº¥t cá»§a Hiá»p Há»i quá»c táº¿ Báº£o vá» tá»± nhiÃªn (IUCN)... Ãng ÄÃ£ dá»n cáº£ tÃ¢m huyáº¿t, cÃ´ng sá»©c vÃ  cáº£ tiá»n cá»§a Äá» gÃ³p sá»©c vÃ o báº£o vá» tÃ i nguyÃªn mÃ´i trÆ°á»ng, xoÃ¡ ÄÃ³i giáº£m nghÃ¨o cho nÃ´ng dÃ¢n. Ãng ÄÃ£ táº·ng toÃ n bá» pháº§n thÆ°á»ng trá» giÃ¡ 150.000 USD giáº£i Pew Scholars do Äáº¡i há»c Michigan (Hoa Ká»³) trao Äá» nghiÃªn cá»©u báº£o vá» tÃ i nguyÃªn thiÃªn nhiÃªn á» HÃ  TÄ©nh. Äáº¿n bÃ¢y giá», ngÆ°á»i dÃ¢n á» 7 xÃ£ quanh há» Káº» Gá» thuá»c hai huyá»n Cáº©m XuyÃªn vÃ  Ká»³ Anh (HÃ  TÄ©nh) váº«n hay nháº¯c Äáº¿n "vÆ°á»n cam cá»§a Ã´ng QuÃ½" báº±ng táº¥t cáº£ tÃ¬nh cáº£m máº¿n yÃªu vÃ  biáº¿t Æ¡n.<o:p></o:p></FONT></FONT></SPAN></P>
+<P align=justify><SPAN><FONT face=Arial><FONT size=2>
+<TABLE style="WIDTH: 250px; HEIGHT: 187px" align=right valign="auto">
+<TBODY>
+<TR>
+<TD><IMG style="BORDER-RIGHT: #ffffff 0px; BORDER-TOP: #ffffff 0px; BORDER-LEFT: #ffffff 0px; WIDTH: 250px; CURSOR: hand; BORDER-BOTTOM: #ffffff 0px; HEIGHT: 187px" onclick=openImageNews(this,225,300); hspace=0 src="/btdhqghn/vietnamese/c1778/c1779/2006/05/n7880/gs%20vo%20quy5.jpg" align=right valign="auto"></TD></TR>
+<TR>
+<TD align=middle>
+<P><FONT face=Verdana size=1><STRONG>GS. VÃµ QuÃ½ vÃ  vá»£ táº¡i lá» trao giáº£i thÆ°á»ng HÃ nh tinh xanh á» Nháº­t Báº£n, nÄm 2003</STRONG></FONT></P></TD></TR></TBODY></TABLE>NÄm 2003, GS. VÃµ QuÃ½ vinh dá»± lÃ  nhÃ  khoa há»c Viá»t Nam Äáº§u tiÃªn vÃ  lÃ  ngÆ°á»i chÃ¢u Ã thá»© hai ÄÆ°á»£c nháº­n Giáº£i thÆ°á»ng HÃ nh tinh xanh, giáº£i thÆ°á»ng quá»c táº¿ tÆ°Æ¡ng ÄÆ°Æ¡ng giáº£i Nobel vá» mÃ´i trÆ°á»ng, do Ashahi Glass Foundation trao táº·ng. Ngay tá»« khi nghe tin ÄÆ°á»£c trao giáº£i, Ã´ng ÄÃ£ dá»± Äá»nh sáº½ dÃ¹ng toÃ n bá» sá» tiá»n 50 triá»u yÃªn Nháº­t (tÆ°Æ¡ng ÄÆ°Æ¡ng khoáº£ng 6 tá»· Äá»ng Viá»t Nam) vÃ o viá»c nghiÃªn cá»©u vÃ  bá»i dÆ°á»¡ng cÃ¡n bá» ngÃ nh mÃ´i trÆ°á»ng. Tá»i nay, hÃ ng nÄm, Ã´ng ÄÃ£ trÃ­ch dáº§n sá» tiá»n nÃ y Äá» gÃ³p pháº§n cÃ¹ng vá»i Trung tÃ¢m NghiÃªn cá»©u TÃ i nguyÃªn vÃ  MÃ´i trÆ°á»ng - ÄHQGHN tá» chá»©c cÃ¡c lá»p bá» tÃºc kiáº¿n thá»©c vá» mÃ´i trÆ°á»ng cho nhá»¯ng ngÆ°á»i Äang lÃ m cÃ´ng tÃ¡c nÃ y vÃ  há» trá»£ cÃ¡c hoáº¡t Äá»ng vá» ÄÃ o táº¡o vÃ  nÃ¢ng cao nÄng lá»±c ÄÃ o táº¡o cá»§a Trung tÃ¢m. Ãng bá»c báº¡ch: "<I>ÄÃ¢y lÃ  cÃ´ng viá»c cá»§a nhÃ  nÆ°á»c, nhÆ°ng nhÃ  nÆ°á»c chÆ°a thá» lÃ m háº¿t ÄÆ°á»£c. Má»¥c ÄÃ­ch cá»§a tÃ´i lÃ  ÄÃ³ng gÃ³p má»t pháº§n sá»©c mÃ¬nh vÃ o cÃ´ng viá»c ÄÃ³ má»t cÃ¡ch há»¯u Ã­ch</I>".<o:p></o:p></FONT></FONT></SPAN></P>
+<P align=justify><SPAN><FONT face=Arial><FONT size=2>LÃ m phim cÅ©ng lÃ  má»t niá»m yÃªu thÃ­ch thá»i tráº» cá»§a Ã´ng nhÆ°ng Äáº§y tÃ¬nh cá». Trong nhá»¯ng chuyáº¿n Äi thá»±c táº¿, kháº£o sÃ¡t, nghiÃªn cá»©u vá» cháº¥t Äá»c mÃ u da cam tá»« nhá»¯ng nÄm 1970, Ã´ng quay phim, chá»¥p áº£nh chá» lÃ  Äá» láº¥y tÆ° liá»u, nhÆ°ng rá»i Ã´ng nháº­n tháº¥y "khÃ´ng cÃ³ nÃ³ (mÃ¡y quay phim, mÃ¡y áº£nh) khÃ´ng ÄÆ°á»£c" vÃ  rá»i hai thá»© nÃ y ÄÃ£ trá» thÃ nh váº­t báº¥t ly thÃ¢n má»i khi Ã´ng cÃ³ cÆ¡ há»i Äáº¿n vá»i thiÃªn nhiÃªn. CÃ³ nhá»¯ng khi Ã´ng ngá»i láº·ng hÃ ng giá» Äá» ghi Ã¢m tiáº¿ng chim. Chuyáº¿n Äi kháº£o sÃ¡t nÃ o cÅ©ng tháº¿, Ã´ng say sÆ°a quay phim, chá»¥p hÃ¬nh rá»i láº¡i cáº·m cá»¥i ghi chÃ©p láº¡i nhá»¯ng Äiá»u ÄÃ£ máº¯t tháº¥y, tai nghe. Ngay sau ngÃ y Äáº¥t nÆ°á»c thá»ng nháº¥t, tá»i CÃ´n Äáº£o, Ã´ng chá» Äá»nh quay phim Äá» láº¥y tÆ° liá»u, nhÆ°ng khi vá» xem láº¡i Ã´ng náº£y ra Ã½ Äá»nh lÃ m thÃ nh phim. Tháº¿ lÃ , vá»i sá»± cá»ng tÃ¡c cá»§a anh báº¡n há»a sÄ©, anh báº¡n lÃ m nháº¡c vÃ  vá»£ Ã´ng, bÃ  LÃª Thanh, viáº¿t lá»i bÃ¬nh, bá» phim "<I>CÃ´n Äáº£o, viÃªn ngá»c quÃ½ cá»§a Tá» quá»c ta"</I> ÄÃ£ ra Äá»i. TÃ¬nh cá» má»t ngÆ°á»i báº¡n lÃ m truyá»n hÃ¬nh tháº¥y thÃ­ch quÃ¡ liá»n xin vá» Äá» phÃ¡t sÃ³ng vÃ  khÃ¡n giáº£ truyá»n hÃ¬nh ÄÃ£ Äá» nghá» phÃ¡t láº¡i máº¥y láº§n. Sau nÃ y, GS. VÃµ QuÃ½ cÃ²n lÃ m cá» váº¥n khoa há»c cho hÃ£ng phim ACACIA (Anh) vá» bá» phim "<I>Viá»t Nam sau khÃ³i lá»­a chiáº¿n tranh" </I>Äoáº¡t giáº£i nhÃ¬ LiÃªn hoan phim Canada (1989), giáº£i phim truyá»n hÃ¬nh thá»i sá»± hay nháº¥t táº¡i New York (1990); vá»i hÃ£ng BBC (Anh) vá» bá» phim "<I>Viá»t Nam má»t Äáº¥t nÆ°á»c, khÃ´ng pháº£i chiáº¿n tranh".</I> á» Viá»t Nam, nhiá»u ngÆ°á»i ÄÃ£ quen máº·t vÃ  ráº¥t cÃ³ cáº£m tÃ¬nh vá»i ngÆ°á»i dáº«n chÆ°Æ¡ng trÃ¬nh trÃªn chuyÃªn má»¥c <I>"Äáº¿n vá»i thiÃªn nhiÃªn"</I>, KCT (VTV2) - GS. VÃµ QuÃ½. HÆ¡n 200 chÆ°Æ¡ng trÃ¬nh phÃ¡t sÃ³ng Ã´ng tham gia thÃ¬ má»i chÆ°Æ¡ng trÃ¬nh lÃ  má»t Ã½ tÆ°á»ng, má»t cÃ¡ch nÃ³i vui nhÆ°ng dá» phá» biáº¿n, dá» hiá»u mÃ  láº¡i ráº¥t khoa há»c. Ãng báº£o: <I>"Pháº£i lÃ m cho ngÆ°á»i ta nhá» mÃ  láº¡i khÃ´ng nhÃ m, lÃºc tháº¿ nÃ y, lÃºc tháº¿ kia nhÆ°ng cÅ©ng chá» xoÃ¡y vÃ o má»t váº¥n Äá» lá»n lÃ  táº¡i sao pháº£i báº£o vá» mÃ´i trÆ°á»ng, báº£o vá» thiÃªn nhiÃªn</I>". <o:p></o:p></FONT></FONT></SPAN></P>
+<P align=justify><SPAN><FONT face=Arial><FONT size=2>Ãng cÃ²n dÃ nh nhiá»u tÃ¢m sá»©c Äá» nghiÃªn cá»©u vá» Äa dáº¡ng sinh há»c, cÃ¡c loÃ i cÃ³ nguy cÆ¡ tuyá»t chá»§ng, thiáº¿t láº­p vÃ  quáº£n lÃ½ cÃ¡c khu báº£o tá»n, giÃºp Äá»¡ cÃ¡c cá»ng Äá»ng Äá»a phÆ°Æ¡ng trong viá»c sá»­ dá»¥ng há»£p lÃ½ tÃ i nguyÃªn thiÃªn nhiÃªn Äá» phÃ¡t triá»n bá»n vá»¯ng. Ãng Äi sÃ¢u vÃ o tÃ¬m hiá»u má»i quan há» giá»¯a ngÆ°á»i dÃ¢n, nháº¥t lÃ  dÃ¢n nghÃ¨o, vá»i tÃ i nguyÃªn thiÃªn nhiÃªn Äá» tÃ¬m ra nhá»¯ng biá»n phÃ¡p há»¯u hiá»u gÃ³p pháº§n xoÃ¡ ÄÃ³i, giáº£m nghÃ¨o, giÃºp Äá»¡ ngÆ°á»i dÃ¢n á» cÃ¡c vÃ¹ng Äá»m cá»§a cÃ¡c khu báº£o tá»n phÃ¡t triá»n kinh táº¿, nÃ¢ng cao cuá»c sá»ng, khÃ´ng phÃ¡ rá»«ng mÃ  cÃ²n tÃ­ch cá»±c báº£o vá» rá»«ng vÃ  ÄÆ°a ra quan Äiá»m "báº£o vá» rá»«ng cÃ³ sá»± tham gia cá»§a cá»ng Äá»ng".<o:p></o:p></FONT></FONT></SPAN></P>
+<P align=justify><SPAN><FONT face=Arial><FONT size=2>Dá»± Ã¡n xÃ³a ÄÃ³i giáº£m nghÃ¨o cho nhÃ¢n dÃ¢n 137 xÃ£ thuá»c 9 huyá»n thuá»c tá»nh HÃ  TÄ©nh do NgÃ¢n quá»¹ quá»c táº¿ vá» PhÃ¡t triá»n nÃ´ng nghiá»p (IFAD) tÃ i trá»£ vÃ  do Ã´ng lÃ m cá» váº¥n lÃ  má»t Äiá»n hÃ¬nh. ÄÃ¢y lÃ  dá»± Ã¡n Äáº§u tiÃªn cá»§a LiÃªn hiá»p quá»c thá»±c hiá»n táº¡i Viá»t <st1:place w:st="on"><st1:country-region w:st="on">Nam</st1:country-region></st1:place> mÃ  háº§u nhÆ° khÃ´ng cÃ³ chuyÃªn gia nÆ°á»c ngoÃ i tham gia. GS. VÃµ QuÃ½ ÄÃ£ dá»n nhiá»u cÃ´ng sá»©c, tÃ¢m huyáº¿t Äá» giÃºp HÃ  TÄ©nh thá»±c hiá»n tá»t dá»± Ã¡n. Cho tá»i nay, dá»± Ã¡n ÄÃ£ káº¿t thÃºc sau 5 nÄm thá»±c hiá»n, ÄÆ°á»£c IFAD ÄÃ¡nh giÃ¡ ráº¥t cao. <o:p></o:p></FONT></FONT></SPAN></P>
+<P align=justify><SPAN><FONT face=Arial><FONT size=2>CÃ³ ngÆ°á»i báº£o, vÃ¬ sá»ng trong thiÃªn nhiÃªn nÃªn GS. VÃµ QuÃ½ nhÆ° khoáº» hÆ¡n, linh hoáº¡t háº³n lÃªn. CÃ³ pháº£i váº­y mÃ  Äáº¿n bÃ¢y giá», dÃ¹ ÄÃ£ á» tuá»i 77, tÃ³c trÃªn Äáº§u ÄÃ£ tráº¯ng nhÆ° cÆ°á»c mÃ  Ã´ng váº«n cÃ³ sá»± dáº»o dai Äáº¿n láº¡ ká»³? Nhá»¯ng láº§n tÃ´i Äáº¿n thÄm, Ã´ng thÆ°á»ng ráº¥t báº­n rá»n bá»i nhá»¯ng chuyáº¿n Äi HÃ  TÄ©nh, thÃ nh phá» Há» ChÃ­ Minh vÃ  nhá»¯ng táº­p dá»± Ã¡n. Ãng báº£o: "<I>TÃ´i cÃ²n nhiá»u viá»c pháº£i lÃ m. TrÆ°á»c máº¯t lÃ  tiáº¿p tá»¥c lÃ m Äá» Ã¡n xin thá»±c hiá»n giai Äoáº¡n 2 dá»± Ã¡n xÃ³a ÄÃ³i giáº£m nghÃ¨o cho tá»nh HÃ  TÄ©nh, rá»i lÃ m thá»§ tá»¥c Äá» nghá» UNESCO cÃ´ng nháº­n khu dá»± trá»¯ Con ngÆ°á»i vÃ  Sinh quyá»n (MAB) cho má»t sá» khu báº£o tá»n cá»§a HÃ  TÄ©nh. TÃ´i cÅ©ng Äang cá» gáº¯ng giÃºp tá»nh nghiÃªn cá»©u, tÃ¬m hiá»u Äá» nÃ¢ng cao nÄng suáº¥t cá»§a cÃ¢y giÃ³ tráº§m. Náº¿u thÃ nh cÃ´ng, ÄÃ¢y sáº½ lÃ  giáº£i phÃ¡p tÃ­ch cá»±c Äá» ngÆ°á»i dÃ¢n HÃ  TÄ©nh phá»§ xanh Äáº¥t trá»ng, Äá»i nÃºi trá»c, nÃ¢ng cao Äá»i sá»ng. ThÃ nh phá» Há» ChÃ­ Minh vÃ  LiÃªn hiá»p Há»i Khoa há»c vÃ  Ká»¹ thuáº­t cÅ©ng Äang yÃªu cáº§u tÃ´i giÃºp xÃ¢y dá»±ng Báº£o tÃ ng Lá»ch sá»­ tá»± nhiÃªn cho thÃ nh phá»...</I>". <I><o:p></o:p></I></FONT></FONT></SPAN></P>
+<P align=justify><SPAN><FONT face=Arial size=2>Khi tÃ´i há»i: "<I>Vá»i nhiá»u dá»± Äá»nh nhÆ° tháº¿, Äiá»u bÃ¡c mong nháº¥t hiá»n nay lÃ  gÃ¬?</I>"<I>.</I> Ãng cÆ°á»i vÃ  nÃ³i: "<I>Sá»©c khoáº»! TÃ´i mong mÃ¬nh khoáº» khoáº¯n vÃ  tá»nh tÃ¡o Äá» tiáº¿p tá»¥c lÃ m viá»c. ÄÆ°á»£c lÃ m nhá»¯ng Äiá»u mÃ¬nh yÃªu thÃ­ch thÃ¬ cÃ²n gÃ¬ thÃº vá» báº±ng</I>". VÆ°á»£t lÃªn táº¥t cáº£ nhá»¯ng khÃ³ khÄn, trá» ngáº¡i, tá»± nguyá»n dáº¥n thÃ¢n cho khoa há»c Äá» phá»¥c vá»¥ Äáº¥t nÆ°á»c - GS. VÃµ QuÃ½ lÃ  tháº¿ ÄÃ³./.</FONT></SPAN></P></p>
+	 </TD></TR>
+	 <TR><TD><div class=clsAuthor align=right>LÆ°u Mai Anh
+     [100 Years-VietNam National University,HaNoi]
+     </div></TD></TR>
+     <TR><TD class=clsBreak></TD></TR>
+
+    </TABLE>
+   
+		<table width="100%">
+		<TR><TD align=right style="padding-right : 4px">
+			
+  <TABLE WIDTH=100% BORDER=0 CELLSPACING=0 CELLPADDING=0>
+	<TR><TD align=right>
+	<SCRIPT LANGUAGE="JavaScript">
+if (navigator.appName == 'Microsoft Internet Explorer' && parseInt(navigator.appVersion) >= 4)
+{
+   document.write("<A class=clsBookmark HREF=\"javascript:window.external.AddFavorite(document.location.href,document.title);\">");
+   document.write("<IMG SRC='/Libaries/Images/Store/bookmark.gif' WIDTH=32 BORDER=0></A>");
+}
+</SCRIPT>
+	<IMG style="cursor:hand" onclick="window.open('/Libaries/common/Email/default.asp?iLangId=8','window','height = 250,width =250')" width=32 src="/Libaries/Images/store/email.gif" border=0>
+    <img style="cursor:hand" onclick="PopUpPrintNews(document.location.href,7880)" width="32" src="/Libaries/Logo/common/print_icon.gif" border="0"></TD></TR>
+  </TABLE>
+</TD></TR>
+		</table>
+		<TR><TD width="100%" class="clslienquan">CÃ¡c bÃ i liÃªn quan</TD></TR>
+	<TR><TD width="100%">
+<TABLE WIDTH=100% BORDER=0 CELLSPACING=1 CELLPADDING=1 valign="top">
+
+     <TR><TD WIDTH=100%><b><Font face=Tahoma size=2 color=darkred>&raquo;</font></b>
+	  <a href="/BTDHQGHN/Vietnamese/C1778/C1779/2006/05/N7679/?1" class=clsComLinkTD>
+	     Tháº§y tÃ´i - tiá»u khÃºc thá»© ba, nhá»¯ng Äiá»u chÆ°a nÃ³i</a>
+	    </TD></TR> 
+     <TR><TD class=clsBreak></TD></TR>   
+	 
+
+     <TR><TD WIDTH=100%><b><Font face=Tahoma size=2 color=darkred>&raquo;</font></b>
+	  <a href="/BTDHQGHN/Vietnamese/C1778/C1779/2006/05/N7878/?1" class=clsComLinkTD>
+	     GS.TSKH TrÆ°Æ¡ng ÄÃ´ng San - ngÆ°á»i tÃ¢m huyáº¿t vá»i sá»± nghiá»p giÃ¡o dá»¥c vÃ  ÄÃ o táº¡o ngoáº¡i ngá»¯</a>
+	    </TD></TR> 
+     <TR><TD class=clsBreak></TD></TR>   
+	 
+
+     <TR><TD WIDTH=100%><b><Font face=Tahoma size=2 color=darkred>&raquo;</font></b>
+	  <a href="/BTDHQGHN/Vietnamese/C1778/C1779/2006/05/N7846/?1" class=clsComLinkTD>
+	     GS.NGÆ¯T Tráº§n Quá»c VÆ°á»£ng: Tháº§y tÃ´i, cÃ¢y Äáº¡i thá»¥ cá»§a ná»n sá»­ há»c viá»t nam</a>
+	    </TD></TR> 
+     <TR><TD class=clsBreak></TD></TR>   
+	 
+
+     <TR><TD WIDTH=100%><b><Font face=Tahoma size=2 color=darkred>&raquo;</font></b>
+	  <a href="/BTDHQGHN/Vietnamese/C1778/C1779/2006/05/N7937/?1" class=clsComLinkTD>
+	     GS. HoÃ ng Tá»¥y, ngÆ°á»i khai sinh lÃ½ thuyáº¿t Tá»i Æ°u ToÃ n cá»¥c</a>
+	    </TD></TR> 
+     <TR><TD class=clsBreak></TD></TR>   
+	 
+
+     <TR><TD WIDTH=100%><b><Font face=Tahoma size=2 color=darkred>&raquo;</font></b>
+	  <a href="/BTDHQGHN/Vietnamese/C1778/C1779/2006/05/N7886/?1" class=clsComLinkTD>
+	     Victor Tardieu - ngÆ°á»i sÃ¡ng láº­p TrÆ°á»ng Cao Äáº³ng Má»¹ thuáº­t ÄÃ´ng DÆ°Æ¡ng</a>
+	    </TD></TR> 
+     <TR><TD class=clsBreak></TD></TR>   
+	 
+
+     <TR><TD WIDTH=100%><b><Font face=Tahoma size=2 color=darkred>&raquo;</font></b>
+	  <a href="/BTDHQGHN/Vietnamese/C1778/C1779/2006/05/N7890/?1" class=clsComLinkTD>
+	     GS. HÃ  VÄn Táº¥n, vá» giÃ¡o sÆ° kháº£o cá» há»c vÃ  hÃ nh trÃ¬nh theo dáº¥u vÄn hoÃ¡</a>
+	    </TD></TR> 
+     <TR><TD class=clsBreak></TD></TR>   
+	 
+
+     <TR><TD WIDTH=100%><b><Font face=Tahoma size=2 color=darkred>&raquo;</font></b>
+	  <a href="/BTDHQGHN/Vietnamese/C1778/C1779/2006/05/N7892/?1" class=clsComLinkTD>
+	     GS. ÄÃ o VÄn Táº­p - ngÆ°á»i Äáº·t viÃªn gáº¡ch Äáº§u tiÃªn cho ná»n khoa há»c kinh táº¿ á» Viá»t Nam 
+
+ 
+</a>
+	    </TD></TR> 
+     <TR><TD class=clsBreak></TD></TR>   
+	 
+
+     <TR><TD WIDTH=100%><b><Font face=Tahoma size=2 color=darkred>&raquo;</font></b>
+	  <a href="/BTDHQGHN/Vietnamese/C1778/C1779/2006/05/N7914/?1" class=clsComLinkTD>
+	     GS. ÄÃ o Trá»ng Thi - nhÃ  toÃ¡n há»c tÃ i nÄng, nhÃ  quáº£n lÃ½ tÃ¢m huyáº¿t</a>
+	    </TD></TR> 
+     <TR><TD class=clsBreak></TD></TR>   
+	 
+
+     <TR><TD WIDTH=100%><b><Font face=Tahoma size=2 color=darkred>&raquo;</font></b>
+	  <a href="/BTDHQGHN/Vietnamese/C1778/C1779/2006/05/N7916/?1" class=clsComLinkTD>
+	     GS. Phan TrÆ°á»ng Thá» - trÃªn mÆ°á»i nÄm trÃ¨o ÄÃ¨o, lá»i suá»i thá»±c hiá»n má»t Ã½ tÆ°á»ngâ¦ phÃ¡c tháº£o</a>
+	    </TD></TR> 
+     <TR><TD class=clsBreak></TD></TR>   
+	 
+
+     <TR><TD WIDTH=100%><b><Font face=Tahoma size=2 color=darkred>&raquo;</font></b>
+	  <a href="/BTDHQGHN/Vietnamese/C1778/C1779/2006/05/N7920/?1" class=clsComLinkTD>
+	     GS. LÃª VÄn ThiÃªm, nhÃ  khoa há»c xuáº¥t sáº¯c, niá»m tá»± hÃ o cá»§a ná»n ToÃ¡n há»c Viá»t Nam</a>
+	    </TD></TR> 
+     <TR><TD class=clsBreak></TD></TR>   
+	 
+
+     <TR><TD WIDTH=100%><b><Font face=Tahoma size=2 color=darkred>&raquo;</font></b>
+	  <a href="/BTDHQGHN/Vietnamese/C1778/C1779/2006/05/N7926/?1" class=clsComLinkTD>
+	     GS. LÃª XuÃ¢n TÃ¹ng, táº¥m gÆ°Æ¡ng sÃ¡ng vá» Ã½ chÃ­ tá»± lá»±c, tá»± cÆ°á»ng</a>
+	    </TD></TR> 
+     <TR><TD class=clsBreak></TD></TR>   
+	 
+
+     <TR><TD WIDTH=100%><b><Font face=Tahoma size=2 color=darkred>&raquo;</font></b>
+	  <a href="/BTDHQGHN/Vietnamese/C1778/C1779/2006/05/N7895/?1" class=clsComLinkTD>
+	     PGS. Nguyá»n Kim Tháº£n - chÃ¢n dung má»t ngÆ°á»i khai phÃ¡</a>
+	    </TD></TR> 
+     <TR><TD class=clsBreak></TD></TR>   
+	 
+
+     <TR><TD WIDTH=100%><b><Font face=Tahoma size=2 color=darkred>&raquo;</font></b>
+	  <a href="/BTDHQGHN/Vietnamese/C1778/C1779/2006/05/N7897/?1" class=clsComLinkTD>
+	     GS. Pháº¡m Ngá»c Thao - nhÃ  toÃ¡n há»c khÃ´ng ngá»«ng há»c</a>
+	    </TD></TR> 
+     <TR><TD class=clsBreak></TD></TR>   
+	 
+
+     <TR><TD WIDTH=100%><b><Font face=Tahoma size=2 color=darkred>&raquo;</font></b>
+	  <a href="/BTDHQGHN/Vietnamese/C1778/C1779/2006/05/N7899/?1" class=clsComLinkTD>
+	     GS. Tá»ng Duy Thanh - má»t nhÃ  khoa há»c tá»± há»c</a>
+	    </TD></TR> 
+     <TR><TD class=clsBreak></TD></TR>   
+	 
+
+     <TR><TD WIDTH=100%><b><Font face=Tahoma size=2 color=darkred>&raquo;</font></b>
+	  <a href="/BTDHQGHN/Vietnamese/C1778/C1779/2006/05/N7907/?1" class=clsComLinkTD>
+	     Nguyá»n ÄÃ¬nh Thi - ngÆ°á»i nghá» sÄ© Äa tÃ i
+
+ 
+</a>
+	    </TD></TR> 
+     <TR><TD class=clsBreak></TD></TR>   
+	 
+
+</TABLE> 
+</TD></TR>
+	<TR><TD width="100%" style="padding-left: 7px;padding-bottom: 17px; border-right:#A4A4A4 0px solid;">
+	</TD></TR>
+					
+		
+	</Table></TD></TR>	
+	</Table>
+	</TD>
+
+<TD valign=top width="174px" bgcolor="#F3EACC" >
+	<TABLE WIDTH=100% BORDER=0 CELLSPACING=0 CELLPADDING=0 valign="top">
+	
+	<TR><TD valign=top width="100%">
+	
+<table width="100%" cellspacing="0" cellpadding="0" border="0" bgcolor="#FFFFCC" class="clsTable_Service">
+<tr><td width="100%" align="center" height="20px" style="cursor:hand;padding-bottom:2px; border-left:#808080 0px solid;border-right:#808080 0px solid;border-top:#808080 0px solid;border-bottom:#808080 0px solid; padding-top:3px;"  title="Xem chi tiáº¿t" class="clsTTQA" background="/Libaries/img/DHDD/0123.gif">&nbsp;Tin tá»©c qua áº£nh
+ </td></tr>
+<tr><td width="100%" class="clsborder">
+	<table width="100%" cellspacing="0" cellpadding="2" border=0 align="center">
+	<tr height="4"><td></td></tr>
+
+  <tr height="8"><td></td></tr>
+	</table>
+</td></tr>
+</table>
+
+	</TD></Tr>
+	<TR HEIGHT="3PX"><TD BGCOLOR="#7B7464"></TD></TR>
+		<TR><TD width="100%" valign="top">
+			
+<table width="100%" cellspacing="0" cellpadding="0" border="0" class="clsTable_Service">
+	<tr><td width="100%" align="center" height="20px" style="cursor:hand;padding-bottom:2px; border-left:#808080 0px solid;border-right:#808080 0px solid;border-top:#808080 0px solid;border-bottom:#808080 0px solid; padding-top:0px;"  title="Xem chi tiáº¿t" class="clsTTQA" background="/Libaries/img/DHDD/0123.gif">&nbsp;TiÃªu Äiá»m
+		</td></tr>
+    
+   </table>
+ 
+		</TD></TR>
+	<TR HEIGHT="3PX"><TD BGCOLOR="#7B7464"></TD></TR>
+	<TR><TD WIDTH="100%" VALIGN="TOP">
+	<table width="100%" cellspacing="0" cellpadding="0" border="0"  class="clsTable_Service">			
+		<tr><td width="100%" align="center" height="20px" style="cursor:hand;padding-bottom:2px; border-left:#808080 0px solid;border-right:#808080 0px solid;border-top:#808080 0px solid;border-bottom:#808080 0px solid; padding-top:0px;"  title="Xem chi tiáº¿t" class="clsTTQA" background="/Libaries/img/DHDD/0123.gif">&nbsp;CÃ¡c liÃªn káº¿t
+		</td></tr>
+	 
+		<tr><td class="clsnamelink" style="padding-left:5px;" title="" bgcolor="#E4CFC0"></td></tr>
+		
+	<tr height="2px"><td></td></tr>
+	<tr><td title="ChÃºng tÃ´i sáº½ giáº£i ÄÃ¡p má»i thÃ´ng tin liÃªn quan Äáº¿n nhá»¯ng váº¥n Äá» vá» Äáº¡i há»c Quá»c gia HÃ  Ná»i" style="cursor:hand;" align="center">
+	
+		<a href="http://www.vnu.edu.vn/dhqg/contents/index.php?ID=1180" target="_black">
+		<img src="/Libaries/Images/Templates/BacGiang/hoidap.gif" width="172px;" border=1></a>
+	
+	</td></tr>
+	<tr height="2px"><td></td></tr>
+
+		<tr><td class="clsnamelink" style="padding-left:5px;" title="" bgcolor="#E4CFC0"></td></tr>
+		
+	<tr height="2px"><td></td></tr>
+	<tr><td title="" style="cursor:hand;" align="center">
+	
+		<a href="/btdhqghn/vietnamese/c1840/?35">
+		<img src="/Libaries/Images/Templates/BacGiang/Sinhvienthanhdat_172.gif" width="172px;" border=1></a>
+	
+	</td></tr>
+	<tr height="2px"><td></td></tr>
+
+		<tr><td class="clsnamelink" style="padding-left:5px;" title="" bgcolor="#E4CFC0"></td></tr>
+		
+	<tr height="2px"><td></td></tr>
+	<tr><td title="" style="cursor:hand;" align="center">
+	
+		<a href="/btdhqghn/vietnamese/c1797/?35">
+		<img src="/Libaries/Images/Templates/BacGiang/nhungnamthangay.jpg" width="172px;" border=1></a>
+	
+	</td></tr>
+	<tr height="2px"><td></td></tr>
+
+		<tr><td class="clsnamelink" style="padding-left:5px;" title="Diá»n ÄÃ n HÃ  Ná»i vá» GiÃ¡o dá»¥c Äáº¡i há»c tháº¿ ká»· XXI" bgcolor="#E4CFC0"></td></tr>
+		
+	<tr height="2px"><td></td></tr>
+	<tr><td title="Diá»n ÄÃ n GiÃ¡o dá»¥c Äáº¡i há»c tháº¿ ká»· XXI do Äáº¡i há»c Quá»c gia HÃ  Ná»i ÄÄng cai tá» chá»©c" style="cursor:hand;" align="center">
+	
+		<a href="/btdhqghn/vietnamese/c1794/?35">
+		<img src="/Libaries/Images/Templates/BacGiang/DiendanHanoi_172.jpg" width="172px;" border=1></a>
+	
+	</td></tr>
+	<tr height="2px"><td></td></tr>
+
+		<tr><td class="clsnamelink" style="padding-left:5px;" title="" bgcolor="#E4CFC0"></td></tr>
+		
+	<tr height="2px"><td></td></tr>
+	<tr><td title="100 nÄm Con ngÆ°á»i vÃ  Sá»± kiá»n" style="cursor:hand;" align="center">
+	
+		<a href="/btdhqghn/vietnamese/c1778/c1779/?35">
+		<img src="/Libaries/Images/Templates/BacGiang/bia100nam.jpg" width="172px;" border=1></a>
+	
+	</td></tr>
+	<tr height="2px"><td></td></tr>
+
+		<tr><td class="clsnamelink" style="padding-left:5px;" title="" bgcolor="#E4CFC0"></td></tr>
+		
+	<tr height="2px"><td></td></tr>
+	<tr><td title="Trang thÃ´ng tin vá» cÃ¡c giáº£i thÆ°á»ng Há» ChÃ­ Minh, giáº£i thÆ°á»ng NhÃ  nÆ°á»c, giáº£i thÆ°á»ng ÄHQGHN vá» Khoa há»c vÃ  CÃ´ng nghá»" style="cursor:hand;" align="center">
+	
+		<a href="http://news.vnu.edu.vn/ttsk/vietnamese/c1736/c1752/c1884/2006/06/n10541/?35" target="_black">
+		<img src="/Libaries/Images/Templates/BacGiang/giaithuong_172.jpg" width="172px;" border=1></a>
+	
+	</td></tr>
+	<tr height="2px"><td></td></tr>
+
+		<tr><td class="clsnamelink" style="padding-left:5px;" title="" bgcolor="#E4CFC0"></td></tr>
+		
+	<tr height="2px"><td></td></tr>
+	<tr><td title="" style="cursor:hand;" align="center">
+	
+		<a href="/btdhqghn/vietnamese/c1839/?35">
+		<img src="/Libaries/Images/Templates/BacGiang/CAC NHA KHOA NU.jpg" width="172px;" border=1></a>
+	
+	</td></tr>
+	<tr height="2px"><td></td></tr>
+
+		<tr><td class="clsnamelink" style="padding-left:5px;" title="" bgcolor="#E4CFC0"></td></tr>
+		
+	<tr height="2px"><td></td></tr>
+	<tr><td title="" style="cursor:hand;" align="center">
+	
+		<a href="http://news.vnu.edu.vn/ttsk/vietnamese/c1737/c1758/c1932/2006/10/n12028/?35" target="_black">
+		<img src="/Libaries/Images/Templates/BacGiang/besetoha_logo_172.gif" width="172px;" border=1></a>
+	
+	</td></tr>
+	<tr height="2px"><td></td></tr>
+
+		</table>
+	   </TD></TR>
+	<TR HEIGHT="3PX"><TD BGCOLOR="#7B7464"></TD></TR>
+	<TR><TD>
+<table width="100%" cellspacing="0" cellpadding="0" class="clsTable_Service">
+<tr><td width="100%" style="padding-top:0px;" >
+	<table width="100%" cellspacing="0" cellpadding="0"  >	
+	<tr><td width="100%" align="center" height="20px" style="cursor:hand;padding-bottom:2px; border-left:#808080 0px solid;border-right:#808080 0px solid;border-top:#808080 0px solid;border-bottom:#808080 0px solid; padding-top:0px;"  title="Xem chi tiáº¿t" class="clsTTQA" background="/Libaries/img/DHDD/0123.gif">&nbsp;ThÆ° viá»n áº£nh
+		</td></tr>
+	</table>
+</td></tr>
+
+</table>
+</TD></TR>
+	<TR><TD width="100%" valign="top"></TD></TR>
+	<TR><TD width="100%"></TD></TR>	
+	</Table>
+	</TD>
+	
+	</TR>
+	</Table>
+ </TD></TR></TBODY>
+</TABLE>
+<TABLE cellSpacing=0 cellPadding=0 valign="top" width="770" align=center>
+   <TR vAlign=center align=middle><TD valign="top" width="770">
+   <hr size=1 width="100%">
+   </TD></TR>
+</TABLE>
+<TABLE class=TableBottom cellSpacing=0 cellPadding=0 width="770" align="center">
+ <TBODY>
+   <TR><TD vAlign=top width="100%">
+   
+<TABLE WIDTH="100%" CELLPADDING=0 CELLSPACING=0 align="top" valign="top" style="border-top: #000000 0px solid" valign="top" border=0>
+  <TR><TD  align="left" >
+     <div align="left" style="font-family: Arial;font-size: 12px;text-align:left">
+	  <b>Copyright</b> 2004-2026 Äáº¡i há»c Quá»c gia HÃ  Ná»i  
+	</div>   </a></TD>
+	<td class="clstoasoan" onclick="java_toasoan()" width="320"><font size="2.0" style="cursor:hand; " title="ThÃ´ng tin toÃ  soáº¡n" COLOR="#797979"><U> ThÃ´ng tin toÃ  soáº¡n</U></font></td>
+	</TR>
+  <TR><TD width="100%" align="left" valign="top" colspan="2">
+     <div align="left" style="font-family: Arial;font-size: 12px;text-align:left">
+	  <b>Äá»a chá» :</b> 144 - ÄÆ°á»ng XuÃ¢n Thá»§y - Cáº§u Giáº¥y - HÃ  Ná»i. &nbsp;&nbsp;&nbsp;<b>Email :</b> bantin@vnu.edu.vn
+	 </div></TD></TR>
+ </TABLE>  
+</TD></TR>
+  </TD></TR>
+ </TBODY>
+</TABLE>
+</BODY>
+</HTML>

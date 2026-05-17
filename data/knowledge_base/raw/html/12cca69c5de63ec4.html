@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="/img/icon.png" />
+    
+    <style>
+        .btn-top {
+            background: #fff;
+            border: 1px solid #d4d4d4;
+            bottom: 20px;
+            cursor: pointer;
+            display: none;
+            outline: medium none;
+            padding: 10px 15px;
+            position: fixed;
+            right: 20px;
+            z-index: 4;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 5px;
+        }
+
+            .btn-top i {
+                display: block;
+            }
+    </style>
+    <link href="http://dangkynoitru.css.vnu.edu.vn/css/normalize.css" rel="stylesheet" />
+    <link rel="stylesheet" href="http://dangkynoitru.css.vnu.edu.vn/lib/bootstrap/css/bootstrap.min.css" />
+
+    <link href="http://dangkynoitru.css.vnu.edu.vn/lib/fontawesome/css/all.min.css" rel="stylesheet" />
+
+        <style>
+        .header-right .hotline {
+            background: url(http://dangkynoitru.css.vnu.edu.vn/img/mobile.png) no-repeat;
+        }
+
+        .header-right .email {
+            background: url(http://dangkynoitru.css.vnu.edu.vn/img/email.png) no-repeat;
+        }
+        footer {
+            background: url(http://dangkynoitru.css.vnu.edu.vn/img/bg-logo-footer.png) no-repeat #03539D;
+        }
+        .van-ban-content {
+            background: url(http://dangkynoitru.css.vnu.edu.vn/img/pencel.png) no-repeat 10px 14px;
+        }
+        .thoitiet-main{ background: url(http://dangkynoitru.css.vnu.edu.vn/img/thoitiet.png) no-repeat;}
+        .video .wrapper .playpause {
+            background-image: url(http://dangkynoitru.css.vnu.edu.vn/img/icon_logo/video_play_button.png);
+
+        }
+
+        .zone-10-title {
+            background: url(http://dangkynoitru.css.vnu.edu.vn/img/zone10_icon.png) no-repeat 0 3px;
+        }
+        .gallery-main {
+            background: url(http://dangkynoitru.css.vnu.edu.vn/img/bg_gallery.png) top right no-repeat #07659E;
+        }
+        .hoc-tap-title {
+            background: url( http://dangkynoitru.css.vnu.edu.vn/img/icon-book.png) #fff no-repeat  19px 0;
+
+        }
+        .ykien-content {
+            background: url(http://dangkynoitru.css.vnu.edu.vn/img/pencel.png) no-repeat;
+        }
+
+
+        @font-face {
+            font-family: 'BeVietnamPro-Medium';
+            src: url('http://dangkynoitru.css.vnu.edu.vn/fonts/BeVietnamPro-Medium.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'BeVietnamPro-Regular';
+            src: url('http://dangkynoitru.css.vnu.edu.vn/fonts/BeVietnamPro-Regular.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'BeVietnamPro-Bold';
+            src: url('http://dangkynoitru.css.vnu.edu.vn/fonts/BeVietnamPro-Bold.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'BeVietnamPro-Italic';
+            src: url('http://dangkynoitru.css.vnu.edu.vn/fonts/BeVietnamPro-Italic.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'BeVietnamPro-LightItalic';
+            src: url('http://dangkynoitru.css.vnu.edu.vn/fonts/BeVietnamPro-LightItalic.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'BeVietnamPro-Light';
+            src: url('http://dangkynoitru.css.vnu.edu.vn/fonts/BeVietnamPro-Light.ttf') format('truetype');
+        }
+    </style>
+
+
+    <link href="http://dangkynoitru.css.vnu.edu.vn/css/common.css" rel="stylesheet" />
+    <link rel="stylesheet" href="http://dangkynoitru.css.vnu.edu.vn/css/custom.css" />
+
+    <!--load all styles -->
+    <script src="http://dangkynoitru.css.vnu.edu.vn/lib/popper/js/popper.min.js"></script>
+    <script src="http://dangkynoitru.css.vnu.edu.vn/lib/jquery/dist/jquery.min.js"></script>
+    <script src="http://dangkynoitru.css.vnu.edu.vn/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!--Select2-->
+    <link href="http://dangkynoitru.css.vnu.edu.vn/lib/select2/css/select2.css" rel="stylesheet" />
+    <link href="http://dangkynoitru.css.vnu.edu.vn/lib/select2/css/select2-bootstrap-5-theme.min.css" rel="stylesheet" />
+    <script src="http://dangkynoitru.css.vnu.edu.vn/lib/select2/js/select2.js"></script>
+
+    <!--toastr-->
+    <link href="http://dangkynoitru.css.vnu.edu.vn/lib/toastr/css/toastr.min.css" rel="stylesheet" />
+    <script src="http://dangkynoitru.css.vnu.edu.vn/lib/toastr/js/toastr.min.js"></script>
+
+    <!--Datetime picker-->
+    <link href="http://dangkynoitru.css.vnu.edu.vn/lib/datetimepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+    <script src="http://dangkynoitru.css.vnu.edu.vn/lib/datetimepicker/js/moment.min.js"></script>
+    <script src="http://dangkynoitru.css.vnu.edu.vn/lib/datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+
+    <!--datatable-->
+    <link href="http://dangkynoitru.css.vnu.edu.vn/lib/datatable/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <script src="http://dangkynoitru.css.vnu.edu.vn/lib/datatable/js/jquery.dataTables.min.js"></script>
+
+    <link href="http://dangkynoitru.css.vnu.edu.vn/lib/fancy-box/css/jquery.fancybox.min.css" rel="stylesheet" />
+    <script src="http://dangkynoitru.css.vnu.edu.vn/lib/fancy-box/js/jquery.fancybox.min.js"></script>
+
+
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113292499-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-113292499-1');
+
+        BASE_URL = 'http://dangkynoitru.css.vnu.edu.vn';
+    </script>
+    <script src="http://dangkynoitru.css.vnu.edu.vn/js/axios.min.js"></script>
+    <script src="http://dangkynoitru.css.vnu.edu.vn/js/common.js"></script>
+    
+</head>
+<body>
+    <div id="loadingOverlay" class="position-fixed d-flex d-none flex-column  align-items-center justify-content-center" style="z-index: 100000; background: var(--VNU_transparent); bottom: 0; left: 0; right: 0; top: 0;">
+        <span><i class="fas fa-fan fa-spin color-VNU-green fa-6x"></i></span>
+        <div class="color-VNU-White">Đang tải...</div>
+    </div>
+
+    
+
+<div class="container-fluid ">
+    <div class="row align-items-center py-2 mx-3">
+        <div class="col-3">
+            <a href="http://dangkynoitru.css.vnu.edu.vn/HomePage">
+                <img src="/img/icon_logo/VNU_LOGO.png" class=" img-fluid float-start" />
+            </a>
+        </div>
+        <div class="col-6 text-center">
+            <h1 class="text_22_bold color-VNU-green">TRUNG TÂM HỖ TRỢ SINH VIÊN</h1>
+        </div>
+        <div class="col-3">
+            <img src="/img/icon_logo/VNU_CSS_LOGO.png" class=" img-fluid float-end" />
+        </div>
+    </div>
+</div>
+
+
+
+    <main role="main">
+        <div class="background-div d-flex align-items-center">
+    <div class="container position-relative " style="z-index: 1;">
+        <div class="d-flex justify-content-center align-items-center flex-wrap">
+            <button onclick="history.back()" class="back-button btn" style="z-index:1;"><i class="fas fa-caret-left p-2"></i></button>
+            <div class="t-tb-container col-sm-9">
+                <div class="form-section my-4 d-flex flex-column">
+                    <div class="p-4 ms-0 ms-md-5">
+                        <h3 class="border-light border border-top-0 border-start-0 border-end-0 border-end text-light pb-2 fs-2">Chi tiết <span class="color-VNU-Yellow">thông báo </span></h3>
+                    </div>
+                    <div class="p-4 ms-0 ms-md-5 t-tb-content-container ">
+                        <h3 class=" text-light pb-2 fs-3"><i class="fas fa-exclamation-triangle me-1 color-VNU-Yellow"></i>KTX NGO&#x1EA0;I NG&#x1EEE; TH&#xD4;NG B&#xC1;O H&#x1AF;&#x1EDA;NG D&#x1EAA;N SINH VI&#xCA;N QH2025 &#x110;&#x102;NG K&#xDD; N&#x1ED8;I TR&#xDA;</h3>
+                        <h4 class="text-light pb-2 fs-6 border-light border border-top-0 border-start-0 border-end-0 border-end">Ngày 23/08/2025 l&#xFA;c 19:39</h4>
+                        <div class="p-5 text-light t-tb-content">
+                           <p>1. Thời gian đăng ký:</p><p>+ Trường Đại học Ngoại Ngữ, Đại học Công Nghệ từ 14h00 đến 17h00 ngày 23/8/2025 và công bố kết quả xét duyệt đến 8h30 ngày 24/8/2025</p><p>+ Trường Đại học Kinh tế từ 14h00 đến 17h00 ngày 25/8/2025&nbsp;và công bố kết quả xét duyệt đến 8h30 ngày 26/8/2025</p><p>2. Thời gian nhận phòng ở cùng ngày nhập học của các đơn vị đào tạo. </p><p>- Địa điểm: Văn phòng KTX Ngoại Ngữ nhà 14C - Số 2 Phạm Văn Đồng, Cầu Giấy, Hà Nội</p><p>- Hồ sơ mang theo khi nhận phòng: CCCD photo và Giấy thu nhận sinh viên</p><p> </p><p>Lưu ý: Kết quả xét duyệt xem trực tiếp tại trang: dangkynoitru.css.vnu.edu.vn và chi tiết thông tin được đăng tải trên page: KTX Ngoại Ngữ - TT Hỗ trợ sinh viên - ĐHQG Hà Nội</p><p>Trân trọng!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .t-tb-container {
+    }
+
+    .t-tb-content-container {
+        background: rgba(1,209,75,0.4);
+        border-radius: 5px;
+        border: 1px solid #00D14B !important;
+        max-height: 660px;
+        min-height: 500px;
+    }
+
+    .t-tb-content {
+        overflow-y: scroll;
+        max-height: 500px;
+    }
+
+    ::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    ::-webkit-scrollbar-button {
+        width: 8px;
+        height: 5px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: #206D3C;
+        border: thin solid #206D3C;
+        box-shadow: 0px 0px 3px #dfdfdf inset;
+        border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: #0A2414;
+        border: thin solid gray;
+        border-radius: 10px;
+    }
+
+        ::-webkit-scrollbar-thumb:hover {
+        }
+</style>
+
+    </main>
+    
+
+<footer>
+
+</footer>
+
+
+    <a class="btn-top form-section-button text-decoration-none" href="javascript:void(0);" title="Top" style="display: inline;">
+        <i class="fas fa-angle-double-up" style="font-size: 24px;"></i>
+    </a>
+
+
+    <script>
+        jQuery(document).ready(function ($) {
+            if ($(".btn-top").length > 0) {
+                $(window).scroll(function () {
+                    var e = $(window).scrollTop();
+                    if (e > 20) {
+                        $(".btn-top").show();
+                    } else {
+                        $(".btn-top").hide();
+                    }
+                });
+                $(".btn-top").click(function () {
+                    $('body,html').animate({
+                        scrollTop: 0
+                    })
+                })
+            }
+        });
+    </script>
+    
+</body>
+</html>

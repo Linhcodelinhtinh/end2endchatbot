@@ -15,7 +15,7 @@
 
 
 
-<html lang="en" class="no-js">
+<html lang="vi-VN" class="no-js">
 <head>
 
 <title>Thư viện Đại học Ngoại ngữ - ĐHQGHN catalog</title>
@@ -27,7 +27,7 @@
 
 <link rel="shortcut icon" href="https://ulis.vnu.edu.vn/files/uploads/2024/05/ULIS-logo-2023-1536x1536.png" type="image/x-icon" />
 
-    <link type="text/css" rel="stylesheet" href="/opac-tmpl/bootstrap/lib/bootstrap/css/bootstrap.min_20.1104000.css">
+    <link rel="stylesheet" href="/opac-tmpl/bootstrap/lib/bootstrap/css/bootstrap.min_20.1104000.css" type="text/css">
     <link href="/opac-tmpl/bootstrap/lib/jquery/jquery-ui-1.12.1.min_20.1104000.css" rel="stylesheet" type="text/css">
 
 
@@ -36,12 +36,12 @@
     
 
 
-    <link type="text/css" rel="stylesheet" href="/opac-tmpl/bootstrap/css/opac_20.1104000.css">
+    <link href="/opac-tmpl/bootstrap/css/opac_20.1104000.css" rel="stylesheet" type="text/css">
 
 
 
 
-    <link type="text/css" rel="stylesheet" href="/opac-tmpl/bootstrap/css/print_20.1104000.css" media="print">
+    <link media="print" type="text/css" href="/opac-tmpl/bootstrap/css/print_20.1104000.css" rel="stylesheet">
 
 
 
@@ -54,16 +54,18 @@
     function _(s) { return s } // dummy function for gettext
 </script>
 
+    <script src="/opac-tmpl/bootstrap/vi-VN/js/locale_data_20.1104000.js"></script>
+
 <script src="/opac-tmpl/bootstrap/js/Gettext_20.1104000.js"></script>
 <script src="/opac-tmpl/bootstrap/js/i18n_20.1104000.js"></script>
 
 <script src="/opac-tmpl/bootstrap/lib/modernizr.min_20.1104000.js"></script>
-<link href="/opac-tmpl/bootstrap/lib/font-awesome/css/font-awesome.min_20.1104000.css" type="text/css" rel="stylesheet">
-<script type="text/javascript" src="/opac-tmpl/bootstrap/en/lib/owl-carousel/owl.carousel.js"></script>
-<link rel="stylesheet" type="text/css" href="/opac-tmpl/bootstrap/en/lib/owl-carousel/owl.theme.css" />
-<link rel="stylesheet" type="text/css" href="/opac-tmpl/bootstrap/en/lib/owl-carousel/owl.carousel.css" />
+<link type="text/css" rel="stylesheet" href="/opac-tmpl/bootstrap/lib/font-awesome/css/font-awesome.min_20.1104000.css">
+<script type="text/javascript" src="/opac-tmpl/bootstrap/vi-VN/lib/owl-carousel/owl.carousel.js"></script>
+<link rel="stylesheet" type="text/css" href="/opac-tmpl/bootstrap/vi-VN/lib/owl-carousel/owl.theme.css" />
+<link rel="stylesheet" type="text/css" href="/opac-tmpl/bootstrap/vi-VN/lib/owl-carousel/owl.carousel.css" />
 
-<!--<script type="text/javascript" src="/opac-tmpl/bootstrap/en/lib/owl-carousel/jquery.totemticker.js"></script>-->
+<!--<script type="text/javascript" src="/opac-tmpl/bootstrap/vi-VN/lib/owl-carousel/jquery.totemticker.js"></script>-->
 <!--<link rel="stylesheet" type="text/css" href="/opac-tmpl/bootstrap/css/dl/dl.style.css" />-->
 <link rel="stylesheet" type="text/css" href="/opac-tmpl/bootstrap/lib/bootstrap/css/dl.bootstrapGridSystem.css" />
 <link rel="stylesheet" type="text/css" href="/opac-tmpl/bootstrap/css/dl/dl.globalStyle.css" />
@@ -110,35 +112,28 @@
 			<div class="header-top navbar-inner header-mobile">
 				<div class="container" >
 					<div id="logo">
-				
 						<a class="brand logo-isvnu" href="/" style="width:570px;">
-							<img src="../../opac-tmpl/bootstrap/images/dl/ulis-logo-eng.png"/>
+							<img src="../../opac-tmpl/bootstrap/images/dl/ulis-logo.svg"/>
+							
 							<!-- 
 							Thư viện Đại học Ngoại ngữ - ĐHQGHN 
 							-->
 						</a>
-						
 					</div>
 					<!-- logo -->
 					
                     <div class="user-and-lang-desktop">
                         <a id="user-menu-trigger" class="pull-right" href="#"><i class="icon-user"></i> <span class="caret"></span></a>
                         <div id="members" class="pull-right">
-						
 					                            
                                 
 
 
 								
 							<ul class="nav">
-							
-								<li><a href="/cgi-bin/koha/opac-changelanguage.pl?language=en" tabindex="-1" role="menuitem" class="listmenulink" style="outline:none;margin-top: -21px;"><img src="../../opac-tmpl/bootstrap/images/dl/ten.png" ></a></li>								
-								<li><a href="/cgi-bin/koha/opac-changelanguage.pl?language=vi-VN" tabindex="-1" role="menuitem" class="listmenulink"style="outline:none;margin-top: -21px;border-left: 1px solid #d3d3d3;"><img src="../../opac-tmpl/bootstrap/images/dl/tvi.png" ></a></li>
-								<li class="loginbox" style="display:none;">
-								<a href="/cgi-bin/koha/opac-user.pl"><img src="../../opac-tmpl/bootstrap/images/dl/Loginhcmu.png" style="width:30px;"></a>
-								<a href="/cgi-bin/koha/opac-user.pl" style="align-items: center;display: flex;padding-left: 0;">Log in</a>
-								</li>								
-																<li class="menu-item dropdown cart" style=" width: 20%; margin: 16px 10px 0px 0px; " >
+								<li><a href="/cgi-bin/koha/opac-changelanguage.pl?language=en" tabindex="-1" role="menuitem" class="listmenulink" style="outline:none;margin-top: -23px;"><img src="../../opac-tmpl/bootstrap/images/dl/ten.png" style=" width: 35px;"></a></li>								
+								<li><a href="/cgi-bin/koha/opac-changelanguage.pl?language=vi-VN" tabindex="-1" role="menuitem" class="listmenulink"style="outline:none;margin-top: -23px; border-left: 2px solid #efefef;"><img src="../../opac-tmpl/bootstrap/images/dl/tvi.png" style=" width: 35px;"></a></li>
+								<li class="menu-item dropdown cart" style=" width: 20%; margin: 16px 10px 0px 0px; " >
 									<!--                        -->
 									<!--                        <div id="cartDetails" class="dropbtn cart-message">Your cart is empty.</div>-->
 									<!--                        -->
@@ -159,15 +154,12 @@
 										<!--</li>-->
 										
 									</ul>
-								</li>
-								
-								
-												
+								</li>																
+								<!--<li role="presentation" class="language-menu"><a href="/cgi-bin/koha/opac-changelanguage.pl?language=en" tabindex="-1" role="menuitem" class="listmenulink">En</a></li>-->					
 					
 					
 					
-                                <li class="header-login"><a href="/cgi-bin/koha/opac-user.pl" style=" margin-top: -27px; " class="loginModal-trigger login-icon" role="button" data-toggle="modal"> <span class="glyphicon2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 4C13.0609 4 14.0783 4.42143 14.8284 5.17157C15.5786 5.92172 16 6.93913 16 8C16 9.06087 15.5786 10.0783 14.8284 10.8284C14.0783 11.5786 13.0609 12 12 12C10.9391 12 9.92172 11.5786 9.17157 10.8284C8.42143 10.0783 8 9.06087 8 8C8 6.93913 8.42143 5.92172 9.17157 5.17157C9.92172 4.42143 10.9391 4 12 4ZM12 14C16.42 14 20 15.79 20 18V20H4V18C4 15.79 7.58 14 12 14Z" fill="#223C77"/></svg><a href="/cgi-bin/koha/opac-user.pl" style="margin-top:-22px;padding-left: 0 !important;">Login</a></span></a></li>
-								
+                                <li class="header-login"><a href="/cgi-bin/koha/opac-user.pl" style=" margin-top: -27px; " class="loginModal-trigger login-icon" role="button" data-toggle="modal"> <span class="glyphicon2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 4C13.0609 4 14.0783 4.42143 14.8284 5.17157C15.5786 5.92172 16 6.93913 16 8C16 9.06087 15.5786 10.0783 14.8284 10.8284C14.0783 11.5786 13.0609 12 12 12C10.9391 12 9.92172 11.5786 9.17157 10.8284C8.42143 10.0783 8 9.06087 8 8C8 6.93913 8.42143 5.92172 9.17157 5.17157C9.92172 4.42143 10.9391 4 12 4ZM12 14C16.42 14 20 15.79 20 18V20H4V18C4 15.79 7.58 14 12 14Z" fill="#223C77"/></svg><a href="/cgi-bin/koha/opac-user.pl" style="margin-top:-22px;padding-left: 0 !important;">Đăng nhập</a></span></a></li>
                                 
                                 
 								
@@ -187,81 +179,112 @@
                             data-target="#navbar-responsive-collapse">
                             <span class="glyphicon glyphicon-menu-hamburger"></span>
                         </button>
-						<div class="pull-right user-and-lang-mobile ">
+						<div class="pull-right user-and-lang-mobile">
                             
                             <a id="user-menu-trigger" class="pull-right" href="#"><i class="icon-user"></i> <span class="caret"></span></a>
                             <div id="nav-members" class="pull-right">
                                 <ul class="nav">
-                                    
-
-
-                                    
-                                    
-                                    
-                                    <li><a href="/cgi-bin/koha/opac-user.pl" class="loginModal-trigger" role="button" data-toggle="modal"><span class="glyphicon glyphicon-user"></span> Log in to your account</a></li>
-                                    
-                                    
-                                    
-                                    
-                                </ul>
+								<li><a href="/cgi-bin/koha/opac-changelanguage.pl?language=en" tabindex="-1" role="menuitem" class="listmenulink" style="outline:none;margin-top: -23px;"><img src="../../opac-tmpl/bootstrap/images/dl/ten.png" style=" width: 35px;"></a></li>								
+								<li><a href="/cgi-bin/koha/opac-changelanguage.pl?language=vi-VN" tabindex="-1" role="menuitem" class="listmenulink"style="outline:none;margin-top: -23px; border-left: 2px solid #efefef;"><img src="../../opac-tmpl/bootstrap/images/dl/tvi.png" style=" width: 35px;"></a></li>
+								<li class="menu-item dropdown cart" style=" width: 20%; margin: 16px 10px 0px 0px; " >
+									<!--                        -->
+									<!--                        <div id="cartDetails" class="dropbtn cart-message">Your cart is empty.</div>-->
+									<!--                        -->
+									<a class="tcart" style="border:none;" id="cartmenulink"><img style="width: 90%;margin: 5px -21px -5px 0px;" src="../../opac-tmpl/bootstrap/images/cart2.png" /><span id="basketcount"/>
+									</a>
+									<ul class="dropdown-content">
+										
+										<!--<li>
+															<a href="#" id="cartmenuitem" class="cart-message" tabindex="-1" role="menuitem">Giỏ tài liệu trống.</a>-->
+										<!--                                <a href="#" title="Collect items you are interested in" class="dropdown-toggle" id="cartmenulink" data-toggle="dropdown" role="button">-->
+										<!--                                    <i id="carticon" class="icon-shopping-cart icon-white"></i> <span class="cartlabel">Cart</span> <span id="basketcount"></span> <b class="caret"></b>-->
+										<!--                                </a>-->
+										<!--                                <ul aria-labelledby="cartmenulink" role="menu" class="dropdown-menu">-->
+										<!--                                    <li role="presentation">-->
+										<!--                                        <a href="#" id="cartmenuitem" class="cart-message" tabindex="-1" role="menuitem">Your cart is empty.</a>-->
+										<!--                                    </li>-->
+										<!--                                </ul>-->
+										<!--</li>-->
+										
+									</ul>
                             </div> <!-- /members -->
                             
                         </div> <!-- user-and-lang-mobile -->						
 						</div><!-- /row -->
-					</div><!-- /container -->
+					
+					</div>
 						<div class="menubar" style="font-weight: bold;">
-							<ul class="container header-menu" >
+							<ul class="container header-menu">
+								<!--<li class="menu-item dropdown cart">
+									<!--                        -->
+									<!--                        <div id="cartDetails" class="dropbtn cart-message">Your cart is empty.</div>-->
+									<!--                        -->
+									<!--<button class="dropbtn" title="Collect items you are interested in" id="cartmenulink">GIỎ TÀI LIỆU <span id="basketcount"/>
+									</button>
+									<ul class="dropdown-content">
+										
+										<!--<li>
+															<a href="#" id="cartmenuitem" class="cart-message" tabindex="-1" role="menuitem">Giỏ tài liệu trống.</a>-->
+										<!--                                <a href="#" title="Collect items you are interested in" class="dropdown-toggle" id="cartmenulink" data-toggle="dropdown" role="button">-->
+										<!--                                    <i id="carticon" class="icon-shopping-cart icon-white"></i> <span class="cartlabel">Cart</span> <span id="basketcount"></span> <b class="caret"></b>-->
+										<!--                                </a>-->
+										<!--                                <ul aria-labelledby="cartmenulink" role="menu" class="dropdown-menu">-->
+										<!--                                    <li role="presentation">-->
+										<!--                                        <a href="#" id="cartmenuitem" class="cart-message" tabindex="-1" role="menuitem">Your cart is empty.</a>-->
+										<!--                                    </li>-->
+										<!--                                </ul>-->
+										<!--</li>-->
+										<!--
+									</ul>
+								</li>-->	
 
-								                        <li class="menu-item contact" ">
-                            <a href="/cgi-bin/koha/opac-ctnews.pl?idnew=677&idgroup=7" style=" font-weight: bold; ">CONTACT</a>
-                        </li>
-
-							<!--<li class="menu-item rule">
-                            <a href="/cgi-bin/koha/opac-ctnews.pl?idnew=211&idgroup=4"style=" font-weight: bold; ">HELP</a>
+								<!--<li class="menu-item rule" style="display:none;">
+                            <a href="/cgi-bin/koha/opac-ctnews.pl?idnew=211&idgroup=4"style=" font-weight: bold; ">TRỢ GIÚP</a>
                         </li>-->
 
-						<li class="menu-item dropdown faqs" style="display:none;>
-                            <button class="dropbtn"style=" font-weight: bold; ">FAQs</button>
+						<li class="menu-item contact">
+                            <a href="/cgi-bin/koha/opac-ctnews.pl?idnew=677&idgroup=7" style=" font-weight: bold; ">LIÊN HỆ</a>
+                        </li>
+						<li class="menu-item dropdown faqs" style="display:none;">
+                            <button class="dropbtn"style=" font-weight: bold; ">HỎI ĐÁP</button>
                             <ul class="dropdown-content">
 								<li class="drop-item">
-									<a href="/cgi-bin/koha/opac-faq.pl" style=" font-weight: bold; ">FAQs</a>
+									<a href="/cgi-bin/koha/opac-faq.pl" style=" font-weight: bold; ">Hỏi đáp chung</a>
 								</li>
 								<li class="drop-item">
-                                    <a href="/cgi-bin/koha/opac-faq-contact.pl">Questions group about contact</a>
+                                    <a href="/cgi-bin/koha/opac-faq-contact.pl">Nhóm câu hỏi liên hệ</a>
                                 </li>
 								<li class="drop-item">
-                                    <a href="/cgi-bin/koha/opac-faq-patron.pl">Questions group about patron</a>
+                                    <a href="/cgi-bin/koha/opac-faq-patron.pl">Nhóm câu hỏi về bạn đọc</a>
                                 </li>
 								<li class="drop-item">
-                                    <a href="/cgi-bin/koha/opac-faq-circulation.pl">Questions group about documents</a>
+                                    <a href="/cgi-bin/koha/opac-faq-circulation.pl">Nhóm câu hỏi về tài liệu</a>
                                 </li>
                                 <li class="drop-item">
-                                    <a href="/cgi-bin/koha/opac-faq-opac.pl">Search guide document</a>
+                                    <a href="/cgi-bin/koha/opac-faq-opac.pl">Hướng dẫn tìm kiếm tài liệu trên Opac</a>
                                 </li>
                                 <li class="drop-item">
-                                    <a href="/cgi-bin/koha/opac-faq-time.pl">Open library schedule</a>
+                                    <a href="/cgi-bin/koha/opac-faq-time.pl">Hướng dẫn về thời gian phục vụ của Thư viện</a>
                                 </li>
 
 
                             </ul>
                         </li>
 						<li class="menu-item rule" style="display:none;">
-                            <a href="/cgi-bin/koha/opac-ctnews.pl?idnew=229&idgroup=5"style=" font-weight: bold; ">RULES</a>
+                            <a href="/cgi-bin/koha/opac-ctnews.pl?idnew=224&idgroup=5"style=" font-weight: bold; ">NỘI QUY</a>
                         </li>
-
-
 
 								<!--                    -->
 								<!--                    <li class="divider-vertical"></li>-->
 								<!--                    -->
 								<li class="menu-item dropdown virtualshelves" style="display:none;">
-									<button class="dropbtn" title="Show lists" id="listsmenu">LISTS <span id="basketcount"/>
+									<button class="dropbtn" title="Show lists" id="listsmenu">GIÁ SÁCH ẢO<span id="basketcount"/>
 									</button>
 									
 									<ul class="dropdown-content">
 										
 										<li role="presentation" class="dropdown">
-											<a href="/cgi-bin/koha/opac-shelves.pl?op=list&amp;category=2" tabindex="-1" role="menuitem" class="drop-submenu-btn">Public lists</a>
+											<a href="/cgi-bin/koha/opac-shelves.pl?op=list&amp;category=2" tabindex="-1" role="menuitem" class="drop-submenu-btn">Giá sách ảo cộng đồng</a>
 											<ul class="dropdown-submenu-content">
 												
 												
@@ -297,12 +320,12 @@
 										<!--                            -->
 										
 										<li role="presentation" class="dropdown">
-											<a href="/cgi-bin/koha/opac-shelves.pl?op=list&amp;category=1" tabindex="-1" role="menuitem">Your lists</a>
+											<a href="/cgi-bin/koha/opac-shelves.pl?op=list&amp;category=1" tabindex="-1" role="menuitem">Giá sách ảo cá nhân</a>
 											<ul class="dropdown-submenu-content">
 												
 												
 												<li role="presentation">
-													<a href="/cgi-bin/koha/opac-user.pl" tabindex="-1" class="menu-inactive loginModal-trigger" role="menuitem">Log in to create your own lists</a>
+													<a href="/cgi-bin/koha/opac-user.pl" tabindex="-1" class="menu-inactive loginModal-trigger" role="menuitem">Đăng nhập để tạo giá sách ảo của bạn</a>
 												</li>
 												
 												
@@ -313,107 +336,129 @@
 									
 								</li>
 
-						<li class="menu-item dropdown news-events" >
-                            <button class="dropbtn"style=" font-weight: bold; ">NEWS</button>
+														<li class="menu-item dropdown news-events" ">
+                            <button class="dropbtn"style=" font-weight: bold; ">TIN TỨC</button>
                             <ul class="dropdown-content">
                                 <li class="tin-tuc">
-                                    <a href="/cgi-bin/koha/opac-news.pl">LIBRARY NEWS</a>
+                                    <a href="/cgi-bin/koha/opac-news.pl">TIN TỨC THƯ VIỆN</a>
                                 </li>
                                 <li class="tin-tuc">
-                                    <a href="/cgi-bin/koha/opac-tevents.pl">LIBRARY EVENTS</a>
+                                    <a href="/cgi-bin/koha/opac-tevents.pl">SỰ KIỆN THƯ VIỆN</a>
                                 </li>
                             </ul>
-                       
-						<li class="menu-item services" style="display:none;>
-                            <a href="/cgi-bin/koha/opac-ctnews.pl?idnew=227&idgroup=4" style=" font-weight: bold; ">INFORMATION</a>
                         </li>
+					
+						<li class="menu-item services" style="display:none;">
+                            <a href="#" style=" font-weight: bold; ">GIỚI THIỆU</a>
+                        </li>
+						<li class="menu-item dropdown news-events" style="display:none;">
+                            <button class="dropbtn" style=" font-weight: bold; ">LIÊN KẾT</button>
+							<ul class="dropdown-content">
+                                <li class="tin-tuc">
+                                    <a href="#" target="_blank">THƯ VIỆN TRƯỜNG</a>
+                                </li>
+                                <li class="su-kien menu-item dropdown2 news-events" style="padding-bottom:8px">
+                                    <button class="dropbtn" style=" font-weight: bold; ">CÁC KHOA/BỘ MÔN</button>
+									<ul class="dropdown-content2">
+                                <li class="tin-tuc">
+                                    <a href="#" target="_blank">KHOA NGÔN NGỮ ANH</a>
+                                </li>
+                                <li class="su-kien">
+                                    <button class="dropbtn" style=" font-weight: bold; ">KHOA NHẬT BẢN HỌC</button>
+									
+                                </li>
+                            </ul>
+                                </li>
+                            </ul>
 						</li>
 							<li class="menu-item noi-quy" style="display:none;">
-                            <a href="#" style=" font-weight: bold; ">IMAGES</a>
+                            <a href="#" style=" font-weight: bold; ">HÌNH ẢNH</a>
                         </li>
 						<li class="menu-item dropdown news-events">
-                            <button class="dropbtn" style=" font-weight: bold; ">INSTRUCTIONS</button>
+                            <button class="dropbtn" style=" font-weight: bold; ">HƯỚNG DẪN</button>
 							<ul class="dropdown-content">
                                 <li class="tin-tuc">
-                                    <a href="/cgi-bin/koha/opac-ctnews.pl?idnew=672&idgroup=7">INSTRUCTION FOR USING LIBRARY</a>
+                                    <a href="/cgi-bin/koha/opac-ctnews.pl?idnew=672&idgroup=7">HƯỚNG DẪN SỬ DỤNG THƯ VIỆN</a>
                                 </li>
                                 <li class="su-kien">
-                                    <a href="/cgi-bin/koha/opac-ctnews.pl?idnew=673&idgroup=7">INSTRUCTIONS FOR RESEARCHING ITEMS</a>
+                                    <a href="/cgi-bin/koha/opac-ctnews.pl?idnew=673&idgroup=7">HƯỚNG DẪN TRA CỨU VÀ TÌM TÀI LIỆU</a>
                                 </li>
 								<li class="su-kien">
-                                    <a href="/cgi-bin/koha/opac-ctnews.pl?idnew=674&idgroup=7">FAQS</a>
+                                    <a href="/cgi-bin/koha/opac-ctnews.pl?idnew=674&idgroup=7">CÁC CÂU HỎI THƯỜNG GẶP</a>
                                 </li>
                             </ul>
                         </li>
 						<li class="menu-item dropdown news-events">
-                            <button class="dropbtn" style=" font-weight: bold; ">SERVICES</button>
+                            <button class="dropbtn" style=" font-weight: bold; ">DỊCH VỤ</button>
 							<ul class="dropdown-content">
                                 <li class="tin-tuc">
-                                    <a href="/cgi-bin/koha/opac-dv.pl">SERVICES</a>
+                                    <a href="/cgi-bin/koha/opac-dv.pl" >DỊCH VỤ</a>
                                 </li>
                                 <li class="su-kien">
-                                    <a href="/cgi-bin/koha/opac-ctnews.pl?idnew=671&idgroup=4">PRODUCT</a>                                                                       </a>
+                                    <a href="/cgi-bin/koha/opac-ctnews.pl?idnew=671&idgroup=4">SẢN PHẨM</a>
                                 </li>
 								</ul>
 								</li>
 						<li class="menu-item dropdown news-events">
-                            <button class="dropbtn" style=" font-weight: bold; ">ABOUT US</button>
+                            <button class="dropbtn" style=" font-weight: bold; ">GIỚI THIỆU</button>
 							<ul class="dropdown-content">
                                 <li class="tin-tuc">
-                                    <a href="/cgi-bin/koha/opac-ctnews.pl?idnew=664&idgroup=7">GENERAL INTRODUCTION</a>
+                                    <a href="/cgi-bin/koha/opac-ctnews.pl?idnew=664&idgroup=7">GIỚI THIỆU CHUNG</a>
                                 </li>
                                 <li class="su-kien">
-                                    <a href="/cgi-bin/koha/opac-ctnews.pl?idnew=665&idgroup=7">RULES</a>
+                                    <a href="/cgi-bin/koha/opac-ctnews.pl?idnew=665&idgroup=7">NỘI QUY</a>
                                 </li>
 								 <li class="su-kien">
-                                    <a href="/cgi-bin/koha/opac-ctnews.pl?idnew=666&idgroup=7">FORMS</a>
+                                    <a href="/cgi-bin/koha/opac-ctnews.pl?idnew=666&idgroup=7">CÁC BIỂU MẪU</a>
                                 </li>
 								<li class="su-kien">
-                                    <a href="/cgi-bin/koha/opac-ctnews.pl?idnew=667&idgroup=7">MANAGEMENT DOCUMENTS</a>
+                                    <a href="/cgi-bin/koha/opac-ctnews.pl?idnew=667&idgroup=7">HỆ THỐNG VĂN BẢN</a>
                                 </li>
                             </ul>
                         </li>
 							<li class="menu-item home">
-                            <a href="/cgi-bin/koha/opac-main.pl" style=" font-weight: bold; ">HOME</a>
+                            <a href="/cgi-bin/koha/opac-main.pl" style=" font-weight: bold; ">TRANG CHỦ</a>
                         </li>
 							</ul>
 						</div><!-- /menubar -->	
+						
+						
 						<nav class="nav-collapse collapse" id="navbar-responsive-collapse" role="navigation">
                     <ul class="container">
                         <li class="menu-item home">
-                            <a href="/cgi-bin/koha/opac-main.pl">Home</a>
+                            <a href="/cgi-bin/koha/opac-main.pl">Trang chủ</a>
                         </li>
                         <li class="menu-item home">
-                            <a href="#">About Us</a>
+                            <a href="#">Giới thiệu</a>
                         </li>				
                         <li class="menu-item services">
-                            <a href="/cgi-bin/koha/opac-dv.pl">Services</a>
+                            <a href="/cgi-bin/koha/opac-dv.pl">Dịch vụ</a>
                         </li>
                         <!--<li class="menu-item demo">
                             <a href="/cgi-bin/koha/opac-demo.pl">Demo</a>
                         </li>-->
                         <li class="menu-item dropdown news-events" style="display:none;">
-                            <button class="dropbtn">News & events</button>
+                            <button class="dropbtn">Tin tức & Sự kiện</button>
                             <ul class="dropdown-content">
                                 <li>
-                                    <a href="/cgi-bin/koha/opac-news.pl">Library news</a>
+                                    <a href="/cgi-bin/koha/opac-news.pl">Tin tức thư viện</a>
                                 </li>
                                 <li>
-                                    <a href="/cgi-bin/koha/opac-events.pl">Library events</a>
+                                    <a href="/cgi-bin/koha/opac-events.pl">Sự kiện thư viện</a>
                                 </li>
                             </ul>
                         </li>
-                        <li class="menu-item faqs" style="display:none;">
-                            <a href="/cgi-bin/koha/opac-faq.pl">FAQs</a>
+                        <li class="menu-item faqs">
+                            <a href="/cgi-bin/koha/opac-faq.pl">Hỏi đáp</a>
                         </li>
                         <li class="menu-item contact">
-                            <a href="/cgi-bin/koha/opac-ctnews.pl?idnew=677&idgroup=7">Contact</a>
+                            <a href="/cgi-bin/koha/opac-ctnews.pl?idnew=677&idgroup=7">Liên hệ</a>
                         </li>
                         <li class="menu-item dropdown cart">
                             <!--                        -->
                             <!--                        <div id="cartDetails" class="dropbtn cart-message">Your cart is empty.</div>-->
                             <!--                        -->
-                            <button class="dropbtn" title="Collect items you are interested in" id="cartmenulink">Cart <span id="basketcount"></span></button>
+                            <button class="dropbtn" title="Collect items you are interested in" id="cartmenulink">Giỏ tài liệu <span id="basketcount"></span></button>
                             <ul class="dropdown-content">
                                 
                                <!--<li>
@@ -433,13 +478,13 @@
                         <!--                    -->
                         <!--                    <li class="divider-vertical"></li>-->
                         <!--                    -->
-                        <li class="menu-item dropdown virtualshelves">
-                            <button class="dropbtn" title="Show lists" id="listsmenu">Lists <span id="basketcount"></span></button>
+                        <li class="menu-item dropdown virtualshelves" style="display:none;">
+                            <button class="dropbtn" title="Show lists" id="listsmenu">Giá sách ảo <span id="basketcount"></span></button>
                             
                             <ul class="dropdown-content">
                                 
                                 <li role="presentation" class="dropdown">
-                                    <a href="/cgi-bin/koha/opac-shelves.pl?op=list&amp;category=2" tabindex="-1" role="menuitem" class="drop-submenu-btn">Public lists</a>
+                                    <a href="/cgi-bin/koha/opac-shelves.pl?op=list&amp;category=2" tabindex="-1" role="menuitem" class="drop-submenu-btn">Giá sách cộng đồng</a>
                                     <ul class="dropdown-submenu-content">
                                         
                                         
@@ -467,10 +512,10 @@
                                 <!--                            -->
                                 <!--                            -->
                                 
-                                <li role="presentation"><a href="/cgi-bin/koha/opac-shelves.pl?op=list&amp;category=1" tabindex="-1" role="menuitem">Your lists</a></li>
+                                <li role="presentation"><a href="/cgi-bin/koha/opac-shelves.pl?op=list&amp;category=1" tabindex="-1" role="menuitem">Giá sách cá nhân</a></li>
                                 
                                 
-                                <li role="presentation"><a href="/cgi-bin/koha/opac-user.pl" tabindex="-1" class="menu-inactive loginModal-trigger" role="menuitem">Log in to create your own lists</a></li>
+                                <li role="presentation"><a href="/cgi-bin/koha/opac-user.pl" tabindex="-1" class="menu-inactive loginModal-trigger" role="menuitem">Đăng nhập để tạo giá sách của bạn</a></li>
                                 
                                 
                                 
@@ -479,20 +524,20 @@
                         </li>
                     </ul>
                     <ul class="container">
-                        <li class="menu-item"><a href="/cgi-bin/koha/opac-search.pl">Advanced search</a></li>
-                        <li class="menu-item"><a href="/cgi-bin/koha/opac-course-reserves.pl">Course reserves</a></li>
+                        <li class="menu-item"><a href="/cgi-bin/koha/opac-search.pl">Tìm kiếm nâng cao</a></li>
+                        <li class="menu-item"><a href="/cgi-bin/koha/opac-course-reserves.pl">CSDL khóa học</a></li>
                         
                         
-                        <li class="menu-item"><a href="/cgi-bin/koha/opac-showreviews.pl">Recent comments</a></li>
+                        <li class="menu-item"><a href="/cgi-bin/koha/opac-showreviews.pl">Bình luận mới nhất</a></li>
                         
                         
-                        <li class="menu-item"><a href="/cgi-bin/koha/opac-topissues.pl">Most popular</a></li>
+                        <li class="menu-item"><a href="/cgi-bin/koha/opac-topissues.pl">Mượn nhiều nhất</a></li>
                         
                         
-                        <li class="menu-item"><a href="/cgi-bin/koha/opac-suggestions.pl">Purchase suggestions</a></li>
+                        <li class="menu-item"><a href="/cgi-bin/koha/opac-suggestions.pl">Đề xuất mua</a></li>
                         
                         
-                        <li class="menu-item"><a href="/cgi-bin/koha/z3950_search.pl">Z39.50 Search</a></li>
+                        <li class="menu-item"><a href="/cgi-bin/koha/z3950_search.pl">Tìm kiếm Z39.50</a></li>
                     </ul>
                 </nav>
 				<div class="banner">
@@ -516,9 +561,9 @@
 							    <div style="width:100%;height: 42px;">
                                     
                                     
-                                    	
-                                        	<div class="mastheadsearch">
-					
+                                    
+                                        <div class="mastheadsearch">
+										
 											
 												
     
@@ -533,37 +578,37 @@
  
                                                 <select name="idx" id="masthead_search" class="searchform-item col-xs-12 col-sm-3 col-lg-4">
                                                     
-                                                    <option value="">Library catalog</option>
+                                                    <option value="">Từ khóa</option>
                                                     
                                                     
-                                                    <option value="ti">Title</option>
+                                                    <option value="ti">Nhan đề</option>
                                                     
                                                     
-                                                    <option value="au">Author</option>
+                                                    <option value="au">Tác giả</option>
                                                     
                                                     
-                                                    <option value="su">Subject</option>
+                                                    <option value="su">Chủ đề</option>
                                                     
                                                     
-                                                    <option value="nb">ISBN</option>
+                                                    <option value="nb">Số ISBN</option>
                                                     
 													
-													 <option value="ns">ISSN</option>
+													 <option value="ns">Số ISSN</option>
 													 				  
                                                     
-                                                    <option value="se">Series</option>
+                                                    <option value="se">Tùng thư</option>
                                                     
 													
                                                     
-                                                    <option value="callnum">Call number</option>
+                                                    <option value="callnum">Ký hiệu phân loại</option>
                                                     
 
 							
-                                                    <option style="display:none" value="">Training program</option>
+                                                    <option style="display:none" value="">Chương trình đào tạo</option>
                                                     
-						
+													
                                                 </select>
-					
+												
                                                 
                                                 
                                                 <input type="text" title="Type search term" class="searchform-item transl1 col-xs-12 col-sm-7" id = "translControl1" name="q" /><span id="translControl"></span>
@@ -582,27 +627,26 @@
                                             <div class="dropdown">
                                                 <button class="dropbtn"><span class="glyphicon glyphicon-menu-hamburger"></span></button>
                                                 <ul class="dropdown-content">
-                                                    <li><a href="/cgi-bin/koha/opac-search.pl">Advanced search</a></li>
-                                                    <li><a href="/cgi-bin/koha/opac-course-reserves.pl">Course reserves</a></li>
+                                                    <li><a href="/cgi-bin/koha/opac-search.pl">Tìm kiếm nâng cao</a></li>
+                                                    <li><a href="/cgi-bin/koha/opac-course-reserves.pl">Học phần đào tạo</a></li>
                                                     
                                                     
-                                                    <li><a href="/cgi-bin/koha/opac-showreviews.pl">Recent comments</a></li>
+                                                    <li><a href="/cgi-bin/koha/opac-showreviews.pl">Bình luận mới nhất</a></li>
                                                     
                                                     
-                                                    <li><a href="/cgi-bin/koha/opac-topissues.pl">Most popular</a></li>
+                                                    <li><a href="/cgi-bin/koha/opac-topissues.pl">Mượn nhiều nhất </a></li>
 												    
                                                     
 													
-                                                    <li><a href="/cgi-bin/koha/opac-suggestions.pl">Purchase suggestions</a></li>
+                                                    <li><a href="/cgi-bin/koha/opac-suggestions.pl">Đề xuất mua</a></li>
                                                     
                                                     
-                                                    <li><a href="/cgi-bin/koha/z3950_search.pl">Z39.50 Search</a></li>
+                                                    <li><a href="/cgi-bin/koha/z3950_search.pl">Tìm kiếm Z39.50</a></li>
 													<!-- 
 													 Library
-													 -->											 
-												 	
+													 -->												 
+												 
                                                 </ul>
-					    
                                             </div> <!-- /#moresearches -->
                                         </div> <!-- / .mastheadsearch -->
                                         
@@ -618,12 +662,12 @@
         
 <!-- Login form hidden by default, used for modal window -->
     <div id="loginModal" class="modal" tabindex="-1" role="dialog" aria-labelledby="modalLoginLabel" aria-hidden="true">
-        <div class="modal-content">
+        <div class="modal-content" style="display: block;box-shadow: none;" >
 									   
             <div class="modal-header">
 																							
                 <button type="button" class="closebtn" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 id="modalLoginLabel" class="modal-title">Log in to your account</h3>
+                <h3 id="modalLoginLabel" class="modal-title">Đăng nhập</h3>
             </div>
 					  
             <form action="/cgi-bin/koha/opac-user.pl" method="post" name="auth" id="modalAuth">
@@ -634,10 +678,10 @@
                             <input type="hidden" name="koha_login_context" value="opac" />
                             <fieldset class="brief">
                         <div class="muserid">
-                            <input type="text" id="muserid" name="userid" class="form-control" placeholder="Username" />
+                            <input type="text" id="muserid" name="userid" class="form-control" placeholder="Tài khoản" />
                         </div>
                         <div class="mpassword">
-                            <input type="password" id="mpassword" name="password" class="form-control" placeholder="Password" />
+                            <input type="password" id="mpassword" name="password" class="form-control" placeholder="Mật khẩu" />
 																 
 														
                         </div>
@@ -649,7 +693,7 @@
                     </div>
                     
                         <div class="modal-footer">
-                    <input type="submit" class="btn btn-success login-btn" value="Log in" style=" margin: 10px auto 0; width: fit-content; display: block; " />
+                    <input type="submit" class="btn btn-success login-btn" value="Đăng nhập" style=" margin: 10px auto 0; width: fit-content; display: block; " />
                         </div>
                     
                 </form> <!-- /#auth -->
@@ -657,7 +701,7 @@
     </div>  <!-- /#modalAuth  -->
 
 
-<div class="main" >
+<div class="main">
     <div class="container">
         
             
@@ -791,10 +835,10 @@
 </div>
 <div id="giomocua">
 <div class="date-open">
-	 <h2>OPEN HOURS</h2>
+	 <h2>Thời gian phục vụ</h2>
         <ul>
-		<li class="date-open-text"><b>Monday - Friday:</b> 8:00 - 17:00 (excluding holidays)</li>
-		<li class="date-open-text"><b>Location:</b> 2nd Floor, Building C3 French Faculty, University of Languages and International studies, VNUHN.</li>
+		<li class="date-open-text"><b>Từ 08:00 - 17:00.</b> Từ thứ 2 đến thứ 6 hàng tuần  (Trừ các ngày nghỉ lễ)</li>
+		<li class="date-open-text"><b>Địa điểm:</b> Tầng 2, Tòa C3, Công trình Khoa Pháp</li>
 		</ul>
 	<a href="https://maps.app.goo.gl/wWXiYzekM4PBQGCUA" target="_blank" style="display:flex;justify-content:center;"><img src="../../opac-tmpl/bootstrap/images/dl/open-door.svg"></a>
 </div>
@@ -859,44 +903,44 @@
             </div>
 
         </div>
-        <div class="row">
+        <div class="row" >
             <div class="category category-mobile">
     <div class="col-xs-6 col-sm-3">
         <div class="category-item">
-            <a href="/cgi-bin/koha/opac-search.pl?advsearch=1&idx=kw&q=&op=and&idx=kw&q=&op=and&idx=kw&q=&limit=mc-itype%2Cphr%3ABK&limit=&sort_by=relevance&limit-yr=&limit=&limit=&limit=&limit=&limit=&do=Search">
+            <a href="/cgi-bin/koha/opac-search.pl?advsearch=1&idx=kw&q=&op=và&idx=kw&q=&op=và&idx=kw&q=&limit=mc-itype%2Cphr%3ABK&limit=&sort_by=relevance&limit-yr=&limit=&limit=&limit=&limit=&limit=&do=Tìm+kiếm">
                 <div>
-                    <h3><span><img src="../../opac-tmpl/bootstrap/images/dl/book.svg"></span> BOOK</h3>
-                    <p>All Books in library</p>
+                    <h3><span><img src="../../opac-tmpl/bootstrap/images/dl/book.svg"></span> SÁCH</h3>
+                    <p>Danh mục Sách trong thư viện</p>
                 </div>
             </a>
         </div>
     </div>
     <div class="col-xs-6 col-sm-3">
         <div class="category-item">
-            <a href="/cgi-bin/koha/opac-search.pl?advsearch=1&idx=kw&q=&op=and&idx=kw&q=&op=and&idx=kw&q=&limit=mc-itype%2Cphr%3ANS&limit=&sort_by=relevance&limit-yr=&limit=&limit=&limit=&limit=&limit=&do=Search" >
+            <a href="/cgi-bin/koha/opac-search.pl?advsearch=1&idx=kw&q=&op=và&idx=kw&q=&op=và&idx=kw&q=&limit=mc-itype%2Cphr%3ANS&limit=&sort_by=relevance&limit-yr=&limit=&limit=&limit=&limit=&limit=&do=Tìm+kiếm" >
                 <div>
-                    <h3><span><img src="../../opac-tmpl/bootstrap/images/dl/education.svg"></span> ENDOGENOUS DOCUMENTS</h3>
-                    <p>All Endogenous documents in library</p>
+                    <h3><span><img src="../../opac-tmpl/bootstrap/images/dl/education.svg"></span> TÀI LIỆU NỘI SINH</h3>
+                    <p>Danh mục Tài liệu nội sinh trong thư viện</p>
                 </div>
             </a>
         </div>
     </div>
     <div class="col-xs-6 col-sm-3">
         <div class="category-item">
-            <a href="/cgi-bin/koha/opac-search.pl?advsearch=1&idx=kw&q=&op=and&idx=kw&q=&op=and&idx=kw&q=&limit=mc-itype%2Cphr%3ATR&limit=&sort_by=relevance&limit-yr=&limit=&limit=&limit=&limit=&limit=&do=Search" >
+            <a href="/cgi-bin/koha/opac-search.pl?advsearch=1&idx=kw&q=&op=và&idx=kw&q=&op=và&idx=kw&q=&limit=mc-itype%2Cphr%3ATR&limit=&sort_by=relevance&limit-yr=&limit=&limit=&limit=&limit=&limit=&do=Tìm+kiếm" >
                 <div>
-                    <h3><span><img src="../../opac-tmpl/bootstrap/images/dl/bookmark.svg"></span> BOOK STORY</h3>
-                    <p>All Book story in library</p>
+                    <h3><span><img src="../../opac-tmpl/bootstrap/images/dl/bookmark.svg"></span> TRUYỆN</h3>
+                    <p>Danh mục Truyện trong thư viện</p>
                 </div>
             </a>
         </div>
     </div>
     <div class="col-xs-6 col-sm-3">
         <div class="category-item">
-            <a href="/cgi-bin/koha/opac-search.pl?advsearch=1&idx=kw&q=&op=and&idx=kw&q=&op=and&idx=kw&q=&limit=mc-itype%2Cphr%3ATC&limit=&sort_by=relevance&limit-yr=&limit=&limit=&limit=&limit=&limit=&do=Search" >
+            <a href="/cgi-bin/koha/opac-search.pl?advsearch=1&idx=kw&q=&op=và&idx=kw&q=&op=và&idx=kw&q=&limit=mc-itype%2Cphr%3ATC&limit=&sort_by=relevance&limit-yr=&limit=&limit=&limit=&limit=&limit=&do=Tìm+kiếm" >
                 <div>
-                    <h3><span><img src="../../opac-tmpl/bootstrap/images/dl/bookmark-light.svg"></span> JOURNALS</h3>
-                    <p>All journals in library</p>
+                    <h3><span><img src="../../opac-tmpl/bootstrap/images/dl/bookmark-light.svg"></span> TẠP CHÍ</h3>
+                    <p>Danh mục Tạp chí trong thư viện</p>
                 </div>
             </a>
         </div>
@@ -907,7 +951,7 @@
             <div class="col-xs-12 newbook">
                 
 <div id="sachmoi">
-    <h2 style=" color: #333333; ">NEW BOOKS</h2>
+    <h2 style=" color: #333333; ">SÁCH MỚI</h2>
     <div id="owl-sachmoi" class="owl-carousel owl-theme">
         
         <div class="item">
@@ -1077,10 +1121,8 @@
 				[450, 3],
 				[600, 4],
 				[700, 4],
-				[1000, 5],
-				[1200, 5],
-				[1400, 6],
-				[1600, 6]
+				[1000, 6]
+
 			  ],
 			  navigation : true,
 			  pagination : false,
@@ -1104,21 +1146,21 @@
                 <div class="row">
 <div class="col-xs-12 lienketweb">
 <div class="social-networks">
-    <a href="http://www.youtube.com/@trungtamhoclieu928" target="_blank">
-        <img src="/opac-tmpl/bootstrap/en/../images/icon-youtube.png" />
+<a href="http://www.youtube.com/@trungtamhoclieu928" target="_blank">
+        <img src="/opac-tmpl/bootstrap/vi-VN/../images/icon-youtube.png" />
     </a>
-    <!--<a href="https://twitter.com/" target="_blank">
-        <img src="/opac-tmpl/bootstrap/en/../images/icon-twitter.png" />
+	<!--<a href="https://twitter.com/" target="_blank">
+        <img src="/opac-tmpl/bootstrap/vi-VN/../images/icon-twitter.png" />
     </a>-->
     <a href="https://www.facebook.com/lib.ulis.vnu.edu.vn/" target="_blank">
-        <img src="/opac-tmpl/bootstrap/en/../images/icon-facebook.png" />
+        <img src="/opac-tmpl/bootstrap/vi-VN/../images/icon-facebook.png" />
     </a>
 </div>
 </div>
 <select class="lienketweb" onchange="location = this.value;">
-	<option value="">Other links</option>
-	<option value="https://ulis.vnu.edu.vn/" target="_blank">ULIS</option>
-	<option value="https://lic.vnu.edu.vn" target="_blank">LICVNU</option>
+	<option value="">Website liên kết</option>
+	<option value="https://ulis.vnu.edu.vn/" target="_blank">Trường Đại học Ngoại ngữ</option>
+	<option value="https://lic.vnu.edu.vn" target="_blank">Trung tâm Thư viện và tri thức số ĐHQGHN</option>
 	
 </select>
 
@@ -1153,50 +1195,52 @@
 <div id="footer">
     <div class="container">
         <div class="row">
-			<div class="col-container" >
+			<div class="col-container">
 				<div class="col-xs-12 col-md-9 col-lg-9">
 					<div class="row">
 						<div class="col-xs-3 logo" style="display:none;">
 										<img src="../../opac-tmpl/bootstrap/images/dl/LogoBottom.jpg" />
 									</div>
-						<div class="col-xs-12 col-md-9 col-lg-10 menu ">
-                        <h2 class="footer-title">LEARNING RESOURCE CENTER - UNIVERSITY OF LANGUAGES AND INTERNATIONAL STUDIES, VNUHN</h2>
-							<div class="footer-detail"><img src="../../opac-tmpl/bootstrap/images/dl/email.svg" /><p><a href="mailto:tthoclieu@gmail.com">tthoclieu@gmail.com</a></p></div>
+						<div class="col-xs-12 col-md-9 col-lg-10 menu">
+						 <h2 class="footer-title">Trung tâm học liệu - trường đại học ngoại ngữ đhqghn (learning resource center)</h2>
+							<div class="footer-detail"><img src="../../opac-tmpl/bootstrap/images/dl/email.svg" /></i><p><a href="mailto:tthoclieu@gmail.com">tthoclieu@gmail.com</a></p></div>
 							<div class="footer-detail"><img src="../../opac-tmpl/bootstrap/images/dl/location.svg" />
-                            <span>2nd Floor, Building C3 French Faculty, University of Languages and International studies, VNUHN. No. 2 Pham Van Dong, Cau Giay, Hanoi</span></div>
-				
-							<!--<h4 style=" color: #efd401; ">Cơ sở 1 :</h4>-->
-							
+                            <span>Tầng 2, Nhà C3 khu công trình khoa Pháp, trường ĐH Ngoại ngữ, ĐHQGHN. Số 2 Phạm Văn Đồng, Cầu giấy, HN</span></div>
+<!--<a href="https://www.facebook.com/thuvientruongquocte" target="_blank" style="color: #fff;">https://www.facebook.com/thuvientruongquocte</a></p>-->
+							<!--<p style=" color: #fff; ">Điện thoại: 024 3557 5992, Máy lẻ 20</p>		
+									<p style=" color: #fff; ">Hotline: 0967 589 994</p>-->
 									<!--<h4 style=" color: #efd401; ">Cơ sở 2 :</h4>-->
-							<!--<p class="fa fa-map-marker" style=" color: #fff; "> &nbsp Library and information center, 2nd floor, Office building</p>-->
-					
-						<!--<p class="fa fa-phone" style=" color: #fff; ">&nbsp Hotline:024.3226.2708 </p>-->
-				
-					<!--<p class="fa fa-envelope" style=" color: #fff; ">&nbsp tttttv@vnad.edu.vn</p>-->
+									
+						<!--<p  class="fa fa-map-marker" style=" color: #fff; "> &nbsp Trung tâm Thông tin, Thư viện, tầng 2, nhà Hiệu bộ</p></br>-->
+						<!--<p  class="fa fa-phone" style=" color: #fff; ">&nbsp Điện thoại: 024.3226.2708</p></br>-->
+						<!--<p  class="fa fa-envelope" style=" color: #fff; ">&nbsp tttttv@vnad.edu.vn</p>-->
+						</div>
+							
+						
 				</div>
 			</div>
 			<div class="social-networks" style="padding-top:15px;display:none;">
 				<a href="#" target="_blank">
-					<img src="/opac-tmpl/bootstrap/en/../images/icon-facebook.png" style=" width: 30px; height: 30px; float: left; margin: 0 5px; "/>
+					<img src="/opac-tmpl/bootstrap/vi-VN/../images/icon-facebook.png" style=" width: 30px; height: 30px; float: left; margin: 0 5px; "/>
 				</a>
 				<a href="#" target="_blank">
-					<img src="/opac-tmpl/bootstrap/en/../images/icon-gmail.png" style=" width: 30px; height: 30px; float: left; margin: 0 5px; "/>
+					<img src="/opac-tmpl/bootstrap/vi-VN/../images/icon-gmail.png" style=" width: 30px; height: 30px; float: left; margin: 0 5px; "/>
 				</a>
 				<a href="#" target="_blank">
-					<img src="/opac-tmpl/bootstrap/en/../images/icon-twitter.png" style=" width: 30px; height: 30px; float: left; margin: 0 5px; "/>
+					<img src="/opac-tmpl/bootstrap/vi-VN/../images/icon-twitter.png" style=" width: 30px; height: 30px; float: left; margin: 0 5px; "/>
 				</a>
 				<a href="#" target="_blank">
-					<img src="/opac-tmpl/bootstrap/en/../images/icon-youtube.png" style=" width: 30px; height: 30px; float: left; margin: 0 5px; "/>
+					<img src="/opac-tmpl/bootstrap/vi-VN/../images/icon-youtube.png" style=" width: 30px; height: 30px; float: left; margin: 0 5px; "/>
 				</a>
 			</div>
-			</div>
+		
 			<div class="col-xs-12 col-md-3 col-lg-3" >
 				<div class="col-xs-6 menu menu-footer" >
-					<div class="menu-item">
-						<a href="/cgi-bin/koha/opac-dv.pl" style=" color: #fff; font-size: 12px;font-weight: bold; ">SERVICE</a>
+					<div class="menu-item" >
+						<a href="/cgi-bin/koha/opac-dv.pl" style=" color: #fff; font-size: 12px;font-weight: bold; ">DỊCH VỤ</a>
 					</div>
 					<div class="menu-item">
-						<a href="/cgi-bin/koha/opac-ctnews.pl?idnew=665&idgroup=7" style=" color: #fff; font-size: 12px;font-weight: bold; ">RULES</a>
+						<a href="/cgi-bin/koha/opac-ctnews.pl?idnew=665&idgroup=7" style=" color: #fff; font-size: 12px;font-weight: bold; ">NỘI QUY</a>
 					</div>
 					<!--<div class="menu-item">
 											<a href="/cgi-bin/koha/opac-ctnews.pl?idnew=175&idgroup=13" style=" color: #fff; font-size: 12px;font-weight: bold; ">PATRON</a>
@@ -1204,16 +1248,16 @@
 				</div>
 				<div class="col-xs-6 menu menu-footer" >
 					<div class="menu-item1">
-						<a href="/cgi-bin/koha/opac-news.pl" style=" color: #fff; font-size: 12px; font-weight: bold;">NEWS</a>
+						<a href="/cgi-bin/koha/opac-news.pl" style=" color: #fff; font-size: 12px; font-weight: bold;">TIN TỨC</a>
 					</div>
 					<div class="menu-item1">
-						<a href="/cgi-bin/koha/opac-ctnews.pl?idnew=674&idgroup=7" style=" color: #fff; font-size: 12px;font-weight: bold; ">FAQS</a>
+						<a href="/cgi-bin/koha/opac-ctnews.pl?idnew=674&idgroup=7" style=" color: #fff; font-size: 12px;font-weight: bold; ">HỎI ĐÁP</a>
 					</div>
 					<!-- hitwebcounter Code START -->
 				</div>
 				<div class="col-xs-12 col-md-12 col-lg-12" style="padding-right: 0px;padding-top:25px;display:none;">
-					<h4 style=" float: right;color:#333333 ">
-						Count of visits</h4>
+					<h4 style=" float: right;color:#ffffff ">
+						Số lượt truy cập</h4>
 				</div>
 				<div class="col-xs-12 col-md-12 col-lg-12" style="padding-right: 0px;padding-bottom:15px;display:none;">
 					<img src="//counter.websiteout.net/compte.php?S=thuvien.vnad.edu.vn:81&amp;C=7&amp;D=6&amp;N=0&amp;M=0" alt="" border="0" style=" float: right; ">
@@ -1222,7 +1266,6 @@
 			</div>
         </div>
     </div>
-
 <!--    -->
 <!--    -->
 <!--    -->
@@ -1243,7 +1286,7 @@
 <!--                -->
 <!--                -->
 <!--                -->
-<!--                <li class="active"><p class="navbar-text">English</p></li>-->
+<!--                <li><a href="/cgi-bin/koha/opac-changelanguage.pl?language=en">English</a></li>-->
 <!--                -->
 <!--                -->
 <!--                -->
@@ -1253,7 +1296,7 @@
 <!--                -->
 <!--                -->
 <!--                -->
-<!--                <li><a href="/cgi-bin/koha/opac-changelanguage.pl?language=vi-VN">Tiếng Việt</a></li>-->
+<!--                <li class="active"><p class="navbar-text">Tiếng Việt</p></li>-->
 <!--                -->
 <!--                -->
 <!--                -->
@@ -1294,7 +1337,7 @@
                                         
                                             
                                                 <li class="nav-item">
-                                                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">
+                                                    <a class="nav-link" href="/cgi-bin/koha/opac-changelanguage.pl?language=en">
                                                         
                                                             English
                                                         
@@ -1310,7 +1353,7 @@
                                         
                                             
                                                 <li class="nav-item">
-                                                    <a class="nav-link" href="/cgi-bin/koha/opac-changelanguage.pl?language=vi-VN">
+                                                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">
                                                         
                                                             Tiếng Việt
                                                         
@@ -1356,7 +1399,7 @@ $.widget.bridge('uitooltip', $.ui.tooltip);
 </script>
 
 <script type="text/javascript">//<![CDATA[
-        var NO_AMAZON_IMAGE = _("No cover image available");
+        var NO_AMAZON_IMAGE = _("Không có ảnh bìa");
 
 </script>
 <script src="/opac-tmpl/bootstrap/js/amazonimages_20.1104000.js"></script>
@@ -1364,47 +1407,48 @@ $.widget.bridge('uitooltip', $.ui.tooltip);
 
 <script type="text/javascript">
 
-    var MSG_CONFIRM_AGAIN = _("Warning: Cannot be undone. Please confirm once again")
-    var MSG_DELETE_SEARCH_HISTORY = _("Are you sure you want to delete your search history?");
-    var MSG_NO_SUGGESTION_SELECTED = _("No suggestion was selected");
-    var MSG_SEARCHING = _("Searching %s...");
-    var MSG_ERROR_SEARCHING_COLLECTION = _("Error searching %s collection");
-    var MSG_NO_RESULTS_FOUND_IN_COLLECTION = _("No results found in the library's %s collection");
-    var MSG_RESULTS_FOUND_IN_COLLECTION = _("Found %s results in the library's %s collection");
-    var MSG_BY = _("by");
-    var MSG_TYPE = _("Type");
-    var MSG_NEXT = _("Next");
-    var MSG_PREVIOUS = _("Previous");
-    var MSG_CHECKOUTS = _("Checkouts");
-    var MSG_NO_CHECKOUTS = _("No checkouts");
-    var MSG_CHECK_OUT = _("Check out");
-    var MSG_CHECK_OUT_CONFIRM = _("Are you sure you want to check out this item?");
-    var MSG_CHECKED_OUT_UNTIL = _("Checked out until %s");
-    var MSG_CHECK_IN = _("Check in");
-    var MSG_CHECK_IN_CONFIRM = _("Are you sure you want to return this item?");
-    var MSG_NO_CHECKOUTS = _("No checkouts");
-    var MSG_DOWNLOAD = _("Download");
-    var MSG_HOLDS = _("Holds");
-    var MSG_NO_HOLDS = _("No holds");
-    var MSG_PLACE_HOLD = _("Place hold");
-    var MSG_CANCEL_HOLD = _("Cancel");
-    var MSG_CANCEL_HOLD_CONFIRM = _("Are you sure you want to cancel this hold?");
-    var MSG_ON_HOLD = _("On hold");
+    var MSG_CONFIRM_AGAIN = _("Cảnh báo: Thao tác này không thể khôi phục lại dữ liệu. Xin xác nhận lại một lần nữa")
+    var MSG_DELETE_SEARCH_HISTORY = _("Bạn chắc chắn muốn xóa lịch sử tìm kiếm của mình?");
+    var MSG_NO_SUGGESTION_SELECTED = _("Không có đề xuất mua được lựa chọn");
+    var MSG_SEARCHING = _("Đang tìm kiếm %s...");
+    var MSG_ERROR_SEARCHING_COLLECTION = _("Lỗi tìm kiếm %s bộ sưu tập");
+    var MSG_NO_RESULTS_FOUND_IN_COLLECTION = _("Không tìm thấy kết quả %s trong bộ sưu tập của thư viện");
+    var MSG_RESULTS_FOUND_IN_COLLECTION = _("Tìm thấy %s trong bộ sưu tập %s của thư viện");
+    var MSG_BY = _("Tác giả:  ");
+    var MSG_TYPE = _("Kiểu giá sách");
+    var MSG_NEXT = _("Trang sau");
+    var MSG_PREVIOUS = _("Trang trước");
+    var MSG_CHECKOUTS = _("Ghi mượn");
+    var MSG_NO_CHECKOUTS = _("Không ghi mượn");
+    var MSG_CHECK_OUT = _("Ghi mượn");
+    var MSG_CHECK_OUT_CONFIRM = _("Bạn có chắc chắn ghi mượn tài liệu này?");
+    var MSG_CHECKED_OUT_UNTIL = _("Ghi mượn %s đến");
+    var MSG_CHECK_IN = _("Ghi trả");
+    var MSG_CHECK_IN_CONFIRM = _("Bạn có chắc chắn ghi trả tài liệu này?");
+    var MSG_NO_CHECKOUTS = _("Không ghi mượn");
+    var MSG_DOWNLOAD = _("Tải về");
+    var MSG_HOLDS = _("Đặt mượn");
+    var MSG_NO_HOLDS = _("Không đặt mượn");
+    var MSG_PLACE_HOLD = _("Đặt mượn");
+    var MSG_CANCEL_HOLD = _("Hủy bỏ");
+    var MSG_CANCEL_HOLD_CONFIRM = _("Bạn chắc chắn muốn hủy yêu cầu đặt mượn này?");
+    var MSG_ON_HOLD = _("Được đặt mượn");
+	    
+        var MSG_BASKET_EMPTY = _("Giỏ tài liệu trống");
+        var MSG_RECORD_IN_BASKET = _("Tài liệu này đã tồn tại trong giỏ tài liệu");
+        var MSG_RECORD_ADDED = _("Tài liệu ngày được thêm vào giỏ tài liệu");
+        var MSG_RECORD_REMOVED = _("Tài liệu ngày bị xóa bỏ khỏi giỏ tài liệu");
+        var MSG_NRECORDS_ADDED = _(" Tài liệu này vừa được thêm vào giỏ tài liệu");
+        var MSG_NRECORDS_IN_BASKET = _("Đã tồn tại trong giỏ tài liệu");
+        var MSG_NO_RECORD_SELECTED = _("Không có tài liệu nào được lựa chọn");
+        var MSG_NO_RECORD_ADDED = _("Không có tài liệu nào được thêm vào giỏ tài liệu");
+        var MSG_CONFIRM_DEL_BASKET = _("Bạn chắc chắn muốn xóa thông tin trong giỏ tài liệu?");
+        var MSG_CONFIRM_DEL_RECORDS = _("Bạn chắc chắn muốn loại bỏ tài liệu đã chọn?");
+        var MSG_ITEM_IN_CART = _("Trong giỏ tài liệu");
+        var MSG_IN_YOUR_CART = _("Tài liệu trong giỏ: ");
+        var MSG_ITEM_NOT_IN_CART = _("Thêm vào giỏ tài liệu");
     
-        var MSG_BASKET_EMPTY = _("Your cart is currently empty");
-        var MSG_RECORD_IN_BASKET = _("The item is already in your cart");
-        var MSG_RECORD_ADDED = _("The item has been added to your cart");
-        var MSG_RECORD_REMOVED = _("The item has been removed from your cart");
-        var MSG_NRECORDS_ADDED = _(" item(s) added to your cart");
-        var MSG_NRECORDS_IN_BASKET = _("already in your cart");
-        var MSG_NO_RECORD_SELECTED = _("No item was selected");
-        var MSG_NO_RECORD_ADDED = _("No item was added to your cart");
-        var MSG_CONFIRM_DEL_BASKET = _("Are you sure you want to empty your cart?");
-        var MSG_CONFIRM_DEL_RECORDS = _("Are you sure you want to remove the selected items?");
-        var MSG_ITEM_IN_CART = _("In your cart");
-        var MSG_IN_YOUR_CART = _("Items in your cart: ");
-        var MSG_ITEM_NOT_IN_CART = _("Add to your cart");
-    
+
     
     
     
@@ -1453,7 +1497,7 @@ $.widget.bridge('uitooltip', $.ui.tooltip);
     <script type="text/javascript" src="/opac-tmpl/bootstrap/js/localcovers.js"></script>
     <script type="text/javascript">
 
-    var NO_LOCAL_JACKET = _("No cover image available");
+    var NO_LOCAL_JACKET = _("Không có ảnh bìa");
 
     </script>
 

@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Danh sách ngành</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://tuyensinh.vnu.edu.vn/assets/js/jquery-1.11.3.min.js" type="text/javascript" data-library="jquery"
+            data-version="1.11.3"></script>
+    <script type="text/javascript" src="https://tuyensinh.vnu.edu.vn/assets/Layout/css/bootstrap/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://tuyensinh.vnu.edu.vn/assets/Layout/css/bootstrap/css/bootstrap.min.css" type="text/css"
+          media="screen"/>
+    <link rel="stylesheet" href="https://tuyensinh.vnu.edu.vn/assets/Layout/css/font-awesome/css/font-awesome.min.css"
+          type="text/css" media="screen"/>
+    <link rel="stylesheet" href="https://tuyensinh.vnu.edu.vn/assets/Layout/css/blue.css" type="text/css"
+          media="screen"/>
+    <style>
+        /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
+
+        /* Set gray background color and 100% height */
+
+
+        /* Set black background color, white text and some padding */
+        footer {
+            background-color: #555;
+            color: white;
+            padding: 15px;
+        }
+
+        /* On small screens, set height to 'auto' for sidenav and grid */
+        @media screen and (max-width: 767px) {
+            .sidenav {
+                height: auto;
+                padding: 15px;
+            }
+
+            .row.content {
+                height: auto;
+            }
+        }
+        #myTable {
+            border-collapse: collapse;
+            width: 100%;
+            border: 1px solid #ddd;
+            font-size: 18px;
+        }
+
+        #myTable th, #myTable td {
+            text-align: left;
+            padding: 12px;
+        }
+
+        #myTable tr {
+            border-bottom: 1px solid #ddd;
+        }
+
+        #myTable tr.header, #myTable tr:hover {
+            background-color: #f1f1f1;}
+    </style>
+</head>
+<body>
+
+<div class="container-fluid">
+    <div class="row">
+        <img src="https://tuyensinh.vnu.edu.vn/assets/uploads/files/Site/266ef-nn.jpg" class="img-responsive"/>
+    </div>
+    <div class="row content">
+        <div class="col-sm-3 sidenav" xmlns="http://www.w3.org/1999/html">
+    <ul class="nav nav-pills nav-stacked">
+        <li><a href="https://tuyensinh.vnu.edu.vn/">Tuyển sinh ĐHQGHN</a></li>
+        <li><a href="https://tuyensinh.vnu.edu.vn/index.php/Home/site/QHF">Trang chủ</a></li>
+        <li><a href="https://tuyensinh.vnu.edu.vn/index.php/Home/news/QHF">Tin tức</a></li>
+        <li><a href="https://tuyensinh.vnu.edu.vn/index.php/Home/listnganhuni/QHF">Danh sách ngành</a></li>
+        <li><a href="https://tuyensinh.vnu.edu.vn/index.php/Home/viewpage/57">Đề án tuyển sinh của Trường ĐH Ngoại ngữ</a></li><li><a href="https://tuyensinh.vnu.edu.vn/index.php/Home/viewpage/103">Gương mặt tiêu biểu</a></li><li><a href="https://tuyensinh.vnu.edu.vn/index.php/Home/viewpage/104">Giới thiệu về ULIS</a></li><li><a href="https://tuyensinh.vnu.edu.vn/index.php/Home/viewpage/119">Hệ thống các câu lạc bộ sinh viên</a></li><li><a href="https://tuyensinh.vnu.edu.vn/index.php/Home/viewpage/120">Hồ sơ thực tập</a></li>
+    </ul>
+    <br>
+<div class="row">
+    <div class="input-group">
+        <form method="get" action="https://tuyensinh.vnu.edu.vn/index.php/Home/search/QHF" ?>
+            <div class="col-sm-10">
+                <div class="row">
+                    <input type="text" name="q" class="form-control" placeholder="Tìm kiếm.."><span
+                        class="input-group-btn">
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="row">
+                    <button class="btn btn-default" type="submit">
+                        <span class="glyphicon glyphicon-search"></span>
+                    </button>
+                </div>
+            </div>
+
+
+            </span>
+        </form>
+    </div>
+</div>
+</div><div class="col-sm-9">
+    <div class="row">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-10"
+             style="background-color: rgba(255,255,255,0.7);text-transform: uppercase;margin-bottom: 10px">
+            <h2>Các ngành tuyển sinh</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-12">
+            <div class="row"
+            ">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Tên ngành/Mã ngành</label>
+                    <input type="text" class="form-control" id="myInput" onkeyup="myFunction()"
+                           placeholder="Nhập tên ngành học..."
+                           title="Nhập ngành học">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Chọn chương trình</label>
+
+                    <select class="form-control" id="Group" onchange="Groupfilter()">
+                        <option value="0">Tất cả</option>
+                        <option value='1'>Chương trình đào tạo Cử nhân Khoa học Tài năng</option><option value='2'>Chương trình đào tạo tiên tiến</option><option value='3'>Chương trình chất lượng cao (TT23 CLC**)</option><option value='6'>Chương trình đào tạo chuẩn</option><option value='13'>Chương trình đào tạo thí điểm</option><option value='14'>Chương trình đặc thù của ĐHQGHN</option><option value='15'>Chương trình liên kết đào tạo quốc tế</option>                    </select>
+                </div>
+
+
+                            </div>
+            <table id="myTable">
+                <tr class="header">
+                    <th style="width:10%;">Mã ngành</th>
+                    <th style="width:40%;">Tên ngành</th>
+                    <th style="width:25%;">Chương trình</th>
+                    <th style="width:25%;">Đơn vị</th>
+                </tr>
+                <tr group='15' uni = 'QHF'>
+<td>7903124QT</a></td>
+<td><a href='https://tuyensinh.vnu.edu.vn/index.php/Home/viewnganh/153'>Kinh tế - Tài chính***</td>
+<td><small>Chương trình liên kết đào tạo quốc tế</small></td>
+<td><small>Trường Đại học Ngoại ngữ</small></td>
+</tr><tr group='6' uni = 'QHF'>
+<td>7220211</a></td>
+<td><a href='https://tuyensinh.vnu.edu.vn/index.php/Home/viewnganh/141'>Ngôn ngữ Ả Rập</td>
+<td><small>Chương trình đào tạo chuẩn</small></td>
+<td><small>Trường Đại học Ngoại ngữ</small></td>
+</tr><tr group='3' uni = 'QHF'>
+<td>7220201</a></td>
+<td><a href='https://tuyensinh.vnu.edu.vn/index.php/Home/viewnganh/150'>Ngôn ngữ Anh CTĐT CLC</td>
+<td><small>Chương trình chất lượng cao (TT23 CLC**)</small></td>
+<td><small>Trường Đại học Ngoại ngữ</small></td>
+</tr><tr group='3' uni = 'QHF'>
+<td>7220210</a></td>
+<td><a href='https://tuyensinh.vnu.edu.vn/index.php/Home/viewnganh/139'>Ngôn ngữ Hàn Quốc CTĐT CLC</td>
+<td><small>Chương trình chất lượng cao (TT23 CLC**)</small></td>
+<td><small>Trường Đại học Ngoại ngữ</small></td>
+</tr><tr group='6' uni = 'QHF'>
+<td>7220202</a></td>
+<td><a href='https://tuyensinh.vnu.edu.vn/index.php/Home/viewnganh/127'>Ngôn ngữ Nga</td>
+<td><small>Chương trình đào tạo chuẩn</small></td>
+<td><small>Trường Đại học Ngoại ngữ</small></td>
+</tr><tr group='3' uni = 'QHF'>
+<td>7220209</a></td>
+<td><a href='https://tuyensinh.vnu.edu.vn/index.php/Home/viewnganh/136'>Ngôn ngữ Nhật CTĐT CLC</td>
+<td><small>Chương trình chất lượng cao (TT23 CLC**)</small></td>
+<td><small>Trường Đại học Ngoại ngữ</small></td>
+</tr><tr group='3' uni = 'QHF'>
+<td>7220203</a></td>
+<td><a href='https://tuyensinh.vnu.edu.vn/index.php/Home/viewnganh/151'>Ngôn ngữ Pháp CTĐT CLC</td>
+<td><small>Chương trình chất lượng cao (TT23 CLC**)</small></td>
+<td><small>Trường Đại học Ngoại ngữ</small></td>
+</tr><tr group='3' uni = 'QHF'>
+<td>7220204</a></td>
+<td><a href='https://tuyensinh.vnu.edu.vn/index.php/Home/viewnganh/26'>Ngôn ngữ Trung Quốc CTĐT CLC</td>
+<td><small>Chương trình chất lượng cao (TT23 CLC**)</small></td>
+<td><small>Trường Đại học Ngoại ngữ</small></td>
+</tr><tr group='3' uni = 'QHF'>
+<td>7220205</a></td>
+<td><a href='https://tuyensinh.vnu.edu.vn/index.php/Home/viewnganh/152'>Ngôn ngữ Đức CTĐT CLC</td>
+<td><small>Chương trình chất lượng cao (TT23 CLC**)</small></td>
+<td><small>Trường Đại học Ngoại ngữ</small></td>
+</tr><tr group='6' uni = 'QHF'>
+<td>7140231</a></td>
+<td><a href='https://tuyensinh.vnu.edu.vn/index.php/Home/viewnganh/25'>Sư phạm tiếng Anh</td>
+<td><small>Chương trình đào tạo chuẩn</small></td>
+<td><small>Trường Đại học Ngoại ngữ</small></td>
+</tr><tr group='6' uni = 'QHF'>
+<td>7140237</a></td>
+<td><a href='https://tuyensinh.vnu.edu.vn/index.php/Home/viewnganh/140'>Sư phạm tiếng Hàn Quốc</td>
+<td><small>Chương trình đào tạo chuẩn</small></td>
+<td><small>Trường Đại học Ngoại ngữ</small></td>
+</tr><tr group='6' uni = 'QHF'>
+<td>7140236</a></td>
+<td><a href='https://tuyensinh.vnu.edu.vn/index.php/Home/viewnganh/137'>Sư phạm tiếng Nhật</td>
+<td><small>Chương trình đào tạo chuẩn</small></td>
+<td><small>Trường Đại học Ngoại ngữ</small></td>
+</tr><tr group='6' uni = 'QHF'>
+<td>7140234</a></td>
+<td><a href='https://tuyensinh.vnu.edu.vn/index.php/Home/viewnganh/132'>Sư phạm tiếng Trung Quốc</td>
+<td><small>Chương trình đào tạo chuẩn</small></td>
+<td><small>Trường Đại học Ngoại ngữ</small></td>
+</tr>
+            </table>
+
+            <script>
+                function myFunction() {
+                    var input, filter, table, tr, td, i, td2;
+                    input = document.getElementById("myInput");
+                    filter = input.value.toUpperCase();
+                    table = document.getElementById("myTable");
+                    tr = table.getElementsByTagName("tr");
+                    for (i = 1; i < tr.length; i++) {
+                        td = tr[i].getElementsByTagName("td")[1];
+                        td2 = tr[i].getElementsByTagName("td")[0];
+                        if (td) {
+                            if ((td.innerHTML.toUpperCase().indexOf(filter) > -1) || (td2.innerHTML.toUpperCase().indexOf(filter) > -1)) {
+                                tr[i].style.display = "";
+                            } else {
+                                tr[i].style.display = "none";
+                            }
+                        }
+                    }
+                }
+                function Fieldfilter() {
+                    var input, filter, table, tr, td, i;
+                    input = document.getElementById("Field");
+                    filter = input.value;
+
+                    table = document.getElementById("myTable");
+                    tr = table.getElementsByTagName("tr");
+                    for (i = 1; i < tr.length; i++) {
+                        td = tr[i];
+                        if (filter == 0) {
+                            tr[i].style.display = "";
+                        } else {
+                            if (td) {
+                                if (td.getAttribute("class") == filter) {
+                                    tr[i].style.display = "";
+                                } else {
+                                    tr[i].style.display = "none";
+                                }
+                            }
+                        }
+                    }
+                }
+                function Unifilter() {
+                    var input, filter, table, tr, td, i;
+                    input = document.getElementById("Uni");
+                    filter = input.value;
+                    table = document.getElementById("myTable");
+                    tr = table.getElementsByTagName("tr");
+                    for (i = 1; i < tr.length; i++) {
+                        td = tr[i];
+                        if (filter == 0) {
+                            tr[i].style.display = "";
+                        } else {
+                            if (td) {
+                                if (td.getAttribute("uni") == filter) {
+                                    tr[i].style.display = "";
+                                } else {
+                                    tr[i].style.display = "none";
+                                }
+                            }
+                        }
+                    }
+                }
+
+                function Groupfilter() {
+                    var input, filter, table, tr, td, i;
+                    input = document.getElementById("Group");
+                    filter = input.value;
+
+                    table = document.getElementById("myTable");
+                    tr = table.getElementsByTagName("tr");
+                    for (i = 1; i < tr.length; i++) {
+                        td = tr[i];
+                        if (filter == 0) {
+                            tr[i].style.display = "";
+                        } else {
+                            if (td) {
+                                if (td.getAttribute("group") == filter) {
+                                    tr[i].style.display = "";
+                                } else {
+                                    tr[i].style.display = "none";
+                                }
+                            }
+                        }
+                    }
+                }
+            </script>
+        </div>
+    </div>
+</div>
+</div>

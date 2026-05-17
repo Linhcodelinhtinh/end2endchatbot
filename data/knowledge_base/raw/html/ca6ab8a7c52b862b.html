@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="/img/icon.png" />
+    
+    <style>
+        .btn-top {
+            background: #fff;
+            border: 1px solid #d4d4d4;
+            bottom: 20px;
+            cursor: pointer;
+            display: none;
+            outline: medium none;
+            padding: 10px 15px;
+            position: fixed;
+            right: 20px;
+            z-index: 4;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 5px;
+        }
+
+            .btn-top i {
+                display: block;
+            }
+    </style>
+    <link href="http://dangkynoitru.css.vnu.edu.vn/css/normalize.css" rel="stylesheet" />
+    <link rel="stylesheet" href="http://dangkynoitru.css.vnu.edu.vn/lib/bootstrap/css/bootstrap.min.css" />
+
+    <link href="http://dangkynoitru.css.vnu.edu.vn/lib/fontawesome/css/all.min.css" rel="stylesheet" />
+
+        <style>
+        .header-right .hotline {
+            background: url(http://dangkynoitru.css.vnu.edu.vn/img/mobile.png) no-repeat;
+        }
+
+        .header-right .email {
+            background: url(http://dangkynoitru.css.vnu.edu.vn/img/email.png) no-repeat;
+        }
+        footer {
+            background: url(http://dangkynoitru.css.vnu.edu.vn/img/bg-logo-footer.png) no-repeat #03539D;
+        }
+        .van-ban-content {
+            background: url(http://dangkynoitru.css.vnu.edu.vn/img/pencel.png) no-repeat 10px 14px;
+        }
+        .thoitiet-main{ background: url(http://dangkynoitru.css.vnu.edu.vn/img/thoitiet.png) no-repeat;}
+        .video .wrapper .playpause {
+            background-image: url(http://dangkynoitru.css.vnu.edu.vn/img/icon_logo/video_play_button.png);
+
+        }
+
+        .zone-10-title {
+            background: url(http://dangkynoitru.css.vnu.edu.vn/img/zone10_icon.png) no-repeat 0 3px;
+        }
+        .gallery-main {
+            background: url(http://dangkynoitru.css.vnu.edu.vn/img/bg_gallery.png) top right no-repeat #07659E;
+        }
+        .hoc-tap-title {
+            background: url( http://dangkynoitru.css.vnu.edu.vn/img/icon-book.png) #fff no-repeat  19px 0;
+
+        }
+        .ykien-content {
+            background: url(http://dangkynoitru.css.vnu.edu.vn/img/pencel.png) no-repeat;
+        }
+
+
+        @font-face {
+            font-family: 'BeVietnamPro-Medium';
+            src: url('http://dangkynoitru.css.vnu.edu.vn/fonts/BeVietnamPro-Medium.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'BeVietnamPro-Regular';
+            src: url('http://dangkynoitru.css.vnu.edu.vn/fonts/BeVietnamPro-Regular.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'BeVietnamPro-Bold';
+            src: url('http://dangkynoitru.css.vnu.edu.vn/fonts/BeVietnamPro-Bold.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'BeVietnamPro-Italic';
+            src: url('http://dangkynoitru.css.vnu.edu.vn/fonts/BeVietnamPro-Italic.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'BeVietnamPro-LightItalic';
+            src: url('http://dangkynoitru.css.vnu.edu.vn/fonts/BeVietnamPro-LightItalic.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'BeVietnamPro-Light';
+            src: url('http://dangkynoitru.css.vnu.edu.vn/fonts/BeVietnamPro-Light.ttf') format('truetype');
+        }
+    </style>
+
+
+    <link href="http://dangkynoitru.css.vnu.edu.vn/css/common.css" rel="stylesheet" />
+    <link rel="stylesheet" href="http://dangkynoitru.css.vnu.edu.vn/css/custom.css" />
+
+    <!--load all styles -->
+    <script src="http://dangkynoitru.css.vnu.edu.vn/lib/popper/js/popper.min.js"></script>
+    <script src="http://dangkynoitru.css.vnu.edu.vn/lib/jquery/dist/jquery.min.js"></script>
+    <script src="http://dangkynoitru.css.vnu.edu.vn/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!--Select2-->
+    <link href="http://dangkynoitru.css.vnu.edu.vn/lib/select2/css/select2.css" rel="stylesheet" />
+    <link href="http://dangkynoitru.css.vnu.edu.vn/lib/select2/css/select2-bootstrap-5-theme.min.css" rel="stylesheet" />
+    <script src="http://dangkynoitru.css.vnu.edu.vn/lib/select2/js/select2.js"></script>
+
+    <!--toastr-->
+    <link href="http://dangkynoitru.css.vnu.edu.vn/lib/toastr/css/toastr.min.css" rel="stylesheet" />
+    <script src="http://dangkynoitru.css.vnu.edu.vn/lib/toastr/js/toastr.min.js"></script>
+
+    <!--Datetime picker-->
+    <link href="http://dangkynoitru.css.vnu.edu.vn/lib/datetimepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+    <script src="http://dangkynoitru.css.vnu.edu.vn/lib/datetimepicker/js/moment.min.js"></script>
+    <script src="http://dangkynoitru.css.vnu.edu.vn/lib/datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+
+    <!--datatable-->
+    <link href="http://dangkynoitru.css.vnu.edu.vn/lib/datatable/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <script src="http://dangkynoitru.css.vnu.edu.vn/lib/datatable/js/jquery.dataTables.min.js"></script>
+
+    <link href="http://dangkynoitru.css.vnu.edu.vn/lib/fancy-box/css/jquery.fancybox.min.css" rel="stylesheet" />
+    <script src="http://dangkynoitru.css.vnu.edu.vn/lib/fancy-box/js/jquery.fancybox.min.js"></script>
+
+
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113292499-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-113292499-1');
+
+        BASE_URL = 'http://dangkynoitru.css.vnu.edu.vn';
+    </script>
+    <script src="http://dangkynoitru.css.vnu.edu.vn/js/axios.min.js"></script>
+    <script src="http://dangkynoitru.css.vnu.edu.vn/js/common.js"></script>
+    
+</head>
+<body>
+    <div id="loadingOverlay" class="position-fixed d-flex d-none flex-column  align-items-center justify-content-center" style="z-index: 100000; background: var(--VNU_transparent); bottom: 0; left: 0; right: 0; top: 0;">
+        <span><i class="fas fa-fan fa-spin color-VNU-green fa-6x"></i></span>
+        <div class="color-VNU-White">Đang tải...</div>
+    </div>
+
+    
+
+<div class="container-fluid ">
+    <div class="row align-items-center py-2 mx-3">
+        <div class="col-3">
+            <a href="http://dangkynoitru.css.vnu.edu.vn/HomePage">
+                <img src="/img/icon_logo/VNU_LOGO.png" class=" img-fluid float-start" />
+            </a>
+        </div>
+        <div class="col-6 text-center">
+            <h1 class="text_22_bold color-VNU-green">TRUNG TÂM HỖ TRỢ SINH VIÊN</h1>
+        </div>
+        <div class="col-3">
+            <img src="/img/icon_logo/VNU_CSS_LOGO.png" class=" img-fluid float-end" />
+        </div>
+    </div>
+</div>
+
+
+
+    <main role="main">
+        <div class="background-div d-flex align-items-center">
+    <div class="container position-relative " style="z-index: 1;">
+        <div class="d-flex justify-content-center align-items-center flex-wrap">
+            <button onclick="history.back()" class="back-button btn" style="z-index:1;"><i class="fas fa-caret-left p-2"></i></button>
+            <div class="t-tb-container col-sm-9">
+                <div class="form-section my-4 d-flex flex-column">
+                    <div class="p-4 ms-0 ms-md-5">
+                        <h3 class="border-light border border-top-0 border-start-0 border-end-0 border-end text-light pb-2 fs-2">Chi tiết <span class="color-VNU-Yellow">thông báo </span></h3>
+                    </div>
+                    <div class="p-4 ms-0 ms-md-5 t-tb-content-container ">
+                        <h3 class=" text-light pb-2 fs-3"><i class="fas fa-exclamation-triangle me-1 color-VNU-Yellow"></i>KTX H&#xD2;A L&#x1EA0;C - KHU B,C M&#x1EDE; C&#x1ED4;NG TH&#xD4;NG TIN &#x110;&#x102;NG K&#xDD; N&#x1ED8;I TR&#xDA; CHO SINH VI&#xCA;N QH2025 &#x110;HQG H&#xE0; N&#x1ED9;i</h3>
+                        <h4 class="text-light pb-2 fs-6 border-light border border-top-0 border-start-0 border-end-0 border-end">Ngày 24/08/2025 l&#xFA;c 14:26</h4>
+                        <div class="p-5 text-light t-tb-content">
+                           <p class="MsoNormal" style="margin-bottom:6.0pt;text-align:justify;line-height:
+150%"><span lang="EN-US" style="mso-bidi-font-size:12.0pt;line-height:150%">KTX
+Hòa Lạc khu B,C mở cổng thông tin tiếp nhận nhu cầu đăng ký nội trú của sinh
+viên QH 2025 - <b>Trường Đại học Việt Nhật; Trường Khoa học Liên ngành và Nghệ
+thuật</b> năm học 2025 - 2026. Sinh viên các Trường; <b>(ĐH Giáo dục; ĐH Y Dược;
+Quốc tế; ĐH Luật) </b>sau khi nhận được danh sách trúng tuyển, KTX sẽ tạo tài
+khoản và thông báo để các bạn đăng ký kịp thời.<o:p></o:p></span></p><p class="MsoNormal" style="margin-bottom:6.0pt;text-align:justify;text-indent:
+36.0pt;line-height:150%"><b><i><span lang="EN-US" style="mso-bidi-font-size:12.0pt;
+line-height:150%">Cách thức đăng ký:<o:p></o:p></span></i></b></p><p class="MsoNormal" style="margin-bottom:6.0pt;text-align:justify;line-height:
+150%"><b><u><span lang="EN-US" style="mso-bidi-font-size:12.0pt;line-height:150%">Bước
+1</span></u></b><span lang="EN-US" style="mso-bidi-font-size:12.0pt;line-height:
+150%"> Sinh viên truy cập vào Website: </span><span lang="EN-US"><a href="http://dangkynoitru.css.vnu.edu.vn/"><b><i><span style="mso-bidi-font-size:
+12.0pt;line-height:150%">http://dangkynoitru.css.vnu.edu.vn/</span></i></b></a><o:p></o:p></span></p><p class="MsoNormal" style="margin-bottom:6.0pt;text-align:justify;text-indent:
+36.0pt;line-height:150%"><span lang="EN-US">Tài khoản: <u>(</u></span><b><u><span lang="EN-US" style="mso-bidi-font-size:12.0pt;line-height:150%">ID: Mã sinh viên;
+Pass: Số CCCD)<o:p></o:p></span></u></b></p><p class="MsoNormal" style="margin-bottom:6.0pt;text-align:justify;line-height:
+150%"><b><u><span lang="EN-US" style="mso-bidi-font-size:12.0pt;line-height:150%">Bước
+2 </span></u></b><span lang="EN-US" style="mso-bidi-font-size:12.0pt;line-height:
+150%">Đăng ký nội trú<o:p></o:p></span></p><p class="MsoNormal" style="margin-bottom:6.0pt;text-align:justify;line-height:
+150%"><span lang="EN-US" style="mso-bidi-font-size:12.0pt;line-height:150%">Sinh
+viên truy cập vào phần mềm và nhấn vào “ <b>Đăng ký nội trú</b>”<o:p></o:p></span></p><p class="MsoNormal" style="margin-bottom:6.0pt;text-align:justify;line-height:
+150%"><b><u><span lang="EN-US" style="mso-bidi-font-size:12.0pt;line-height:150%">Bước
+3 </span></u></b><span lang="EN-US" style="mso-bidi-font-size:12.0pt;line-height:
+150%">Cập nhật thông tin cá nhân<o:p></o:p></span></p><p class="MsoNormal" style="margin-bottom:6.0pt;text-align:justify;line-height:
+150%"><span lang="EN-US" style="mso-bidi-font-size:12.0pt;line-height:150%">Sinh
+viên tự cập nhật đầy đủ, chính xác <b>thông tin cá nhân</b>, đăng ký <b>cơ sở
+lưu trú</b> và đăng ký <b>loại phòng </b>theo nhu cầu. (Ảnh đại diện phải là <b>ảnh
+chân dung 4x6)<o:p></o:p></b></span></p><p class="MsoNormal" style="margin-bottom:6.0pt;text-align:justify;line-height:
+150%"><b><u><span lang="EN-US" style="mso-bidi-font-size:12.0pt;line-height:150%">Bước
+4 </span></u></b><span lang="EN-US" style="mso-bidi-font-size:12.0pt;line-height:
+150%">Gửi thông tin đăng ký<o:p></o:p></span></p><p class="MsoNormal" style="margin-bottom:6.0pt;text-align:justify;line-height:
+150%"><span lang="EN-US" style="mso-bidi-font-size:12.0pt;line-height:150%">Sinh
+viên chọn và nhấn nút <b>gửi </b>thông tin, hệ thống sẽ gửi thông báo <b>đăng
+ký thành công<o:p></o:p></b></span></p><p class="MsoNormal" style="margin-bottom:6.0pt;text-align:justify;line-height:
+150%"><b><i><u><span lang="EN-US" style="mso-bidi-font-size:12.0pt;line-height:
+150%">Lưu ý: &nbsp;</span></u></i></b><span lang="EN-US" style="mso-bidi-font-size:12.0pt;line-height:150%">Sau khi thực hiện
+04 bước trên, hồ sơ sinh viên sẽ thông báo trạng thái<b> “ Chờ duyệt”. </b>Khi
+hiển thị trạng thái <b>“ Đã duyệt” </b>sinh viên tiến hành nộp lệ phí <i>( KTX
+sẽ có thông báo hướng dẫn chung cho tất cả sinh viên các Trường sau khi đăng
+ký)<b><u><o:p></o:p></u></b></i></span></p><p class="MsoNormal" style="margin-bottom:6.0pt;text-align:justify;line-height:
+150%"><b><span lang="EN-US" style="mso-bidi-font-size:12.0pt;line-height:150%">-------<o:p></o:p></span></b></p><p class="MsoNormal" style="margin-bottom:6.0pt;text-align:justify;line-height:
+150%"><span lang="EN-US" style="mso-bidi-font-size:12.0pt;line-height:150%">THÔNG
+TIN LIÊN HỆ<o:p></o:p></span></p><p class="MsoNormal" style="margin-bottom:6.0pt;text-align:justify;line-height:
+150%"><span lang="EN-US" style="mso-bidi-font-size:12.0pt;line-height:150%"><b>- Điện
+thoại: +84 82.789.8080<o:p></o:p></b></span></p><p class="MsoNormal" style="margin-bottom:6.0pt;text-align:justify;line-height:
+150%"><span lang="EN-US" style="mso-bidi-font-size:12.0pt;line-height:150%"><b>-
+Facebook: KTX Hòa Lạc Khu B,C - TT Hỗ trợ sinh viên - ĐHQG Hà Nội<o:p></o:p></b></span></p><p class="MsoNormal" style="margin-bottom:6.0pt;text-align:justify;line-height:
+150%"><span lang="EN-US" style="mso-bidi-font-size:12.0pt;line-height:150%"><b>- Địa
+điểm: Tầng 1 nhà C1 Ký túc xá Hòa Lạc - Khu B,C. Đô thị ĐHQG Hà Nội, Xã Hòa Lạc,
+Thành phố Hà Nội</b><o:p></o:p></span></p><p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</p><p class="MsoNormal" style="text-align:justify;line-height:200%"><b><i><span lang="EN-US" style="mso-bidi-font-size:12.0pt;line-height:200%">Trân trọng!<o:p></o:p></span></i></b></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .t-tb-container {
+    }
+
+    .t-tb-content-container {
+        background: rgba(1,209,75,0.4);
+        border-radius: 5px;
+        border: 1px solid #00D14B !important;
+        max-height: 660px;
+        min-height: 500px;
+    }
+
+    .t-tb-content {
+        overflow-y: scroll;
+        max-height: 500px;
+    }
+
+    ::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    ::-webkit-scrollbar-button {
+        width: 8px;
+        height: 5px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: #206D3C;
+        border: thin solid #206D3C;
+        box-shadow: 0px 0px 3px #dfdfdf inset;
+        border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: #0A2414;
+        border: thin solid gray;
+        border-radius: 10px;
+    }
+
+        ::-webkit-scrollbar-thumb:hover {
+        }
+</style>
+
+    </main>
+    
+
+<footer>
+
+</footer>
+
+
+    <a class="btn-top form-section-button text-decoration-none" href="javascript:void(0);" title="Top" style="display: inline;">
+        <i class="fas fa-angle-double-up" style="font-size: 24px;"></i>
+    </a>
+
+
+    <script>
+        jQuery(document).ready(function ($) {
+            if ($(".btn-top").length > 0) {
+                $(window).scroll(function () {
+                    var e = $(window).scrollTop();
+                    if (e > 20) {
+                        $(".btn-top").show();
+                    } else {
+                        $(".btn-top").hide();
+                    }
+                });
+                $(".btn-top").click(function () {
+                    $('body,html').animate({
+                        scrollTop: 0
+                    })
+                })
+            }
+        });
+    </script>
+    
+</body>
+</html>

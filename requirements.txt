@@ -1,5 +1,6 @@
 numpy
 pypdf
+pdfplumber
 beautifulsoup4
 requests
 pyyaml

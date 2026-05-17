@@ -12,6 +12,7 @@ import hashlib
 import json
 import re
 from collections import Counter
+from collections import defaultdict
 from pathlib import Path
 from typing import Iterable
 
@@ -50,6 +51,13 @@ def normalize_whitespace(text: str) -> str:
     text = re.sub(r"\r\n?", "\n", text)
     text = re.sub(r"\n\s*\n\s*\n+", "\n\n", text)
     return text.strip()
+
+
+def normalize_pdf_lines(text: str) -> str:
+    # Join line-break hyphenation artifacts from PDF extraction.
+    text = re.sub(r"(\w)-\n(\w)", r"\1\2", text)
+    text = re.sub(r"\n{3,}", "\n\n", text)
+    return text
 
 
 def filter_boilerplate_lines(text: str) -> tuple[str, float]:
@@ -113,6 +121,24 @@ def extract_html_text(path: Path) -> tuple[str, str]:
 
 def extract_pdf_text(path: Path) -> str:
     try:
+        text = extract_pdf_text_pypdf(path)
+    except Exception:
+        text = ""
+    if len(text.split()) < 80:
+        # Fallback for PDFs that pypdf handles poorly.
+        try:
+            text = extract_pdf_text_pdfplumber(path) or text
+        except Exception:
+            pass
+
+    text = normalize_pdf_lines(text)
+    text = remove_repeated_pdf_lines(text)
+    cleaned, _ = filter_boilerplate_lines(text)
+    return cleaned
+
+
+def extract_pdf_text_pypdf(path: Path) -> str:
+    try:
         import pypdf
     except ImportError as exc:
         raise ImportError("Install pypdf to parse PDF files in clean_kb.py") from exc
@@ -120,9 +146,46 @@ def extract_pdf_text(path: Path) -> str:
     reader = pypdf.PdfReader(str(path))
     parts: list[str] = []
     for page in reader.pages:
-        parts.append(page.extract_text() or "")
-    cleaned, _ = filter_boilerplate_lines("\n".join(parts))
-    return cleaned
+        page_text = page.extract_text() or ""
+        if not page_text:
+            try:
+                page_text = page.extract_text(extraction_mode="layout") or ""
+            except TypeError:
+                page_text = page.extract_text() or ""
+        parts.append(page_text)
+    return "\n".join(parts)
+
+
+def extract_pdf_text_pdfplumber(path: Path) -> str:
+    try:
+        import pdfplumber
+    except ImportError:
+        return ""
+
+    parts: list[str] = []
+    with pdfplumber.open(str(path)) as pdf:
+        for page in pdf.pages:
+            parts.append(page.extract_text() or "")
+    return "\n".join(parts)
+
+
+def remove_repeated_pdf_lines(text: str) -> str:
+    lines = [line.strip() for line in text.splitlines() if line.strip()]
+    if not lines:
+        return text
+
+    freq: dict[str, int] = defaultdict(int)
+    for line in lines:
+        if len(line) <= 100:
+            freq[line] += 1
+
+    repeated = {
+        line
+        for line, count in freq.items()
+        if count >= 3 and not re.fullmatch(r"\d+", line)
+    }
+    kept = [line for line in lines if line not in repeated]
+    return "\n".join(kept)
 
 
 def row_iter(path: Path) -> Iterable[dict[str, str]]:
@@ -156,7 +219,11 @@ def simhash(text: str, bits: int = 64) -> int:
 
 
 def hamming_distance(a: int, b: int) -> int:
-    return (a ^ b).bit_count()
+    x = a ^ b
+    try:
+        return x.bit_count()
+    except AttributeError:
+        return bin(x).count("1")
 
 
 def main() -> None:

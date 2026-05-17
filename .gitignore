@@ -17,3 +17,4 @@ env/
 
 # Local temporary outputs
 .tmp_cli_test/
+.deps/

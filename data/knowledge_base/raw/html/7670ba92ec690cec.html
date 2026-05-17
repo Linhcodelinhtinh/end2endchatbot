@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+	<link href="https://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css" rel="stylesheet">
+	<script src="https://code.jquery.com/jquery-2.2.2.min.js"></script>
+	<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+	
+	<!--<link href="https://tuyensinh.vnu.edu.vn/assets/resources/jquery/jquery-ui.css" rel="stylesheet">-->
+	<!--<script src="https://tuyensinh.vnu.edu.vn/assets/resources/jquery/external/jquery/jquery.js"></script>-->
+	<!--<script src="https://tuyensinh.vnu.edu.vn/assets/resources/jquery/jquery-ui.js"></script>-->
+	
+	
+	
+	
+	
+	
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/qtip2/2.2.1/jquery.qtip.min.js"></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/qtip2/2.2.1/jquery.qtip.min.css">
+	
+	
+
+	<script src="https://tuyensinh.vnu.edu.vn/assets/resources/js/jquery.validate.min.js"></script>
+	<script src="https://tuyensinh.vnu.edu.vn/assets/resources/js/additional-methods.min.js"></script>
+	<script src="https://tuyensinh.vnu.edu.vn/assets/resources/js/localization/messages_vi.js"></script>
+	<script src="https://tuyensinh.vnu.edu.vn/assets/resources/js/script.js"></script>
+	<script src="https://tuyensinh.vnu.edu.vn/assets/resources/js/datepicker-vi.js"></script>
+	<script src="https://tuyensinh.vnu.edu.vn/assets/resources/js/jquery.numeric.min.js"></script>
+	<script src="https://tuyensinh.vnu.edu.vn/assets/resources/js/bootbox.min.js"></script>
+
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://tuyensinh.vnu.edu.vn/assets/resources/css/style.css">
+	<link rel="stylesheet" href="https://tuyensinh.vnu.edu.vn/assets/resources/css/progress.css">
+
+	
+	<script>
+	</script>
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+				(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-82502121-1', 'auto');
+		ga('send', 'pageview');
+
+	</script>
+
+	<link rel="stylesheet" href="https://tuyensinh.vnu.edu.vn/assets/resources/css/style.css">
+	<title>Cổng thông tin nhập học đại học chính quy-Đại học Quốc gia Hà Nội 2019</title>
+	
+
+</head>
+<body >
+<div class="container">
+<div id="header">
+	<div id="headerContent" class="bodyWrapper">
+		<div class="logo">
+			<a href="https://tuyensinh.vnu.edu.vn/">
+			<img height="90" alt="VNU" src="https://tuyensinh.vnu.edu.vn/assets/resources/img/logo.png"></a>
+		</div>
+		<div class="siteTitle">
+			<p class="siteTitleLine1">CỔNG THÔNG TIN</p>
+			<p class="siteTitleLine2">XÁC NHẬN NHẬP HỌC ĐẠI HỌC CHÍNH QUY</p>
+			<p class="cl_subtitle_year">Năm 2026</p>
+		</div>
+		<div class="headerRightImage"></div>
+	</div>
+</div>
+
+<div class="container">
+    <div class="checkout-wrap">
+        <div class="container">
+            <ul class="checkout-bar">
+
+                <li class="active first">
+                    <a href="https://tuyensinh.vnu.edu.vn/">Đăng nhập</a>
+                </li>
+
+                <li class="">
+                    <a href="https://tuyensinh.vnu.edu.vn/index.php/Home/step2">Thông tin xét tuyển</a>
+                </li>
+
+                <li class="">
+                    <a href="https://tuyensinh.vnu.edu.vn/index.php/Home/step3">Thông tin liên lạc</a>
+                </li>
+
+                <li class="">
+                    <a href="https://tuyensinh.vnu.edu.vn/index.php/Home/step4">Mã xác nhận</a>
+                </li>
+
+                <li>
+                    <a href="https://tuyensinh.vnu.edu.vn/index.php/Home/end">Xác nhận Nhập học</a>
+                </li>
+
+
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="panel panel-primary">
+            <div class="panel-heading cl_title_h2"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> Xác thực thông tin thí sinh
+            </div>
+            <div class="panel-body">
+                                                Điền chính xác các thông tin để xác thực.<br/>
+                <form action="https://tuyensinh.vnu.edu.vn/index.php/Nhaphoc/index" method="post">
+                    <div class="form-group">
+                        <label for="email"><strong>Số CMND/CCCD</strong> hoặc <strong>Số báo danh</strong>:</label>
+                        <input type="text" class="form-control" id="email" name="cmnd">
+                    </div>
+                    <div class="form-group">
+                        <label for="pwd">Mã bảo vệ:</label>
+                        <img src="https://tuyensinh.vnu.edu.vn/index.php/viewcaptcha?t=0.11345800+1779011870" id="imgcaptcha"/>&nbsp; &nbsp;&nbsp; &nbsp;<a href="#" id="getcaptacha">Lấy mã bảo vệ khác <i class="glyphicon glyphicon-repeat"></i></a>
+                        <input type="text" class="form-control" id="pwd" name="captcha">
+                    </div>
+                    <input type="reset" name="reset-btn" class="btn btn-warning" value="Hủy"/>
+                    <input type="submit" name="btn_submit" value="Xác thực" class="btn btn-success"/>
+
+                </form>
+                <div class="col-sm-12 text-center">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $("#getcaptacha").click(function(){
+       //alert("hello");
+        $("#imgcaptcha").attr("src","");
+        $.ajax({url: "https://tuyensinh.vnu.edu.vn/index.php/Nhaphoc/getnewcaptcha", success: function(result){
+            $("#imgcaptcha").attr("src",result);
+        }});
+
+    });
+</script><script>
+  $(".checkout-bar").find('li').each(function(){
+    $(this).click(function(){
+      $(this).find('a').each(function(){
+        var link = $(this).attr("href");
+        //alert(link);
+        window.location.href= link;
+      });
+    })
+  });
+
+</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-61133042-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</div>
+</body>
+</html>
