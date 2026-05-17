@@ -64,7 +64,7 @@ def run_batch(
     retriever_model: str | None = None,
     generator_model: str | None = None,
     top_k: int = 5,
-    max_new_tokens: int = 256,
+    max_new_tokens: int | None = None,
     temperature: float | None = None,
     top_p: float | None = None,
     llm_top_k: int | None = None,
