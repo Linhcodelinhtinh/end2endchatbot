@@ -15,6 +15,7 @@ factual question answering. It matches the assignment format:
 - `chatbot.py`: RAG chatbot orchestration, batch inference, and interactive chat
 - `evaluate.py`: EM, F1, and answer-recall metrics
 - `main.py`: command-line entrypoint
+- `web_app.py`: simple browser chat UI
 - `llm.py`: backward-compatible wrapper for the old command
 
 ## Expected Data Layout
@@ -86,3 +87,18 @@ python main.py --kb data/knowledge_base --embedder sentence-transformer --retrie
 
 The old `python llm.py ...` command still works because `llm.py` delegates to
 `main.py`.
+
+## Browser UI
+
+```powershell
+python web_app.py --host 127.0.0.1 --port 7860
+```
+
+Then open:
+
+```text
+http://127.0.0.1:7860
+```
+
+The UI exposes KB path, embedder, retriever model, generator model, retrieval
+top-k, sampling, temperature, top-p, LLM top-k, and max new tokens.
